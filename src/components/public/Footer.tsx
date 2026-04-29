@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Anchor, Mail, Phone, MapPin, Share2, Camera, Video } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin, Share2, Camera, Video } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,8 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-linear-to-br from-ocean-500 to-coral-500 flex items-center justify-center shadow-lg">
-                <Anchor className="w-5 h-5 text-white" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow relative">
+                <Image 
+                  src="/logos/logo-boat.png" 
+                  alt="Logo RH Tour" 
+                  fill 
+                  className="object-cover"
+                />
               </div>
               <span className="font-bold text-xl text-white">RH Tour & Travel</span>
             </Link>

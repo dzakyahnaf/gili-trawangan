@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Anchor, LogIn } from "lucide-react";
+import Image from "next/image";
+import { LogIn } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -39,8 +40,13 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-linear-to-br from-ocean-600 to-ocean-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-            <Anchor className="w-8 h-8 text-white" />
+          <div className="w-20 h-20 mx-auto rounded-2xl bg-white shadow-xl overflow-hidden mb-4 relative">
+            <Image 
+              src="/logos/logo-boat.png" 
+              alt="Logo RH Tour" 
+              fill 
+              className="object-cover"
+            />
           </div>
           <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
           <p className="text-ocean-300 text-sm mt-1">RH Tour & Travel</p>
