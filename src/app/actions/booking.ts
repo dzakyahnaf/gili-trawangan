@@ -2,9 +2,22 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
-export async function createBooking(formData: any) {
+interface BookingInput {
+  type: string;
+  productId: string;
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  nationality: string;
+  bookingDate: string;
+  adults: number;
+  children: number;
+  totalPrice: number;
+  specialRequest?: string;
+}
+
+export async function createBooking(formData: BookingInput) {
   const {
     type,
     productId,
@@ -32,9 +45,9 @@ export async function createBooking(formData: any) {
         customerPhone,
         nationality,
         bookingDate: new Date(bookingDate),
-        adults: parseInt(adults),
-        children: parseInt(children || "0"),
-        totalPrice: parseInt(totalPrice),
+        adults: adults,
+        children: children,
+        totalPrice: totalPrice,
         specialRequest,
         paymentStatus: "pending",
         status: "pending",

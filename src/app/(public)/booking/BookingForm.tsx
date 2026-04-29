@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { formatRupiah } from "@/lib/utils";
 import { Calendar, Users, ChevronRight, ChevronLeft, Loader2, CheckCircle2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { createBooking } from "@/app/actions/booking";
 import Link from "next/link";
 
@@ -23,8 +24,18 @@ const bookingSchema = z.object({
 
 type BookingFormData = z.infer<typeof bookingSchema>;
 
+export interface BookingProduct {
+  id: string;
+  title?: string;
+  name?: string;
+  price: number;
+  priceChild?: number | null;
+  coverImage?: string;
+  logo?: string;
+}
+
 interface BookingFormProps {
-  product: any;
+  product: BookingProduct;
   type: string;
 }
 
@@ -36,7 +47,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     setValue,
     formState: { errors },
   } = useForm<BookingFormData>({
@@ -48,8 +59,8 @@ export default function BookingForm({ product, type }: BookingFormProps) {
     },
   });
 
-  const watchAdults = watch("adults");
-  const watchChildren = watch("children");
+  const watchAdults = useWatch({ control, name: "adults" }) || 1;
+  const watchChildren = useWatch({ control, name: "children" }) || 0;
 
   // Calculate total price
   const calculateTotal = () => {
@@ -302,7 +313,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
           <div className="space-y-4">
             <div className="flex gap-4">
               <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                <img src={product.coverImage || product.logo} alt={product.title || product.name} className="object-cover w-full h-full" />
+                <Image src={product.coverImage || product.logo || ""} alt={product.title || product.name || ""} fill className="object-cover" />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-900 leading-tight">{product.title || product.name}</h4>

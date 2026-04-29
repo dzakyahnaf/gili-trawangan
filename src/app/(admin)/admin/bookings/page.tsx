@@ -32,7 +32,7 @@ export default async function AdminBookingsPage() {
               <tbody>
                 {allBookings.map((b) => {
                   const product = b.package || b.activity || b.fastBoatSchedule || b.speedboat;
-                  const productName = (product as any)?.title || (product as any)?.name;
+                  const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : '') : '';
                   return (
                     <tr key={b.id} className="border-b border-gray-50 hover:bg-gray-50">
                       <td className="px-4 py-3 font-mono font-semibold text-ocean-600">{b.bookingCode}</td>

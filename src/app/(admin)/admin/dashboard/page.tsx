@@ -63,8 +63,8 @@ export default async function AdminDashboardPage() {
               </thead>
               <tbody>
                 {recentBookings.map((b) => {
-                  const product = b.package || b.activity || (b as any).fastBoatSchedule || (b as any).speedboat;
-                  const productName = product?.title || product?.name || "Unknown";
+                  const product = b.package || b.activity || b.fastBoatSchedule || b.speedboat;
+                  const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : 'Unknown') : 'Unknown';
                   return (
                     <tr key={b.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
                       <td className="px-6 py-4 font-mono font-semibold text-ocean-600">{b.bookingCode}</td>

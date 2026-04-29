@@ -113,7 +113,7 @@ async function main() {
     await prisma.package.upsert({
       where: { slug: pkg.slug },
       update: {},
-      create: pkg as any,
+      create: pkg,
     });
   }
 
@@ -157,12 +157,12 @@ async function main() {
     await prisma.activity.upsert({
       where: { slug: act.slug },
       update: {},
-      create: act as any,
+      create: act,
     });
   }
 
   // 4. Create FastBoats
-  const fb1 = await prisma.fastBoat.create({
+  await prisma.fastBoat.create({
     data: {
       name: "Ekajaya Fast Ferry",
       description: "Kapal aluminium 34 meter, 4 mesin Volvo D16 750HP, kapasitas 210 penumpang, kecepatan 35 knot.",

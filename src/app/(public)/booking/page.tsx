@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
-import BookingForm from "./BookingForm";
+import BookingForm, { BookingProduct } from "./BookingForm";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export default async function BookingPage(props: {
   searchParams: Promise<{ type: string; id: string }>;
@@ -14,14 +15,14 @@ export default async function BookingPage(props: {
         <h1 className="text-2xl font-bold mb-4">Silakan Pilih Produk Terlebih Dahulu</h1>
         <p className="text-gray-500 mb-8">Anda harus memilih paket atau aktivitas sebelum melakukan pemesanan.</p>
         <div className="flex gap-4 justify-center">
-          <a href="/packages" className="px-6 py-3 bg-ocean-500 text-white rounded-xl">Lihat Paket</a>
-          <a href="/activities" className="px-6 py-3 bg-coral-500 text-white rounded-xl">Lihat Aktivitas</a>
+          <Link href="/packages" className="px-6 py-3 bg-ocean-500 text-white rounded-xl">Lihat Paket</Link>
+          <Link href="/activities" className="px-6 py-3 bg-coral-500 text-white rounded-xl">Lihat Aktivitas</Link>
         </div>
       </div>
     );
   }
 
-  let product: any = null;
+  let product: unknown = null;
 
   if (type === "package") {
     product = await prisma.package.findUnique({ where: { id } });
@@ -46,7 +47,7 @@ export default async function BookingPage(props: {
           <p className="text-gray-500">Lengkapi data di bawah ini untuk mengonfirmasi pesanan Anda.</p>
         </div>
 
-        <BookingForm product={product} type={type} />
+        <BookingForm product={product as BookingProduct} type={type} />
       </div>
     </div>
   );

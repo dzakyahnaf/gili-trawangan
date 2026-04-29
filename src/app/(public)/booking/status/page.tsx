@@ -14,7 +14,7 @@ export default async function BookingStatusPage(props: {
   if (!booking) notFound();
 
   const product = booking.package || booking.activity || booking.fastBoatSchedule || booking.speedboat;
-  const productName = (product as any)?.title || (product as any)?.name;
+  const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : '') : '';
 
   return (
     <div className="pt-24 pb-20 bg-sand-50 min-h-screen">

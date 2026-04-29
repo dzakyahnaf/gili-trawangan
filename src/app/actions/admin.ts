@@ -99,6 +99,8 @@ export async function getDashboardStats() {
       include: {
         package: true,
         activity: true,
+        fastBoatSchedule: { include: { fastBoat: true } },
+        speedboat: true,
       }
     })
   ]);

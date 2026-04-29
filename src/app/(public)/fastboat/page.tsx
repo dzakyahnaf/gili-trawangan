@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatRupiah } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
-import { Anchor, Clock, Users, Zap, Check } from "lucide-react";
+import { Anchor, Users, Zap, Check } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
