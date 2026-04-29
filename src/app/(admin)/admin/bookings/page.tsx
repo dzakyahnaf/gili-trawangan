@@ -1,6 +1,7 @@
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { formatRupiah } from "@/lib/utils";
 import { getBookings } from "@/app/actions/admin";
+import Link from "next/link";
 
 const sc: Record<string, string> = { 
   confirmed: "bg-green-100 text-green-700", 

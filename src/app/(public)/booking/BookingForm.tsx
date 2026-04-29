@@ -17,7 +17,7 @@ const bookingSchema = z.object({
   nationality: z.string().min(2, "Kewarganegaraan harus diisi"),
   bookingDate: z.string().min(1, "Tanggal harus dipilih"),
   adults: z.number().min(1, "Minimal 1 dewasa"),
-  children: z.number().default(0),
+  children: z.number().min(0),
   specialRequest: z.string().optional(),
 });
 

@@ -205,23 +205,14 @@ export default async function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Momen Tak Terlupakan</h2>
           </div>
           <div className="columns-2 md:columns-3 gap-4 space-y-4">
-            {gallery.length > 0 ? gallery.map((img) => (
+            {gallery.map((img) => (
               <div key={img.id} className="break-inside-avoid rounded-2xl overflow-hidden group relative">
                 <Image src={img.imageUrl} alt={img.caption || ""} width={600} height={400} className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end">
                   <p className="text-white text-sm p-3 opacity-0 group-hover:opacity-100 transition-opacity">{img.caption}</p>
                 </div>
               </div>
-            )) : (
-              galleryImages.map((img) => (
-                <div key={img.id} className="break-inside-avoid rounded-2xl overflow-hidden group relative">
-                  <Image src={img.imageUrl} alt={img.caption || ""} width={600} height={400} className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end">
-                    <p className="text-white text-sm p-3 opacity-0 group-hover:opacity-100 transition-opacity">{img.caption}</p>
-                  </div>
-                </div>
-              ))
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -234,7 +225,7 @@ export default async function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Kata Mereka</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentTestimonials.length > 0 ? recentTestimonials.map((t) => (
+            {recentTestimonials.map((t) => (
               <div key={t.id} className="bg-sand-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.rating }).map((_, i) => (
@@ -252,27 +243,7 @@ export default async function HomePage() {
                   </div>
                 </div>
               </div>
-            )) : (
-              testimonials.slice(0, 3).map((t) => (
-                <div key={t.id} className="bg-sand-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4 italic">&ldquo;{t.comment}&rdquo;</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-ocean-400 to-coral-400 flex items-center justify-center text-white font-bold text-sm">
-                      {t.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-gray-900">{t.name}</p>
-                      <p className="text-xs text-gray-400">{t.origin}</p>
-                    </div>
-                  </div>
-                </div>
-              ))
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -335,7 +306,7 @@ export default async function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Pertanyaan Umum</h2>
           </div>
           <div className="space-y-4">
-            {parsedFaqs.length > 0 ? parsedFaqs.map((faq, i) => (
+            {parsedFaqs.map((faq, i) => (
               <details key={i} className="group bg-sand-50 rounded-2xl overflow-hidden">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:text-ocean-600 transition-colors">
                   {faq.q}
@@ -343,17 +314,7 @@ export default async function HomePage() {
                 </summary>
                 <div className="px-6 pb-4 text-gray-600 text-sm">{faq.a}</div>
               </details>
-            )) : (
-              faqs.map((faq, i) => (
-                <details key={i} className="group bg-sand-50 rounded-2xl overflow-hidden">
-                  <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:text-ocean-600 transition-colors">
-                    {faq.q}
-                    <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="px-6 pb-4 text-gray-600 text-sm">{faq.a}</div>
-                </details>
-              ))
-            )}
+            ))}
           </div>
         </div>
       </section>

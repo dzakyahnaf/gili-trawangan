@@ -23,7 +23,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
   const pkg = await prisma.package.findUnique({ where: { slug } });
   if (!pkg) notFound();
 
-  const itinerary = pkg.itinerary as ItineraryDay[];
+  const itinerary = pkg.itinerary as unknown as ItineraryDay[];
 
   return (
     <div className="pt-20 pb-20">
