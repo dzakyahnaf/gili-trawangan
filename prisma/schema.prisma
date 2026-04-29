@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== AUTH ====================
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ==================== PRODUCTS ====================
+model Package {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  subtitle    String?
+  description String   @db.Text
+  coverImage  String
+  duration    String
+  price       Int
+  priceChild  Int?
+  minPax      Int      @default(1)
+  maxPax      Int      @default(100)
+  programs    String[]
+  itinerary   Json     // Array of ItineraryDay
+  includes    String[]
+  excludes    String[]
+  category    String   // honeymoon, family, group, daytrip, etc.
+  isFeatured  Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bookings    Booking[]
+}
+
+model Activity {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  description  String   @db.Text
+  coverImage   String
+  duration     String
+  price        Int
+  priceChild   Int?
+  minPax       Int      @default(1)
+  maxPax       Int      @default(100)
+  schedule     String[]
+  meetingPoint String
+  includes     String[]
+  excludes     String[]
+  category     String   // snorkeling, diving, cruise, watersport, etc.
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  bookings     Booking[]
+}
+
+model FastBoat {
+  id          String   @id @default(cuid())
+  name        String
+  logo        String?
+  description String   @db.Text
+  capacity    Int
+  speed       String
+  facilities  String[]
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  schedules   FastBoatSchedule[]
+}
+
+model FastBoatSchedule {
+  id          String   @id @default(cuid())
+  fastBoatId  String
+  from        String
+  to          String
+  departure   String
+  arrival     String
+  price       Int
+  fastBoat    FastBoat @relation(fields: [fastBoatId], references: [id], onDelete: Cascade)
+  bookings    Booking[]
+}
+
+model Speedboat {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @db.Text
+  images      String[]
+  capacity    Int
+  duration    String
+  routes      String[]
+  price       Int
+  priceUnit   String   // per_boat, dll
+  facilities  String[]
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bookings    Booking[]
+}
+
+// ==================== BOOKING & TRANSACTIONS ====================
+model Booking {
+  id               String   @id @default(cuid())
+  bookingCode      String   @unique
+  
+  // Product Reference (Polymorphic-like structure)
+  type             String   // package, activity, fastboat, speedboat
+  packageId        String?
+  activityId       String?
+  fastBoatSchedId  String?
+  speedboatId      String?
+  
+  // Customer
+  customerName     String
+  customerEmail    String
+  customerPhone    String
+  nationality      String?
+  specialRequest   String?  @db.Text
+  
+  // Details
+  bookingDate      DateTime
+  adults           Int      @default(1)
+  children         Int      @default(0)
+  totalPrice       Int
+  
+  // Status
+  paymentStatus    String   @default("pending") // pending, paid, failed, expired
+  status           String   @default("pending") // pending, confirmed, completed, cancelled
+  
+  // Timestamps
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  package          Package?          @relation(fields: [packageId], references: [id])
+  activity         Activity?         @relation(fields: [activityId], references: [id])
+  fastBoatSchedule FastBoatSchedule? @relation(fields: [fastBoatSchedId], references: [id])
+  speedboat        Speedboat?        @relation(fields: [speedboatId], references: [id])
+}
+
+// ==================== CONTENT ====================
+model Gallery {
+  id          String   @id @default(cuid())
+  imageUrl    String
+  caption     String?
+  category    String   // package, activity, speedboat, dll
+  createdAt   DateTime @default(now())
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  origin      String
+  rating      Int      @default(5)
+  comment     String   @db.Text
+  date        String
+  createdAt   DateTime @default(now())
+}
+
+model SiteContent {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String   @db.Text
+  group       String   // hero, about, faq
+  updatedAt   DateTime @updatedAt
+}
