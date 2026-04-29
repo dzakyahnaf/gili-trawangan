@@ -49,7 +49,7 @@ export default async function HomePage() {
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-slide-up">
             Jelajahi Keajaiban
-            <span className="block bg-gradient-to-r from-ocean-300 to-coral-400 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-ocean-300 to-coral-400 bg-clip-text text-transparent">
               Gili Trawangan
             </span>
           </h1>
@@ -59,7 +59,7 @@ export default async function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Link
               href="/packages"
-              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-ocean-500 to-ocean-600 text-white font-semibold text-lg shadow-2xl hover:shadow-ocean-500/30 hover:scale-105 transition-all"
+              className="px-8 py-4 rounded-2xl bg-linear-to-r from-ocean-500 to-ocean-600 text-white font-semibold text-lg shadow-2xl hover:shadow-ocean-500/30 hover:scale-105 transition-all"
             >
               Lihat Paket Wisata
             </Link>
@@ -77,7 +77,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== 2. STATS BAR ===== */}
-      <section id="stats" className="bg-gradient-to-r from-ocean-600 to-ocean-700 py-8">
+      <section id="stats" className="bg-linear-to-r from-ocean-600 to-ocean-700 py-8">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
           {[
             { val: "500+", label: "Happy Travelers" },
@@ -153,7 +153,7 @@ export default async function HomePage() {
                 className="group relative rounded-2xl overflow-hidden h-64 shadow-md hover:shadow-xl transition-all"
               >
                 <Image src={act.coverImage} alt={act.name} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="font-bold text-white text-lg">{act.name}</h3>
                   <div className="flex items-center justify-between mt-2">
@@ -173,7 +173,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== 5. WHY CHOOSE US ===== */}
-      <section className="py-20 bg-gradient-to-br from-ocean-600 to-ocean-800 text-white">
+      <section className="py-20 bg-linear-to-br from-ocean-600 to-ocean-800 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="text-3xl lg:text-4xl font-bold">Kenapa Pilih Kami?</h2>
@@ -234,7 +234,7 @@ export default async function HomePage() {
                 </div>
                 <p className="text-gray-600 text-sm mb-4 italic">&ldquo;{t.comment}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-ocean-400 to-coral-400 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-linear-to-br from-ocean-400 to-coral-400 flex items-center justify-center text-white font-bold text-sm">
                     {t.name.charAt(0)}
                   </div>
                   <div>
@@ -320,13 +320,13 @@ export default async function HomePage() {
       </section>
 
       {/* ===== 10. CTA FINAL ===== */}
-      <section className="py-20 bg-gradient-to-r from-ocean-600 via-ocean-700 to-ocean-800 text-white text-center">
+      <section className="py-20 bg-linear-to-r from-ocean-600 via-ocean-700 to-ocean-800 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">Siap Berpetualang?</h2>
           <p className="text-ocean-200 mb-8 text-lg">Pesan sekarang dan dapatkan pengalaman terbaik di Gili Trawangan!</p>
           <Link
             href="/booking"
-            className="inline-flex px-10 py-4 rounded-2xl bg-gradient-to-r from-coral-500 to-coral-600 text-white text-lg font-bold shadow-2xl hover:scale-105 transition-all"
+            className="inline-flex px-10 py-4 rounded-2xl bg-linear-to-r from-coral-500 to-coral-600 text-white text-lg font-bold shadow-2xl hover:scale-105 transition-all"
           >
             Pesan Sekarang
           </Link>

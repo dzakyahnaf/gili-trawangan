@@ -288,7 +288,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-[2] py-4 bg-coral-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-coral-600 transition-all disabled:opacity-50"
+                  className="flex-2 py-4 bg-coral-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-coral-600 transition-all disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean-500 to-coral-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-ocean-500 to-coral-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
               <Anchor className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/booking"
-              className="ml-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 text-white text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              className="ml-2 px-5 py-2.5 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               Book Now
             </Link>
@@ -97,7 +97,7 @@ export default function Navbar() {
               <Link
                 href="/booking"
                 onClick={() => setOpen(false)}
-                className="block text-center mt-2 px-4 py-3 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 text-white font-semibold"
+                className="block text-center mt-2 px-4 py-3 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-semibold"
               >
                 Book Now
               </Link>

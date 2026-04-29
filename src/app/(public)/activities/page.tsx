@@ -19,7 +19,7 @@ export default async function ActivitiesPage() {
     <div className="pt-24 pb-20">
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80" alt="Activities" fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ocean-900/80 to-ocean-700/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-ocean-900/80 to-ocean-700/60" />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl lg:text-5xl font-bold mb-3">Aktivitas Wisata</h1>
           <p className="text-ocean-200 text-lg">Petualangan seru menanti Anda</p>

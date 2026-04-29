@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-ocean-600 to-ocean-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-ocean-600 to-ocean-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none" />
           </div>
           {error && <p className="text-red-500 text-sm bg-red-50 rounded-lg p-3">{error}</p>}
-          <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-ocean-500 to-ocean-600 text-white font-semibold disabled:opacity-50 hover:shadow-lg transition-all">
+          <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-linear-to-r from-ocean-500 to-ocean-600 text-white font-semibold disabled:opacity-50 hover:shadow-lg transition-all">
             <LogIn className="w-5 h-5" />{loading ? "Masuk..." : "Masuk"}
           </button>
           <p className="text-xs text-gray-400 text-center">Demo: admin@rhtour.com / admin123</p>

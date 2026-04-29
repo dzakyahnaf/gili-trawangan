@@ -28,9 +28,9 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
   return (
     <div className="pt-20 pb-20">
       {/* Hero Image */}
-      <div className="relative h-80 lg:h-[28rem]">
+      <div className="relative h-80 lg:h-112">
         <Image src={pkg.coverImage} alt={pkg.title} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 max-w-7xl mx-auto">
           <span className="inline-block px-3 py-1 rounded-full bg-ocean-500 text-white text-xs font-semibold mb-3">{pkg.duration}</span>
           <h1 className="text-3xl lg:text-5xl font-bold text-white mb-2">{pkg.title}</h1>
@@ -127,7 +127,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
             )}
             <Link
               href={`/booking?type=package&id=${pkg.id}`}
-              className="block text-center w-full py-4 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+              className="block text-center w-full py-4 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Book Now
             </Link>

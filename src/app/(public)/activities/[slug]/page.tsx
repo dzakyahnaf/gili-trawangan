@@ -26,7 +26,7 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
     <div className="pt-20 pb-20">
       <div className="relative h-72 lg:h-96">
         <Image src={act.coverImage} alt={act.name} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 max-w-7xl mx-auto">
           <span className="inline-block px-3 py-1 rounded-full bg-ocean-500 text-white text-xs font-semibold mb-3">{act.category}</span>
           <h1 className="text-3xl lg:text-5xl font-bold text-white">{act.name}</h1>
@@ -81,7 +81,7 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
               <p className="text-3xl font-bold text-ocean-600">{formatRupiah(act.price)}</p>
               <p className="text-sm text-gray-400">/orang</p>
             </div>
-            <Link href={`/booking?type=activity&id=${act.id}`} className="block text-center w-full py-4 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+            <Link href={`/booking?type=activity&id=${act.id}`} className="block text-center w-full py-4 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
               Book Now
             </Link>
             <a href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20tertarik%20${encodeURIComponent(act.name)}`} className="block text-center w-full py-3 rounded-xl border-2 border-green-500 text-green-600 font-semibold hover:bg-green-50 transition-colors">

@@ -19,7 +19,7 @@ export default async function PackagesPage() {
       {/* Hero */}
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&q=80" alt="Packages" fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ocean-900/80 to-ocean-700/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-ocean-900/80 to-ocean-700/60" />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl lg:text-5xl font-bold mb-3">Paket Wisata</h1>
           <p className="text-ocean-200 text-lg">Temukan paket liburan impian Anda</p>
@@ -56,7 +56,7 @@ export default async function PackagesPage() {
                     <p className="text-2xl font-bold text-ocean-600">{formatRupiah(pkg.price)}</p>
                     <p className="text-xs text-gray-400">/orang</p>
                   </div>
-                  <span className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-ocean-500 to-ocean-600 text-white text-sm font-semibold group-hover:shadow-lg transition-shadow">
+                  <span className="px-5 py-2.5 rounded-xl bg-linear-to-r from-ocean-500 to-ocean-600 text-white text-sm font-semibold group-hover:shadow-lg transition-shadow">
                     Lihat Detail
                   </span>
                 </div>

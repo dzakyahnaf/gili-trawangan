@@ -19,7 +19,7 @@ export default async function FastBoatPage() {
     <div className="pt-24 pb-20">
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80" alt="Fast Boat" fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ocean-900/80 to-ocean-700/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-ocean-900/80 to-ocean-700/60" />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl lg:text-5xl font-bold mb-3">Fast Boat</h1>
           <p className="text-ocean-200 text-lg">Jadwal & harga fast boat ke Gili Trawangan</p>
@@ -28,7 +28,7 @@ export default async function FastBoatPage() {
 
       <div className="max-w-7xl mx-auto px-4 space-y-16">
         {/* Info Banner */}
-        <div className="bg-gradient-to-r from-ocean-50 to-ocean-100 rounded-2xl p-6 border border-ocean-200">
+        <div className="bg-linear-to-r from-ocean-50 to-ocean-100 rounded-2xl p-6 border border-ocean-200">
           <p className="text-ocean-800 font-medium">⚠️ Jadwal dapat berubah sesuai kondisi cuaca. Konfirmasi selalu via WhatsApp atau Email sebelum booking.</p>
         </div>
 
@@ -37,7 +37,7 @@ export default async function FastBoatPage() {
           <div key={boat.id} className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="grid lg:grid-cols-3 gap-0">
               {/* Boat Info */}
-              <div className="p-8 bg-gradient-to-br from-ocean-600 to-ocean-800 text-white">
+              <div className="p-8 bg-linear-to-br from-ocean-600 to-ocean-800 text-white">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
                     <Anchor className="w-6 h-6" />

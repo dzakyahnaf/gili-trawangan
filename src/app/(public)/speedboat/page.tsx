@@ -19,7 +19,7 @@ export default async function SpeedboatPage() {
     <div className="pt-24 pb-20">
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80" alt="Speedboat" fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ocean-900/80 to-ocean-700/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-ocean-900/80 to-ocean-700/60" />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl lg:text-5xl font-bold mb-3">Speedboat Charter</h1>
           <p className="text-ocean-200 text-lg">Private speedboat untuk petualangan eksklusif</p>
@@ -66,7 +66,7 @@ export default async function SpeedboatPage() {
                     <p className="text-2xl font-bold text-ocean-600">{formatRupiah(sb.price)}</p>
                     <p className="text-xs text-gray-400">/{sb.priceUnit}</p>
                   </div>
-                  <Link href={`/booking?type=speedboat&id=${sb.id}`} className="px-6 py-3 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 text-white font-semibold hover:shadow-lg transition-shadow">
+                  <Link href={`/booking?type=speedboat&id=${sb.id}`} className="px-6 py-3 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-semibold hover:shadow-lg transition-shadow">
                     Pesan
                   </Link>
                 </div>
