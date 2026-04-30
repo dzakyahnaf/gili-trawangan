@@ -11,7 +11,7 @@ export default async function AdminPackagesPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Paket Wisata</h1>
-          <Link href="/admin/packages/new" className="px-4 py-2 rounded-xl bg-ocean-500 text-white text-sm font-semibold hover:bg-ocean-600 transition-colors">+ Tambah Paket</Link>
+          <Link href="/admin/packages/new" className="px-4 py-2 rounded-xl bg-gili-500 text-white text-sm font-semibold hover:bg-gili-600 transition-colors">+ Tambah Paket</Link>
         </div>
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <table className="w-full text-sm">
@@ -25,12 +25,12 @@ export default async function AdminPackagesPage() {
                 <tr key={p.id} className="border-b border-gray-50 hover:bg-gray-50">
                   <td className="px-4 py-3 font-semibold text-gray-900">{p.title}</td>
                   <td className="px-4 py-3">{p.duration}</td>
-                  <td className="px-4 py-3 font-semibold text-ocean-600">{formatRupiah(p.price)}</td>
+                  <td className="px-4 py-3 font-semibold text-gili-600">{formatRupiah(p.price)}</td>
                   <td className="px-4 py-3 capitalize">{p.category}</td>
                   <td className="px-4 py-3">{p.isFeatured ? "⭐" : "—"}</td>
                   <td className="px-4 py-3"><span className={`px-2 py-1 rounded-full text-xs font-semibold ${p.isActive ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>{p.isActive ? "Active" : "Inactive"}</span></td>
                   <td className="px-4 py-3 flex gap-2">
-                    <Link href={`/admin/packages/edit/${p.id}`} className="text-ocean-600 hover:underline text-xs font-semibold">Edit</Link>
+                    <Link href={`/admin/packages/edit/${p.id}`} className="text-gili-600 hover:underline text-xs font-semibold">Edit</Link>
                     <button className="text-red-500 hover:underline text-xs font-semibold">Hapus</button>
                   </td>
                 </tr>

@@ -23,9 +23,9 @@ export default function AdminSidebar({ children }: { children: React.ReactNode }
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-white transform transition-transform duration-300 lg:translate-x-0 ${open ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="flex items-center gap-2 px-6 h-16 border-b border-gray-800">
-          <Anchor className="w-6 h-6 text-ocean-400" />
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-gili-900 text-white transform transition-transform duration-300 lg:translate-x-0 ${open ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="flex items-center gap-2 px-6 h-16 border-b border-gili-800">
+          <Anchor className="w-6 h-6 text-accent-400" />
           <span className="font-bold">RH Admin</span>
           <button onClick={() => setOpen(false)} className="lg:hidden ml-auto"><X className="w-5 h-5" /></button>
         </div>
@@ -36,15 +36,15 @@ export default function AdminSidebar({ children }: { children: React.ReactNode }
               href={item.href}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                pathname === item.href ? "bg-ocean-600 text-white" : "text-gray-400 hover:text-white hover:bg-gray-800"
+                pathname === item.href ? "bg-gili-600 text-white" : "text-gray-400 hover:text-white hover:bg-gili-800"
               }`}
             >
               <item.icon className="w-5 h-5" />{item.label}
             </Link>
           ))}
         </nav>
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
-          <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-400 hover:text-red-400 hover:bg-gray-800 w-full transition-colors">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gili-800">
+          <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-400 hover:text-red-400 hover:bg-gili-800 w-full transition-colors">
             <LogOut className="w-5 h-5" />Logout
           </button>
         </div>

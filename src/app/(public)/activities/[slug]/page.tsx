@@ -28,7 +28,7 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
         <Image src={act.coverImage} alt={act.name} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 max-w-7xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full bg-ocean-500 text-white text-xs font-semibold mb-3">{act.category}</span>
+          <span className="inline-block px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold mb-3 backdrop-blur-sm">{act.category}</span>
           <h1 className="text-3xl lg:text-5xl font-bold text-white">{act.name}</h1>
         </div>
       </div>
@@ -36,9 +36,9 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
       <div className="max-w-7xl mx-auto px-4 mt-10 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-8">
           <div className="flex flex-wrap gap-6">
-            <div className="flex items-center gap-2 text-gray-600"><Clock className="w-5 h-5 text-ocean-500" />{act.duration}</div>
-            <div className="flex items-center gap-2 text-gray-600"><Users className="w-5 h-5 text-ocean-500" />Maks {act.maxPax} pax</div>
-            <div className="flex items-center gap-2 text-gray-600"><MapPin className="w-5 h-5 text-ocean-500" />{act.meetingPoint}</div>
+            <div className="flex items-center gap-2 text-gray-600"><Clock className="w-5 h-5 text-gili-500" />{act.duration}</div>
+            <div className="flex items-center gap-2 text-gray-600"><Users className="w-5 h-5 text-gili-500" />Maks {act.maxPax} pax</div>
+            <div className="flex items-center gap-2 text-gray-600"><MapPin className="w-5 h-5 text-gili-500" />{act.meetingPoint}</div>
           </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Deskripsi</h2>
@@ -48,7 +48,7 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Jadwal</h2>
             <div className="flex flex-wrap gap-3">
               {act.schedule.map((s) => (
-                <span key={s} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-ocean-50 text-ocean-700 font-medium">
+                <span key={s} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gili-50 text-gili-700 font-medium">
                   <Calendar className="w-4 h-4" />{s}
                 </span>
               ))}
@@ -78,10 +78,10 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
           <div className="sticky top-24 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 space-y-6">
             <div>
               <p className="text-sm text-gray-400">Harga</p>
-              <p className="text-3xl font-bold text-ocean-600">{formatRupiah(act.price)}</p>
+              <p className="text-3xl font-bold text-gili-600">{formatRupiah(act.price)}</p>
               <p className="text-sm text-gray-400">/orang</p>
             </div>
-            <Link href={`/booking?type=activity&id=${act.id}`} className="block text-center w-full py-4 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+            <Link href={`/booking?type=activity&id=${act.id}`} className="block text-center w-full py-4 rounded-xl bg-accent-500 text-gili-900 font-bold text-lg shadow-lg hover:bg-accent-400 hover:shadow-xl hover:scale-[1.02] transition-all">
               Book Now
             </Link>
             <a href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20tertarik%20${encodeURIComponent(act.name)}`} className="block text-center w-full py-3 rounded-xl border-2 border-green-500 text-green-600 font-semibold hover:bg-green-50 transition-colors">

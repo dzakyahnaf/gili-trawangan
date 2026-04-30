@@ -14,10 +14,10 @@ export default async function AdminDashboardPage() {
   const statsData = await getDashboardStats();
   
   const stats = [
-    { label: "Total Booking", value: statsData.totalBookings.toString(), icon: Calendar, color: "bg-ocean-50 text-ocean-600" },
+    { label: "Total Booking", value: statsData.totalBookings.toString(), icon: Calendar, color: "bg-gili-50 text-gili-600" },
     { label: "Booking Pending", value: statsData.pendingPayments.toString(), icon: Clock, color: "bg-yellow-50 text-yellow-600" },
     { label: "Total Revenue", value: formatRupiah(statsData.totalRevenue), icon: DollarSign, color: "bg-green-50 text-green-600" },
-    { label: "Average Order", value: formatRupiah(statsData.totalBookings > 0 ? statsData.totalRevenue / statsData.totalBookings : 0), icon: TrendingUp, color: "bg-coral-50 text-coral-600" },
+    { label: "Average Order", value: formatRupiah(statsData.totalBookings > 0 ? statsData.totalRevenue / statsData.totalBookings : 0), icon: TrendingUp, color: "bg-accent-50 text-accent-600" },
   ];
 
   const recentBookings = statsData.recentBookings;
@@ -67,7 +67,7 @@ export default async function AdminDashboardPage() {
                   const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : 'Unknown') : 'Unknown';
                   return (
                     <tr key={b.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4 font-mono font-semibold text-ocean-600">{b.bookingCode}</td>
+                      <td className="px-6 py-4 font-mono font-semibold text-gili-600">{b.bookingCode}</td>
                       <td className="px-6 py-4 text-gray-900">{b.customerName}</td>
                       <td className="px-6 py-4 text-gray-600 truncate max-w-[150px]">{productName}</td>
                       <td className="px-6 py-4 text-gray-600 whitespace-nowrap">{new Date(b.bookingDate).toLocaleDateString("id-ID")}</td>

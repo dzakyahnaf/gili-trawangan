@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-ocean-600 to-ocean-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-gili-600 to-gili-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-20 h-20 mx-auto rounded-2xl bg-white shadow-xl overflow-hidden mb-4 relative">
@@ -49,20 +49,20 @@ export default function AdminLoginPage() {
             />
           </div>
           <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
-          <p className="text-ocean-300 text-sm mt-1">RH Tour & Travel</p>
+          <p className="text-gili-300 text-sm mt-1">RH Tour & Travel</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@rhtour.com" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@rhtour.com" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 focus:border-gili-500 outline-none" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none" />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 focus:border-gili-500 outline-none" />
           </div>
           {error && <p className="text-red-500 text-sm bg-red-50 rounded-lg p-3">{error}</p>}
-          <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-linear-to-r from-ocean-500 to-ocean-600 text-white font-semibold disabled:opacity-50 hover:shadow-lg transition-all">
+          <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-linear-to-r from-gili-500 to-gili-600 text-white font-semibold disabled:opacity-50 hover:shadow-lg transition-all">
             <LogIn className="w-5 h-5" />{loading ? "Masuk..." : "Masuk"}
           </button>
           <p className="text-xs text-gray-400 text-center">Demo: admin@rhtour.com / admin123</p>

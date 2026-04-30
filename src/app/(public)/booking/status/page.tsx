@@ -17,12 +17,12 @@ export default async function BookingStatusPage(props: {
   const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : '') : '';
 
   return (
-    <div className="pt-24 pb-20 bg-sand-50 min-h-screen">
+    <div className="pt-24 pb-20 bg-neutral-50 min-h-screen">
       <div className="max-w-3xl mx-auto px-4">
         {/* Header Status */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
           <div className={`p-8 text-center text-white ${
-            booking.paymentStatus === "paid" ? "bg-green-500" : "bg-ocean-600"
+            booking.paymentStatus === "paid" ? "bg-green-500" : "bg-gili-600"
           }`}>
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               {booking.paymentStatus === "paid" ? (
@@ -42,7 +42,7 @@ export default async function BookingStatusPage(props: {
             <div className="grid sm:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <h3 className="font-bold text-gray-900 border-b pb-2 flex items-center gap-2">
-                  <User className="w-4 h-4 text-ocean-500" />
+                  <User className="w-4 h-4 text-gili-500" />
                   Informasi Pelanggan
                 </h3>
                 <div className="space-y-2 text-sm">
@@ -55,11 +55,11 @@ export default async function BookingStatusPage(props: {
 
               <div className="space-y-4">
                 <h3 className="font-bold text-gray-900 border-b pb-2 flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-ocean-500" />
+                  <Calendar className="w-4 h-4 text-gili-500" />
                   Detail Pesanan
                 </h3>
                 <div className="space-y-2 text-sm">
-                  <p><span className="text-gray-500">Produk:</span> <span className="font-bold text-ocean-600">{productName}</span></p>
+                  <p><span className="text-gray-500">Produk:</span> <span className="font-bold text-gili-600">{productName}</span></p>
                   <p><span className="text-gray-500">Tanggal:</span> {new Date(booking.bookingDate).toLocaleDateString("id-ID", { dateStyle: "long" })}</p>
                   <p><span className="text-gray-500">Peserta:</span> {booking.adults} Dewasa {booking.children > 0 ? `, ${booking.children} Anak` : ""}</p>
                   <p className="flex items-center gap-1"><MapPin className="w-3 h-3 text-gray-400" /> Sama-Sama Reggae Bar (Meeting Point)</p>
@@ -68,13 +68,13 @@ export default async function BookingStatusPage(props: {
             </div>
 
             {/* Total Section */}
-            <div className="bg-sand-50 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="bg-neutral-50 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div>
                 <p className="text-sm text-gray-500">Total Yang Harus Dibayar</p>
-                <p className="text-3xl font-bold text-ocean-600">{formatRupiah(booking.totalPrice)}</p>
+                <p className="text-3xl font-bold text-gili-600">{formatRupiah(booking.totalPrice)}</p>
               </div>
               {booking.paymentStatus === "pending" && (
-                <button className="w-full sm:w-auto px-8 py-4 bg-coral-500 text-white rounded-xl font-bold shadow-lg shadow-coral-500/30 hover:scale-105 transition-all">
+                <button className="w-full sm:w-auto px-8 py-4 bg-accent-500 text-gili-900 rounded-xl font-bold shadow-lg shadow-accent-500/30 hover:bg-accent-400 hover:scale-105 transition-all">
                   Bayar Sekarang (Midtrans)
                 </button>
               )}
@@ -94,7 +94,7 @@ export default async function BookingStatusPage(props: {
         </div>
 
         <div className="text-center">
-          <Link href="/" className="text-ocean-600 font-medium hover:underline">
+          <Link href="/" className="text-gili-600 font-medium hover:underline">
             ← Kembali ke Beranda
           </Link>
         </div>

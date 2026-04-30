@@ -11,11 +11,11 @@ export default function AboutPage() {
   return (
     <div className="pt-24 pb-20">
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
-        <Image src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&q=80" alt="About" fill className="object-cover" />
-        <div className="absolute inset-0 bg-linear-to-r from-ocean-900/80 to-ocean-700/60" />
+        <Image src="https://images.unsplash.com/photo-1549488497-256686153673?q=80&w=1920&auto=format&fit=crop" alt="About" fill className="object-cover" />
+        <div className="absolute inset-0 bg-linear-to-r from-gili-900/80 to-gili-700/60" />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl lg:text-5xl font-bold mb-3">Tentang Kami</h1>
-          <p className="text-ocean-200 text-lg">Cerita di balik RH Tour & Travel</p>
+          <p className="text-gili-200 text-lg">Cerita di balik RH Tour & Travel</p>
         </div>
       </section>
 
@@ -38,8 +38,8 @@ export default function AboutPage() {
             { icon: Award, title: "Terpercaya", desc: "Ratusan wisatawan puas dengan layanan kami" },
           ].map((v) => (
             <div key={v.title} className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-ocean-50 flex items-center justify-center">
-                <v.icon className="w-8 h-8 text-ocean-600" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gili-50 flex items-center justify-center">
+                <v.icon className="w-8 h-8 text-gili-600" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
               <p className="text-gray-500 text-sm">{v.desc}</p>
@@ -47,10 +47,10 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="bg-linear-to-r from-ocean-600 to-ocean-700 rounded-2xl p-10 text-center text-white">
+        <div className="bg-linear-to-r from-gili-600 to-gili-700 rounded-2xl p-10 text-center text-white">
           <h3 className="text-2xl font-bold mb-3">Siap Berpetualang?</h3>
-          <p className="text-ocean-200 mb-6">Hubungi kami sekarang untuk merencanakan liburan impian Anda</p>
-          <a href="https://wa.me/6287793082501" className="inline-flex px-8 py-3 rounded-xl bg-white text-ocean-600 font-bold hover:shadow-lg transition-shadow">
+          <p className="text-gili-200 mb-6">Hubungi kami sekarang untuk merencanakan liburan impian Anda</p>
+          <a href="https://wa.me/6287793082501" className="inline-flex px-8 py-3 rounded-xl bg-accent-500 text-gili-900 font-bold hover:bg-accent-400 hover:shadow-lg transition-all">
             Hubungi Kami
           </a>
         </div>

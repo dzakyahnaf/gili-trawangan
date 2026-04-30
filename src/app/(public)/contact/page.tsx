@@ -24,26 +24,26 @@ export default function ContactPage() {
               <h2 className="text-xl font-bold text-gray-900">Informasi Kontak</h2>
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-ocean-50 flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-ocean-600" />
+                  <div className="w-10 h-10 rounded-xl bg-gili-50 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-gili-600" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">WhatsApp</p>
-                    <a href="https://wa.me/6287793082501" className="text-gray-900 font-semibold hover:text-ocean-600 transition-colors">+62 877-9308-2501</a>
+                    <a href="https://wa.me/6287793082501" className="text-gray-900 font-semibold hover:text-gili-600 transition-colors">+62 877-9308-2501</a>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-coral-50 flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-coral-600" />
+                  <div className="w-10 h-10 rounded-xl bg-accent-50 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5 text-accent-600" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Email</p>
-                    <a href="mailto:rhtourandtravel3003@gmail.com" className="text-gray-900 font-semibold hover:text-coral-600 transition-colors">rhtourandtravel3003@gmail.com</a>
+                    <a href="mailto:rhtourandtravel3003@gmail.com" className="text-gray-900 font-semibold hover:text-accent-600 transition-colors">rhtourandtravel3003@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-ocean-50 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-ocean-600" />
+                  <div className="w-10 h-10 rounded-xl bg-gili-50 flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5 text-gili-600" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Jam Operasional</p>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 href="https://maps.google.com/?q=Sama+Sama+Reggae+Gili+Trawangan" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block w-full py-3 bg-gray-900 text-white text-center rounded-xl font-semibold hover:bg-gray-800 transition-colors"
+                className="block w-full py-3 bg-gili-500 text-white text-center rounded-xl font-semibold hover:bg-gili-600 transition-colors"
               >
                 Buka di Google Maps
               </a>
@@ -94,17 +94,17 @@ export default function ContactPage() {
               <form className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-gray-700">Nama Lengkap</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ocean-500 focus:ring-2 focus:ring-ocean-200 outline-none transition-all" placeholder="John Doe" />
+                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-gray-700">Alamat Email</label>
-                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ocean-500 focus:ring-2 focus:ring-ocean-200 outline-none transition-all" placeholder="john@example.com" />
+                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="john@example.com" />
                 </div>
                 <div className="sm:col-span-2 space-y-2">
                   <label className="text-sm font-semibold text-gray-700">Pesan Anda</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ocean-500 focus:ring-2 focus:ring-ocean-200 outline-none transition-all" placeholder="Tuliskan pertanyaan atau detail pesanan Anda..."></textarea>
+                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="Tuliskan pertanyaan atau detail pesanan Anda..."></textarea>
                 </div>
-                <button type="submit" className="sm:col-span-2 py-4 bg-ocean-500 text-white rounded-xl font-bold hover:bg-ocean-600 shadow-lg shadow-ocean-200 transition-all flex items-center justify-center gap-2">
+                <button type="submit" className="sm:col-span-2 py-4 bg-gili-500 text-white rounded-xl font-bold hover:bg-gili-600 shadow-lg shadow-gili-200 transition-all flex items-center justify-center gap-2">
                   <MessageCircle className="w-5 h-5" />
                   Kirim Sekarang
                 </button>

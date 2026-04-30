@@ -15,10 +15,10 @@ export default function AdminContentPage() {
               {section.fields.map((f) => (
                 <div key={f.key}>
                   <label className="block text-sm font-medium text-gray-600 mb-1">{f.label}</label>
-                  <textarea defaultValue={f.value} rows={2} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-ocean-500 outline-none text-sm" />
+                  <textarea defaultValue={f.value} rows={2} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 outline-none text-sm" />
                 </div>
               ))}
-              <button className="px-4 py-2 rounded-xl bg-ocean-500 text-white text-sm font-semibold hover:bg-ocean-600 transition-colors">Simpan</button>
+              <button className="px-4 py-2 rounded-xl bg-gili-500 text-white text-sm font-semibold hover:bg-gili-600 transition-colors">Simpan</button>
             </div>
           ))}
         </div>

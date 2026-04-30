@@ -109,11 +109,11 @@ export default function BookingForm({ product, type }: BookingFormProps) {
         <p className="text-gray-500 max-w-md mx-auto">
           Terima kasih telah memesan bersama RH Tour. Kode booking Anda adalah:
         </p>
-        <div className="bg-ocean-50 py-4 px-6 rounded-2xl border-2 border-dashed border-ocean-300 inline-block">
-          <span className="text-2xl font-mono font-bold text-ocean-600">{successCode}</span>
+        <div className="bg-gili-50 py-4 px-6 rounded-2xl border-2 border-dashed border-gili-300 inline-block">
+          <span className="text-2xl font-mono font-bold text-gili-600">{successCode}</span>
         </div>
         <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href={`/booking/status?code=${successCode}`} className="px-8 py-3 bg-ocean-500 text-white rounded-xl font-bold shadow-lg shadow-ocean-500/20">
+          <Link href={`/booking/status?code=${successCode}`} className="px-8 py-3 bg-gili-500 text-white rounded-xl font-bold shadow-lg shadow-gili-500/20">
             Cek Status Pembayaran
           </Link>
           <Link href="/" className="px-8 py-3 bg-gray-100 text-gray-600 rounded-xl font-bold">
@@ -137,7 +137,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
               className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 space-y-6 border border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-ocean-500" />
+                <Calendar className="w-5 h-5 text-gili-500" />
                 Detail Perjalanan
               </h3>
               
@@ -148,7 +148,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                     type="date"
                     {...register("bookingDate")}
                     min={new Date().toISOString().split("T")[0]}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-ocean-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 outline-none transition-all"
                   />
                   {errors.bookingDate && <p className="text-red-500 text-xs">{errors.bookingDate.message}</p>}
                 </div>
@@ -203,7 +203,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-full py-4 bg-ocean-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-ocean-600 transition-all"
+                className="w-full py-4 bg-gili-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gili-600 transition-all"
               >
                 Lanjutkan ke Data Pemesan
                 <ChevronRight className="w-5 h-5" />
@@ -219,7 +219,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
               className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 space-y-6 border border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <Users className="w-5 h-5 text-coral-500" />
+                <Users className="w-5 h-5 text-accent-500" />
                 Data Diri Pemesan
               </h3>
 
@@ -229,7 +229,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                   <input
                     {...register("customerName")}
                     placeholder="Masukkan nama sesuai identitas"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-coral-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all"
                   />
                   {errors.customerName && <p className="text-red-500 text-xs">{errors.customerName.message}</p>}
                 </div>
@@ -240,7 +240,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                     <input
                       {...register("customerEmail")}
                       placeholder="email@contoh.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-coral-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all"
                     />
                     {errors.customerEmail && <p className="text-red-500 text-xs">{errors.customerEmail.message}</p>}
                   </div>
@@ -249,7 +249,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                     <input
                       {...register("customerPhone")}
                       placeholder="08123xxx"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-coral-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all"
                     />
                     {errors.customerPhone && <p className="text-red-500 text-xs">{errors.customerPhone.message}</p>}
                   </div>
@@ -260,7 +260,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                   <input
                     {...register("nationality")}
                     placeholder="Contoh: Indonesia, Australia, dll"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-coral-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all"
                   />
                   {errors.nationality && <p className="text-red-500 text-xs">{errors.nationality.message}</p>}
                 </div>
@@ -271,7 +271,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                     {...register("specialRequest")}
                     placeholder="Alergi makanan, jemputan hotel, dll"
                     rows={3}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-coral-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -288,7 +288,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-2 py-4 bg-coral-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-coral-600 transition-all disabled:opacity-50"
+                  className="flex-2 py-4 bg-accent-500 text-gili-900 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-accent-400 transition-all disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
@@ -317,7 +317,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-900 leading-tight">{product.title || product.name}</h4>
-                <p className="text-xs text-ocean-500 mt-1 capitalize">{type}</p>
+                <p className="text-xs text-gili-500 mt-1 capitalize">{type}</p>
               </div>
             </div>
 
@@ -349,7 +349,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
             <div className="pt-4 border-t border-gray-100">
               <div className="flex justify-between items-center">
                 <span className="font-bold text-gray-900">Total Pembayaran</span>
-                <span className="text-xl font-bold text-ocean-600">{formatRupiah(calculateTotal())}</span>
+                <span className="text-xl font-bold text-gili-600">{formatRupiah(calculateTotal())}</span>
               </div>
               <p className="text-[10px] text-gray-400 mt-2 text-center">
                 Dengan mengklik tombol pesanan, Anda menyetujui syarat & ketentuan yang berlaku.

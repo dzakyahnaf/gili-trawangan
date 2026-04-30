@@ -32,9 +32,9 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
         <Image src={pkg.coverImage} alt={pkg.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 max-w-7xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full bg-ocean-500 text-white text-xs font-semibold mb-3">{pkg.duration}</span>
+          <span className="inline-block px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold mb-3 backdrop-blur-sm">{pkg.duration}</span>
           <h1 className="text-3xl lg:text-5xl font-bold text-white mb-2">{pkg.title}</h1>
-          {pkg.subtitle && <p className="text-ocean-200 text-lg">{pkg.subtitle}</p>}
+          {pkg.subtitle && <p className="text-gili-200 text-lg">{pkg.subtitle}</p>}
         </div>
       </div>
 
@@ -43,9 +43,9 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
         <div className="lg:col-span-2 space-y-10">
           {/* Quick Info */}
           <div className="flex flex-wrap gap-6">
-            <div className="flex items-center gap-2 text-gray-600"><Clock className="w-5 h-5 text-ocean-500" />{pkg.duration}</div>
-            <div className="flex items-center gap-2 text-gray-600"><Users className="w-5 h-5 text-ocean-500" />Maks {pkg.maxPax} pax</div>
-            <div className="flex items-center gap-2 text-gray-600"><MapPin className="w-5 h-5 text-ocean-500" />Gili Trawangan</div>
+            <div className="flex items-center gap-2 text-gray-600"><Clock className="w-5 h-5 text-gili-500" />{pkg.duration}</div>
+            <div className="flex items-center gap-2 text-gray-600"><Users className="w-5 h-5 text-gili-500" />Maks {pkg.maxPax} pax</div>
+            <div className="flex items-center gap-2 text-gray-600"><MapPin className="w-5 h-5 text-gili-500" />Gili Trawangan</div>
           </div>
 
           {/* Description */}
@@ -59,7 +59,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Program</h2>
             <div className="flex flex-wrap gap-2">
               {pkg.programs.map((p) => (
-                <span key={p} className="px-4 py-2 rounded-xl bg-ocean-50 text-ocean-700 text-sm font-medium">{p}</span>
+                <span key={p} className="px-4 py-2 rounded-xl bg-gili-50 text-gili-700 text-sm font-medium">{p}</span>
               ))}
             </div>
           </div>
@@ -69,7 +69,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Itinerary</h2>
             <div className="space-y-3">
               {itinerary.map((day) => (
-                <details key={day.day} className="group bg-sand-50 rounded-2xl overflow-hidden" open={day.day === 1}>
+                <details key={day.day} className="group bg-neutral-50 rounded-2xl overflow-hidden border border-gray-100" open={day.day === 1}>
                   <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none font-semibold text-gray-900">
                     <span>Hari {day.day}: {day.title}</span>
                     <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
@@ -77,7 +77,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
                   <ul className="px-6 pb-4 space-y-2">
                     {day.activities.map((a, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                        <div className="w-2 h-2 rounded-full bg-ocean-400 mt-1.5 shrink-0" />
+                        <div className="w-2 h-2 rounded-full bg-gili-400 mt-1.5 shrink-0" />
                         {a}
                       </li>
                     ))}
@@ -117,17 +117,17 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
           <div className="sticky top-24 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 space-y-6">
             <div>
               <p className="text-sm text-gray-400">Harga mulai dari</p>
-              <p className="text-3xl font-bold text-ocean-600">{formatRupiah(pkg.price)}</p>
+              <p className="text-3xl font-bold text-gili-600">{formatRupiah(pkg.price)}</p>
               <p className="text-sm text-gray-400">/orang</p>
             </div>
             {pkg.priceChild && (
               <div className="text-sm text-gray-500">
-                Anak-anak: <span className="font-semibold text-ocean-600">{formatRupiah(pkg.priceChild)}</span>/anak
+                Anak-anak: <span className="font-semibold text-gili-600">{formatRupiah(pkg.priceChild)}</span>/anak
               </div>
             )}
             <Link
               href={`/booking?type=package&id=${pkg.id}`}
-              className="block text-center w-full py-4 rounded-xl bg-linear-to-r from-coral-500 to-coral-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+              className="block text-center w-full py-4 rounded-xl bg-accent-500 text-gili-900 font-bold text-lg shadow-lg hover:bg-accent-400 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Book Now
             </Link>
@@ -137,7 +137,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
             >
               💬 Tanya via WhatsApp
             </a>
-            <div className="bg-sand-50 rounded-xl p-4 text-sm">
+            <div className="bg-neutral-50 rounded-xl p-4 text-sm">
               <p className="font-semibold text-gray-900 mb-1">📍 Meeting Point</p>
               <p className="text-gray-500">Sama-Sama Reggae Bar, Gili Trawangan</p>
             </div>
