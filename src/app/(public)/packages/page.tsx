@@ -16,7 +16,7 @@ export default async function PackagesPage() {
     orderBy: { price: "asc" },
   });
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-16 lg:pt-20 pb-20">
       {/* Hero */}
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1549488497-256686153673?q=80&w=1920&auto=format&fit=crop" alt="Packages" fill className="object-cover" />

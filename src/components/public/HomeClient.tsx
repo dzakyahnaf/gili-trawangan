@@ -40,10 +40,10 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
   return (
     <>
       {/* ===== 1. HERO WITH SLIDER ===== */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <HeroSlider />
         <div className="hero-overlay absolute inset-0 z-10" />
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto pt-14">
           <p className="text-accent-400 font-semibold mb-4 tracking-widest uppercase text-sm animate-fade-in">
             {t.hero.welcome}
           </p>

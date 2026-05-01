@@ -16,7 +16,7 @@ export default async function SpeedboatPage() {
     orderBy: { price: "asc" },
   });
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-16 lg:pt-20 pb-20">
       <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
         <Image src="https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?q=80&w=1920&auto=format&fit=crop" alt="Speedboat" fill className="object-cover" />
         <div className="absolute inset-0 bg-linear-to-r from-gili-900/80 to-gili-700/60" />

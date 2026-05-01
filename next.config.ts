@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.google.com" },
     ],
   },
+  serverExternalPackages: ["@prisma/client"],
 };
 
 export default nextConfig;

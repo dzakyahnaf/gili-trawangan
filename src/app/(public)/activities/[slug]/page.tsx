@@ -23,7 +23,7 @@ export default async function ActivityDetailPage(props: { params: Promise<{ slug
   if (!act) notFound();
 
   return (
-    <div className="pt-20 pb-20">
+    <div className="pt-16 lg:pt-20 pb-20">
       <div className="relative h-72 lg:h-96">
         <Image src={act.coverImage} alt={act.name} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />

@@ -26,7 +26,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
   const itinerary = pkg.itinerary as unknown as ItineraryDay[];
 
   return (
-    <div className="pt-20 pb-20">
+    <div className="pt-16 lg:pt-20 pb-20">
       {/* Hero Image */}
       <div className="relative h-80 lg:h-112">
         <Image src={pkg.coverImage} alt={pkg.title} fill className="object-cover" priority />
