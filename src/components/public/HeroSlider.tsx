@@ -6,19 +6,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1558235213-9a3d46387063?q=80&w=1920&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&auto=format&fit=crop",
     alt: "Pemandangan udara perahu di perairan Gili Trawangan",
   },
   {
-    src: "https://images.unsplash.com/photo-1525946803233-8986dfef369a?q=80&w=1920&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop",
     alt: "Sunset di pantai Gili Trawangan dengan berkuda",
   },
   {
-    src: "https://images.unsplash.com/photo-1544256743-3482782e5699?q=80&w=1920&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=1920&auto=format&fit=crop",
     alt: "Penyu berenang di perairan jernih Gili Trawangan",
   },
   {
-    src: "https://images.unsplash.com/photo-1549488497-256686153673?q=80&w=1920&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1920&auto=format&fit=crop",
     alt: "Panorama laguna Gili Trawangan dengan perahu tradisional",
   },
 ];

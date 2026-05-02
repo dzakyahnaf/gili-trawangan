@@ -20,6 +20,7 @@ export default function Footer() {
                   src="/logos/logo-boat.png"
                   alt="Logo RH Tour"
                   fill
+                  sizes="100px"
                   className="object-cover"
                 />
               </div>

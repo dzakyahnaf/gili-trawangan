@@ -1,19 +1,25 @@
 import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { translations, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Kontak Kami",
   description: "Hubungi RH Tour & Travel untuk informasi paket wisata, fast boat, dan aktivitas di Gili Trawangan.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
+  const t = translations[locale] || translations.id;
+
   return (
     <div className="pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Kontak Kami</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t.nav.contact}</h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Punya pertanyaan? Kami siap membantu Anda merencanakan liburan impian di Gili Trawangan. Hubungi kami melalui saluran berikut.
+            {locale === "en" ? "Have any questions? We're ready to help you plan your dream holiday in Gili Trawangan. Contact us through the channels below." : "Punya pertanyaan? Kami siap membantu Anda merencanakan liburan impian di Gili Trawangan. Hubungi kami melalui saluran berikut."}
           </p>
         </div>
 
@@ -21,7 +27,7 @@ export default function ContactPage() {
           {/* Info Cards */}
           <div className="lg:col-span-1 space-y-6">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
-              <h2 className="text-xl font-bold text-gray-900">Informasi Kontak</h2>
+              <h2 className="text-xl font-bold text-gray-900">{locale === "en" ? "Contact Info" : "Informasi Kontak"}</h2>
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-gili-50 flex items-center justify-center shrink-0">
@@ -46,7 +52,7 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-gili-600" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Jam Operasional</p>
+                    <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">{locale === "en" ? "Operational Hours" : "Jam Operasional"}</p>
                     <p className="text-gray-900 font-semibold">08:00 — 20:00 WITA</p>
                   </div>
                 </div>
@@ -61,7 +67,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-gray-900 font-semibold">Sama-Sama Reggae Bar</p>
-                  <p className="text-sm text-gray-500">Pesisir Utara, Gili Trawangan, Kabupaten Lombok Utara, NTB.</p>
+                  <p className="text-sm text-gray-500">{locale === "en" ? "North Coast, Gili Trawangan, North Lombok Regency, NTB." : "Pesisir Utara, Gili Trawangan, Kabupaten Lombok Utara, NTB."}</p>
                 </div>
               </div>
               <a 
@@ -70,7 +76,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="block w-full py-3 bg-gili-500 text-white text-center rounded-xl font-semibold hover:bg-gili-600 transition-colors"
               >
-                Buka di Google Maps
+                {locale === "en" ? "Open in Google Maps" : "Buka di Google Maps"}
               </a>
             </div>
           </div>
@@ -90,23 +96,23 @@ export default function ContactPage() {
             </div>
             
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{locale === "en" ? "Send a Message" : "Kirim Pesan"}</h2>
               <form className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Nama Lengkap</label>
+                  <label className="text-sm font-semibold text-gray-700">{locale === "en" ? "Full Name" : "Nama Lengkap"}</label>
                   <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Alamat Email</label>
+                  <label className="text-sm font-semibold text-gray-700">{locale === "en" ? "Email Address" : "Alamat Email"}</label>
                   <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="john@example.com" />
                 </div>
                 <div className="sm:col-span-2 space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Pesan Anda</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder="Tuliskan pertanyaan atau detail pesanan Anda..."></textarea>
+                  <label className="text-sm font-semibold text-gray-700">{locale === "en" ? "Your Message" : "Pesan Anda"}</label>
+                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gili-500 focus:ring-2 focus:ring-gili-200 outline-none transition-all" placeholder={locale === "en" ? "Write your questions or order details..." : "Tuliskan pertanyaan atau detail pesanan Anda..."}></textarea>
                 </div>
                 <button type="submit" className="sm:col-span-2 py-4 bg-gili-500 text-white rounded-xl font-bold hover:bg-gili-600 shadow-lg shadow-gili-200 transition-all flex items-center justify-center gap-2">
                   <MessageCircle className="w-5 h-5" />
-                  Kirim Sekarang
+                  {locale === "en" ? "Send Now" : "Kirim Sekarang"}
                 </button>
               </form>
             </div>

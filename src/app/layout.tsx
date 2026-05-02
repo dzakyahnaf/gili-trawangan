@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { LangProvider } from "@/components/LangProvider";
+import { type Locale } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,18 +28,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout(
+  props: { children: React.ReactNode }
+) {
+  const cookieStore = await cookies();
+  const initialLocale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
+  const { children } = props;
+
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased font-sans">
-        <LangProvider>{children}</LangProvider>
+        <LangProvider initialLocale={initialLocale}>{children}</LangProvider>
       </body>
     </html>
   );

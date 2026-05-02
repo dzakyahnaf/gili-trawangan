@@ -75,6 +75,7 @@ export default function Navbar() {
                 src="/logos/logo-boat.png"
                 alt="Logo RH Tour"
                 fill
+                sizes="100px"
                 className="object-cover"
               />
             </div>
@@ -114,14 +115,25 @@ export default function Navbar() {
             </button>
 
             {/* Language Switcher */}
-            <button
-              onClick={toggleLocale}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors text-sm font-medium"
-              aria-label="Ganti bahasa"
-            >
-              <Globe className="w-4 h-4" />
-              {locale === "id" ? "EN" : "ID"}
-            </button>
+            <div className="flex items-center gap-2 mx-2">
+              <span className={`text-xs font-bold transition-colors ${locale === "id" ? "text-white" : "text-white/50"}`}>
+                ID
+              </span>
+              <button
+                onClick={toggleLocale}
+                className="w-11 h-6 rounded-full bg-white/20 relative shadow-inner border border-white/10 hover:bg-white/30 transition-colors"
+                aria-label="Ganti bahasa"
+              >
+                <div
+                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm transform transition-transform duration-300 ${
+                    locale === "en" ? "translate-x-5" : "translate-x-0"
+                  }`}
+                />
+              </button>
+              <span className={`text-xs font-bold transition-colors ${locale === "en" ? "text-white" : "text-white/50"}`}>
+                EN
+              </span>
+            </div>
 
             <Link
               href="/booking"
@@ -140,13 +152,25 @@ export default function Navbar() {
             >
               <Search className="w-5 h-5" />
             </button>
-            <button
-              onClick={toggleLocale}
-              className="flex items-center gap-1 px-2 py-1 rounded-lg text-white text-xs font-bold bg-white/10"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              {locale === "id" ? "EN" : "ID"}
-            </button>
+            <div className="flex items-center gap-1.5 mx-1">
+              <span className={`text-[10px] font-bold ${locale === "id" ? "text-white" : "text-white/60"}`}>
+                ID
+              </span>
+              <button
+                onClick={toggleLocale}
+                className="w-9 h-5 rounded-full bg-white/20 relative border border-white/10"
+                aria-label="Ganti bahasa"
+              >
+                <div
+                  className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-300 ${
+                    locale === "en" ? "translate-x-4" : "translate-x-0"
+                  }`}
+                />
+              </button>
+              <span className={`text-[10px] font-bold ${locale === "en" ? "text-white" : "text-white/60"}`}>
+                EN
+              </span>
+            </div>
             <button
               onClick={() => setOpen(!open)}
               className="p-2 rounded-lg text-white"

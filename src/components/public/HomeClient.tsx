@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Star, Shield, Users, Clock, HeadphonesIcon, ChevronDown, MapPin, Phone, MessageCircle, Waves, Mountain, Map, Ship, Sailboat, Car, Zap, ShieldCheck, Lock } from "lucide-react";
-import { formatRupiah } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import { useLang } from "@/components/LangProvider";
 import HeroSlider from "@/components/public/HeroSlider";
 
@@ -26,7 +26,7 @@ interface HomeClientProps {
 }
 
 export default function HomeClient({ featured, recentActivities, recentTestimonials, gallery, parsedFaqs }: HomeClientProps) {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const serviceCategories = [
     { icon: Waves, label: t.services.snorkeling, href: "/packages", color: "from-blue-500 to-blue-600" },
@@ -166,7 +166,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
           </div>
           <div className="mt-10 text-center">
             <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-2xl shadow-sm border border-gray-100">
-              <Image src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_42x14dp.png" alt="Google" width={42} height={14} />
+              <Image src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" width={60} height={20} />
               <div className="text-left">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -191,7 +191,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             {featured.map((pkg) => (
               <Link key={pkg.id} href={`/packages/${pkg.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                 <div className="relative h-52 overflow-hidden">
-                  <Image src={pkg.coverImage} alt={pkg.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <Image src={pkg.coverImage} alt={pkg.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold backdrop-blur-sm">
                     {pkg.isFeatured ? `⭐ ${t.featuredPkg.featured}` : pkg.duration}
                   </div>
@@ -206,7 +206,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
                   </div>
                   <div className="flex items-end justify-between pt-3 border-t border-gray-100">
                     <div>
-                      <p className="text-xl font-bold text-gili-600">{formatRupiah(pkg.price)}</p>
+                      <p className="text-xl font-bold text-gili-600">{formatCurrency(pkg.price, locale)}</p>
                       <p className="text-xs text-gray-400">{t.featuredPkg.perPerson}</p>
                     </div>
                     <span className="px-4 py-2 rounded-xl bg-accent-500 text-gili-900 text-xs font-bold group-hover:bg-accent-400 transition-colors shadow-sm">
@@ -236,7 +236,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             {recentActivities.map((act) => (
               <Link key={act.id} href={`/activities/${act.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                 <div className="relative h-52 overflow-hidden">
-                  <Image src={act.coverImage} alt={act.name} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <Image src={act.coverImage} alt={act.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold backdrop-blur-sm">{act.category}</div>
                 </div>
                 <div className="p-5">
@@ -249,7 +249,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
                   </div>
                   <div className="flex items-end justify-between pt-3 border-t border-gray-100">
                     <div>
-                      <p className="text-xl font-bold text-gili-600">{formatRupiah(act.price)}</p>
+                      <p className="text-xl font-bold text-gili-600">{formatCurrency(act.price, locale)}</p>
                       <p className="text-xs text-gray-400">{t.featuredPkg.perPerson}</p>
                     </div>
                     <span className="px-4 py-2 rounded-xl bg-accent-500 text-gili-900 text-xs font-bold group-hover:bg-accent-400 transition-colors shadow-sm">{t.featuredPkg.bookNow}</span>

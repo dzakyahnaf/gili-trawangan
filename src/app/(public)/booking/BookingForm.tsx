@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { formatRupiah } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
+import { useLang } from "@/components/LangProvider";
 import { Calendar, Users, ChevronRight, ChevronLeft, Loader2, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -40,6 +41,7 @@ interface BookingFormProps {
 }
 
 export default function BookingForm({ product, type }: BookingFormProps) {
+  const { locale, t } = useLang();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successCode, setSuccessCode] = useState<string | null>(null);
@@ -313,7 +315,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
           <div className="space-y-4">
             <div className="flex gap-4">
               <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                <Image src={product.coverImage || product.logo || ""} alt={product.title || product.name || ""} fill className="object-cover" />
+                <Image src={product.coverImage || product.logo || ""} alt={product.title || product.name || ""} fill sizes="80px" className="object-cover" />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-900 leading-tight">{product.title || product.name}</h4>
@@ -324,24 +326,24 @@ export default function BookingForm({ product, type }: BookingFormProps) {
             <div className="space-y-2 pt-4 border-t border-gray-100">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">
-                  {watchAdults} Dewasa x {formatRupiah(product.price)}
+                  {watchAdults} Dewasa x {formatCurrency(product.price, locale)}
                 </span>
-                <span className="font-semibold">{formatRupiah(product.price * watchAdults)}</span>
+                <span className="font-semibold">{formatCurrency(product.price * watchAdults, locale)}</span>
               </div>
               {watchChildren > 0 && product.priceChild && (
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">
-                    {watchChildren} Anak x {formatRupiah(product.priceChild)}
+                    {watchChildren} Anak x {formatCurrency(product.priceChild, locale)}
                   </span>
-                  <span className="font-semibold">{formatRupiah(product.priceChild * watchChildren)}</span>
+                  <span className="font-semibold">{formatCurrency(product.priceChild * watchChildren, locale)}</span>
                 </div>
               )}
               {type === "fastboat" && (
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">
-                    {watchAdults + watchChildren} Penumpang x {formatRupiah(product.price)}
+                    {watchAdults + watchChildren} Penumpang x {formatCurrency(product.price, locale)}
                   </span>
-                  <span className="font-semibold">{formatRupiah(product.price * (watchAdults + watchChildren))}</span>
+                  <span className="font-semibold">{formatCurrency(product.price * (watchAdults + watchChildren), locale)}</span>
                 </div>
               )}
             </div>
@@ -349,7 +351,7 @@ export default function BookingForm({ product, type }: BookingFormProps) {
             <div className="pt-4 border-t border-gray-100">
               <div className="flex justify-between items-center">
                 <span className="font-bold text-gray-900">Total Pembayaran</span>
-                <span className="text-xl font-bold text-gili-600">{formatRupiah(calculateTotal())}</span>
+                <span className="text-xl font-bold text-gili-600">{formatCurrency(calculateTotal(), locale)}</span>
               </div>
               <p className="text-[10px] text-gray-400 mt-2 text-center">
                 Dengan mengklik tombol pesanan, Anda menyetujui syarat & ketentuan yang berlaku.

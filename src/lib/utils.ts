@@ -14,6 +14,20 @@ export function formatRupiah(amount: number): string {
   }).format(amount);
 }
 
+export function formatCurrency(amount: number, locale: string = "id"): string {
+  if (locale === "en") {
+    const usdAmount = amount / 17000;
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(usdAmount);
+  }
+  
+  return formatRupiah(amount);
+}
+
 export function generateBookingCode(): string {
   const year = new Date().getFullYear();
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
