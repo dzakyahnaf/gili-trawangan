@@ -19,7 +19,7 @@ export default function LombokTourPage() {
       title: "Waterfall (Benang Kelambu) Tour",
       price: "US$ 85",
       duration: "Full Day",
-      image: "https://images.unsplash.com/photo-1548318281-7da3f84ced16?auto=format&fit=crop&q=80&w=1000",
+      image: "https://images.unsplash.com/photo-1596402184320-417d717867cd?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/waterfall-benang-kelambu-tour",
       isPrivate: true
     },
@@ -43,7 +43,7 @@ export default function LombokTourPage() {
       title: "City Tour",
       price: "US$ 85",
       duration: "Full Day",
-      image: "https://images.unsplash.com/photo-1533142262417-ad51619053dc?auto=format&fit=crop&q=80&w=1000",
+      image: "https://images.unsplash.com/photo-1605300287658-944205d6445b?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/city-tour",
       isPrivate: true
     }

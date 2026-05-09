@@ -6,7 +6,7 @@ import { useLang } from "@/components/LangProvider";
 const LOMBOK_TOUR_DATA: Record<string, any> = {
   "city-tour": {
     price: "US$ 85",
-    images: ["https://images.unsplash.com/photo-1533142262417-ad51619053dc?auto=format&fit=crop&q=80&w=1000"],
+    images: ["https://images.unsplash.com/photo-1605300287658-944205d6445b?auto=format&fit=crop&q=80&w=1000"],
     en: {
       title: "City Tour",
       description: "Explore the cultural and historical heart of Lombok. This tour takes you through traditional markets, historic temples, and the vibrant city life of Mataram.",
@@ -102,7 +102,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
   },
   "waterfall-benang-kelambu-tour": {
     price: "US$ 85",
-    images: ["https://images.unsplash.com/photo-1548318281-7da3f84ced16?auto=format&fit=crop&q=80&w=1000"],
+    images: ["https://images.unsplash.com/photo-1596402184320-417d717867cd?auto=format&fit=crop&q=80&w=1000"],
     en: {
       title: "Waterfall (Benang Kelambu) Tour",
       description: "Benang Kelambu waterfall is located in Central Lombok. The water flows through thick plants, creating a curtain-like effect (Kelambu). This tour also includes a visit to the nearby Benang Stokel waterfall.",
