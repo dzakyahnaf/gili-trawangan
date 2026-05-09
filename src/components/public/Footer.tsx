@@ -41,9 +41,8 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-6">{t.footer.navigation}</h3>
             <ul className="space-y-4 text-sm">
               <li><Link href="/packages" className="hover:text-accent-400 transition-colors">{t.nav.packages}</Link></li>
-              <li><Link href="/activities" className="hover:text-accent-400 transition-colors">{t.nav.activities}</Link></li>
               <li><Link href="/fastboat" className="hover:text-accent-400 transition-colors">{t.nav.fastboat}</Link></li>
-              <li><Link href="/speedboat" className="hover:text-accent-400 transition-colors">{t.nav.speedboat}</Link></li>
+              <li><Link href="/private-speed-boat-and-car" className="hover:text-accent-400 transition-colors">{t.nav.privateSpeedboatCar}</Link></li>
               <li><Link href="/booking/status" className="hover:text-accent-400 transition-colors">{t.footer.checkStatus}</Link></li>
             </ul>
           </div>

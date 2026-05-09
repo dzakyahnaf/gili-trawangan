@@ -12,10 +12,7 @@ interface HomeClientProps {
     id: string; slug: string; title: string; coverImage: string;
     duration: string; price: number; isFeatured: boolean; subtitle: string | null;
   }>;
-  recentActivities: Array<{
-    id: string; slug: string; name: string; coverImage: string;
-    duration: string; price: number; category: string;
-  }>;
+  recentActivities?: any[];
   recentTestimonials: Array<{
     id: string; name: string; origin: string; comment: string; rating: number;
   }>;
@@ -29,12 +26,13 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
   const { t, locale } = useLang();
 
   const serviceCategories = [
-    { icon: Waves, label: t.services.snorkeling, href: "/packages", color: "from-blue-500 to-blue-600" },
-    { icon: Mountain, label: t.services.activities, href: "/activities", color: "from-green-500 to-green-600" },
+    { icon: Waves, label: t.services.snorkeling, href: "/snorkeling", color: "from-blue-500 to-blue-600" },
     { icon: Map, label: t.services.packages, href: "/packages", color: "from-purple-500 to-purple-600" },
+    { icon: Mountain, label: t.services.rinjani, href: "/rinjani-tracking", color: "from-indigo-500 to-indigo-600" },
+    { icon: MapPin, label: t.services.lombokTour, href: "/lombok-tour", color: "from-emerald-500 to-emerald-600" },
     { icon: Ship, label: t.services.fastboat, href: "/fastboat", color: "from-orange-500 to-orange-600" },
-    { icon: Sailboat, label: t.services.speedboat, href: "/speedboat", color: "from-teal-500 to-teal-600" },
-    { icon: Car, label: t.services.carRental, href: "/contact", color: "from-red-500 to-red-600" },
+    { icon: Sailboat, label: t.services.privateSpeedboatCar, href: "/private-speed-boat-and-car", color: "from-teal-500 to-teal-600" },
+    { icon: MessageCircle, label: t.nav.contact, href: "/contact", color: "from-red-500 to-red-600" },
   ];
 
   return (
@@ -75,7 +73,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             <p className="text-accent-500 font-semibold mb-2 uppercase tracking-wider text-sm">{t.services.label}</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{t.services.title}</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
             {serviceCategories.map((cat) => (
               <Link key={cat.label} href={cat.href} className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-neutral-50 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${cat.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
@@ -123,12 +121,6 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
               <label className="block text-sm font-medium text-gili-200 mb-2">{t.filter.departTime}</label>
               <select className="w-full px-4 py-3.5 rounded-xl bg-white text-gray-800 font-medium border-0 focus:ring-2 focus:ring-accent-500 outline-none appearance-none cursor-pointer">
                 <option value="">{t.filter.allTimes}</option>
-                <option value="07:00">07:00 AM</option>
-                <option value="08:00">08:00 AM</option>
-                <option value="09:00">09:00 AM</option>
-                <option value="10:00">10:00 AM</option>
-                <option value="13:00">13:00 PM</option>
-                <option value="15:00">15:00 PM</option>
                 <option value="anytime">{t.filter.anytime}</option>
               </select>
             </div>
@@ -225,46 +217,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
         </div>
       </section>
 
-      {/* ===== 6. ACTIVITIES ===== */}
-      <section className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-accent-500 font-semibold mb-2 uppercase tracking-wider text-sm">{t.activitiesSection.label}</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{t.activitiesSection.title}</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentActivities.map((act) => (
-              <Link key={act.id} href={`/activities/${act.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                <div className="relative h-52 overflow-hidden">
-                  <Image src={act.coverImage} alt={act.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold backdrop-blur-sm">{act.category}</div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-gili-500 transition-colors">{act.name}</h3>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-4">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{act.duration}</span>
-                    <span className="flex items-center gap-1"><Zap className="w-3.5 h-3.5" />{t.featuredPkg.instantBooking}</span>
-                    <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5" />{t.featuredPkg.easyCancel}</span>
-                    <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5" />{t.featuredPkg.secure}</span>
-                  </div>
-                  <div className="flex items-end justify-between pt-3 border-t border-gray-100">
-                    <div>
-                      <p className="text-xl font-bold text-gili-600">{formatCurrency(act.price, locale)}</p>
-                      <p className="text-xs text-gray-400">{t.featuredPkg.perPerson}</p>
-                    </div>
-                    <span className="px-4 py-2 rounded-xl bg-accent-500 text-gili-900 text-xs font-bold group-hover:bg-accent-400 transition-colors shadow-sm">{t.featuredPkg.bookNow}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/activities" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-accent-500 text-accent-600 font-semibold hover:bg-accent-500 hover:text-gili-900 transition-all">
-              {t.activitiesSection.viewAll}
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* ===== 7. WHY CHOOSE US ===== */}
       <section className="py-20 bg-linear-to-br from-gili-600 to-gili-800 text-white">
@@ -301,7 +254,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
           <div className="columns-2 md:columns-3 gap-4 space-y-4">
             {gallery.map((img) => (
               <div key={img.id} className="break-inside-avoid rounded-2xl overflow-hidden group relative">
-                <Image src={img.imageUrl} alt={img.caption || "Gili Trawangan"} width={600} height={400} className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={img.imageUrl} alt={img.caption || "Gili Trawangan"} width={600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end">
                   <p className="text-white text-sm p-3 opacity-0 group-hover:opacity-100 transition-opacity">{img.caption}</p>
                 </div>

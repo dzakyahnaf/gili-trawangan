@@ -262,14 +262,18 @@ async function main() {
 
   // 8. Create Gallery
   const galleryData = [
-    { imageUrl: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", caption: "Keindahan bawah laut Gili", category: "snorkeling" },
-    { imageUrl: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=800&q=80", caption: "Sunset di Gili Trawangan", category: "package" },
-    { imageUrl: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80", caption: "Pulau eksotis", category: "package" },
-    { imageUrl: "https://images.unsplash.com/photo-1509233725247-49e657c54213?w=800&q=80", caption: "Honeymoon romantis", category: "package" },
-    { imageUrl: "https://images.unsplash.com/photo-1596464522927-14e4eb178b61?w=800&q=80", caption: "Aktivitas liburan", category: "activity" },
-    { imageUrl: "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?w=800&q=80", caption: "Perjalanan laut", category: "speedboat" }
+    { imageUrl: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=800&q=80", caption: "Underwater Statues Gili Meno", category: "snorkeling" },
+    { imageUrl: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", caption: "Swimming with Sea Turtles", category: "snorkeling" },
+    { imageUrl: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800&q=80", caption: "Breathtaking Sunset View", category: "snorkeling" },
+    { imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80", caption: "White Sand Beaches", category: "package" },
+    { imageUrl: "https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?w=800&q=80", caption: "Crystal Clear Waters", category: "package" },
+    { imageUrl: "https://images.unsplash.com/photo-1546500840-ae38253aba9b?w=800&q=80", caption: "Vibrant Coral Reefs", category: "snorkeling" },
+    { imageUrl: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?w=800&q=80", caption: "Mount Rinjani Summit", category: "activity" },
+    { imageUrl: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80", caption: "Sendang Gile Waterfall", category: "activity" },
+    { imageUrl: "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&q=80&w=1000", caption: "Kuta Lombok Coastline", category: "activity" }
   ];
 
+  await prisma.gallery.deleteMany({}); // Clear existing to prevent duplicates
   for (const g of galleryData) {
     await prisma.gallery.create({ data: g });
   }

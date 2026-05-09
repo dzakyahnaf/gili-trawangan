@@ -1,17 +1,19 @@
 export interface TranslationKeys {
-  nav: { home: string; packages: string; activities: string; fastboat: string; speedboat: string; about: string; contact: string; bookNow: string; searchPlaceholder: string; };
+  nav: { home: string; packages: string; fastboat: string; speedboat: string; about: string; contact: string; bookNow: string; searchPlaceholder: string; ourServices: string; rinjani: string; carRental: string; snorkeling: string; lombokTour: string; privateSpeedboatCar: string; };
   hero: { welcome: string; title1: string; title2: string; subtitle: string; cta1: string; cta2: string; };
-  services: { label: string; title: string; snorkeling: string; activities: string; packages: string; fastboat: string; speedboat: string; carRental: string; };
+  services: { label: string; title: string; snorkeling: string; packages: string; fastboat: string; speedboat: string; carRental: string; rinjani: string; lombokTour: string; privateSpeedboatCar: string; };
   filter: { title: string; subtitle: string; departFrom: string; tourType: string; departTime: string; allLocations: string; allTypes: string; allTimes: string; privateTour: string; sharingGroup: string; divingTour: string; islandHopping: string; sunsetTrip: string; anytime: string; };
   testimonials: { label: string; title: string; basedOn: string; };
   featuredPkg: { label: string; title: string; featured: string; instantBooking: string; easyCancel: string; secure: string; perPerson: string; bookNow: string; viewAll: string; startFrom: string; };
-  activitiesSection: { label: string; title: string; viewAll: string; };
+
   whyUs: { title: string; safety: string; safetyDesc: string; expertGuide: string; expertGuideDesc: string; bestPrice: string; bestPriceDesc: string; support: string; supportDesc: string; };
   gallery: { label: string; title: string; };
   meetingPoint: { label: string; title: string; chatWa: string; };
   faq: { label: string; title: string; };
   cta: { title: string; subtitle: string; button: string; };
   footer: { about: string; navigation: string; contactUs: string; location: string; aboutUs: string; terms: string; privacy: string; checkStatus: string; rights: string; };
+  serviceDetail: { overview: string; itinerary: string; priceIncludes: string; priceExcludes: string; priceStartsFrom: string; perPerson: string; bookNow: string; whatsappResponse: string; whyUs: string; whyUsDesc: string; securePayment: string; noHiddenFees: string; instantBooking: string; verifiedTour: string; topRatedSpot: string; };
+  listingPages: { fastboatIntro: string; fastboatScheduleTitle: string; fastboatScheduleDesc: string; scheduleRoute: string; scheduleDeparture: string; scheduleArrival: string; schedulePrice: string; scheduleBooking: string; scheduleBook: string; transportTitle: string; transportDesc: string; whyBookPrivateTitle: string; instantPickup: string; instantPickupDesc: string; doorToDoor: string; doorToDoorDesc: string; available247: string; available247Desc: string; };
 }
 
 export const translations: Record<string, TranslationKeys> = {
@@ -19,13 +21,18 @@ export const translations: Record<string, TranslationKeys> = {
     nav: {
       home: "Beranda",
       packages: "Paket Wisata",
-      activities: "Aktivitas",
       fastboat: "Fast Boat",
       speedboat: "Speedboat",
       about: "Tentang",
       contact: "Kontak",
       bookNow: "Pesan Sekarang",
-      searchPlaceholder: "Cari paket, aktivitas, fast boat...",
+      searchPlaceholder: "Cari paket, fast boat, snorkeling...",
+      ourServices: "Layanan Kami",
+      rinjani: "Rinjani Tracking",
+      carRental: "Sewa Mobil",
+      snorkeling: "Paket Snorkeling",
+      lombokTour: "Tur Lombok",
+      privateSpeedboatCar: "Speedboat & Mobil Privat",
     },
     hero: {
       welcome: "Selamat Datang di RH Tour & Travel",
@@ -38,12 +45,14 @@ export const translations: Record<string, TranslationKeys> = {
     services: {
       label: "Layanan Kami",
       title: "Pilih Petualangan Anda",
-      snorkeling: "Snorkeling",
-      activities: "Aktivitas",
+      snorkeling: "Paket Snorkeling",
       packages: "Paket Wisata",
       fastboat: "Fast Boat",
       speedboat: "Speedboat",
       carRental: "Sewa Mobil",
+      rinjani: "Rinjani Tracking",
+      lombokTour: "Tur Lombok",
+      privateSpeedboatCar: "Speedboat & Mobil Privat",
     },
     filter: {
       title: "Temukan Tour Impian Anda",
@@ -78,11 +87,7 @@ export const translations: Record<string, TranslationKeys> = {
       viewAll: "Lihat Semua Paket",
       startFrom: "Mulai dari",
     },
-    activitiesSection: {
-      label: "Aktivitas Seru",
-      title: "Apa yang Bisa Kamu Lakukan?",
-      viewAll: "Lihat Semua Aktivitas",
-    },
+
     whyUs: {
       title: "Kenapa Pilih Kami?",
       safety: "Keamanan Utama",
@@ -123,18 +128,60 @@ export const translations: Record<string, TranslationKeys> = {
       checkStatus: "Cek Status Booking",
       rights: "Hak cipta dilindungi.",
     },
+    serviceDetail: {
+      overview: "Ringkasan",
+      itinerary: "Jadwal Perjalanan",
+      priceIncludes: "Harga Termasuk",
+      priceExcludes: "Harga Tidak Termasuk",
+      priceStartsFrom: "Harga Mulai Dari",
+      perPerson: "/orang",
+      bookNow: "PESAN SEKARANG (WHATSAPP)",
+      whatsappResponse: "Respons cepat via WhatsApp 24/7",
+      whyUs: "Kenapa Kami?",
+      whyUsDesc: "Kami adalah operator wisata resmi di Gili Trawangan dengan pengalaman lebih dari 10 tahun. Keamanan dan kepuasan Anda adalah prioritas utama kami.",
+      securePayment: "PEMBAYARAN AMAN",
+      noHiddenFees: "TANPA BIAYA TERSEMBUNYI",
+      instantBooking: "Booking Instan",
+      verifiedTour: "Tur Terverifikasi",
+      topRatedSpot: "Spot Terbaik",
+    },
+    listingPages: {
+      fastboatIntro: "Bepergian antara Bali dan Kepulauan Gili dengan nyaman dan aman bersama pilihan layanan fast boat premium kami. Kami bermitra dengan operator paling terpercaya untuk memastikan perjalanan Anda lancar melintasi Laut Bali.",
+      fastboatScheduleTitle: "Jadwal Fast Boat",
+      fastboatScheduleDesc: "Keberangkatan harian antara Bali dan Kepulauan Gili.",
+      scheduleRoute: "Rute",
+      scheduleDeparture: "Keberangkatan",
+      scheduleArrival: "Kedatangan",
+      schedulePrice: "Harga",
+      scheduleBooking: "Pemesanan",
+      scheduleBook: "Pesan",
+      transportTitle: "Layanan Transportasi Kami",
+      transportDesc: "Pilihan transportasi cepat, privat, dan nyaman melalui laut dan darat.",
+      whyBookPrivateTitle: "Kenapa Pesan Privat?",
+      instantPickup: "Penjemputan Instan",
+      instantPickupDesc: "Tidak perlu menunggu penumpang lain. Berangkat segera setelah Anda tiba.",
+      doorToDoor: "Pintu ke Pintu",
+      doorToDoorDesc: "Dari hotel Anda di Gili langsung ke bandara atau tujuan manapun di Lombok.",
+      available247: "Tersedia 24/7",
+      available247Desc: "Tersedia untuk penerbangan pagi atau kedatangan malam di Teluk Nare / Bangsal.",
+    },
   },
   en: {
     nav: {
       home: "Home",
       packages: "Tour Packages",
-      activities: "Activities",
       fastboat: "Fast Boat",
       speedboat: "Speedboat",
       about: "About",
       contact: "Contact",
       bookNow: "Book Now",
-      searchPlaceholder: "Search packages, activities, fast boat...",
+      searchPlaceholder: "Search packages, fast boat, snorkeling...",
+      ourServices: "Our Services",
+      rinjani: "Rinjani Tracking",
+      carRental: "Car Rental",
+      snorkeling: "Snorkeling Package",
+      lombokTour: "Lombok Tour",
+      privateSpeedboatCar: "Private Speed Boat & Car",
     },
     hero: {
       welcome: "Welcome to RH Tour & Travel",
@@ -147,12 +194,14 @@ export const translations: Record<string, TranslationKeys> = {
     services: {
       label: "Our Services",
       title: "Choose Your Adventure",
-      snorkeling: "Snorkeling",
-      activities: "Activities",
+      snorkeling: "Snorkeling Package",
       packages: "Tour Packages",
       fastboat: "Fast Boat",
       speedboat: "Speedboat",
       carRental: "Car Rental",
+      rinjani: "Rinjani Tracking",
+      lombokTour: "Lombok Tour",
+      privateSpeedboatCar: "Private Speed Boat & Car",
     },
     filter: {
       title: "Find Your Dream Tour",
@@ -187,11 +236,7 @@ export const translations: Record<string, TranslationKeys> = {
       viewAll: "View All Packages",
       startFrom: "Starting from",
     },
-    activitiesSection: {
-      label: "Fun Activities",
-      title: "What Can You Do?",
-      viewAll: "View All Activities",
-    },
+
     whyUs: {
       title: "Why Choose Us?",
       safety: "Safety First",
@@ -231,6 +276,43 @@ export const translations: Record<string, TranslationKeys> = {
       privacy: "Privacy Policy",
       checkStatus: "Check Booking Status",
       rights: "All rights reserved.",
+    },
+    serviceDetail: {
+      overview: "Overview",
+      itinerary: "Itinerary",
+      priceIncludes: "Price Includes",
+      priceExcludes: "Price Excludes",
+      priceStartsFrom: "Price Starts From",
+      perPerson: "/person",
+      bookNow: "BOOK NOW (WHATSAPP)",
+      whatsappResponse: "Fast response via WhatsApp 24/7",
+      whyUs: "Why Us?",
+      whyUsDesc: "We are the official tour operator in Gili Trawangan with over 10 years of experience. Your safety and satisfaction are our top priorities.",
+      securePayment: "SECURE PAYMENT",
+      noHiddenFees: "NO HIDDEN FEES",
+      instantBooking: "Instan Booking",
+      verifiedTour: "Verified Tour",
+      topRatedSpot: "Top Rated Spot",
+    },
+    listingPages: {
+      fastboatIntro: "Travel between Bali and the Gili Islands comfortably and safely with our selection of premium fast boat services. We partner with the most reliable operators to ensure you have a smooth journey across the Bali Sea.",
+      fastboatScheduleTitle: "Fast Boat Schedule",
+      fastboatScheduleDesc: "Daily departures between Bali and Gili Islands.",
+      scheduleRoute: "Route",
+      scheduleDeparture: "Departure",
+      scheduleArrival: "Arrival",
+      schedulePrice: "Price",
+      scheduleBooking: "Booking",
+      scheduleBook: "Book",
+      transportTitle: "Our Transport Services",
+      transportDesc: "Fast, private, and comfortable transport options by sea and land.",
+      whyBookPrivateTitle: "Why Book Private?",
+      instantPickup: "Instant Pickup",
+      instantPickupDesc: "No waiting for other passengers. Departure as soon as you arrive.",
+      doorToDoor: "Door to Door",
+      doorToDoorDesc: "From your hotel in Gili directly to the airport or any spot in Lombok.",
+      available247: "24/7 Available",
+      available247Desc: "Available for early flights or late arrivals at Teluk Nare / Bangsal.",
     },
   },
 };

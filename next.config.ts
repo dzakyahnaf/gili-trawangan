@@ -8,9 +8,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "www.google.com" },
       { protocol: "https", hostname: "www.gstatic.com" },
+      { protocol: "https", hostname: "gilisnorkelingtour.com" },
     ],
   },
   serverExternalPackages: ["@prisma/client"],
 };
-
+  
 export default nextConfig;

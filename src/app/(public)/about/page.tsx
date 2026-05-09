@@ -1,18 +1,10 @@
+"use client";
 import Image from "next/image";
 import { Shield, Users, Heart, Award } from "lucide-react";
-import type { Metadata } from "next";
-import { cookies } from "next/headers";
-import { translations, type Locale } from "@/lib/i18n";
+import { useLang } from "@/components/LangProvider";
 
-export const metadata: Metadata = {
-  title: "Tentang Kami",
-  description: "RH Tour & Travel — Mitra terpercaya untuk wisata di Gili Trawangan, Lombok.",
-};
-
-export default async function AboutPage() {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
-  const t = translations[locale] || translations.id;
+export default function AboutPage() {
+  const { t, locale } = useLang();
 
   return (
     <div className="pt-16 lg:pt-20 pb-20">

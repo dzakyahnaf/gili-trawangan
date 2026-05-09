@@ -1,110 +1,144 @@
+"use client";
+import { useLang } from "@/components/LangProvider";
+import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
-import Link from "next/link";
-import { formatCurrency } from "@/lib/utils";
-import { prisma } from "@/lib/prisma";
-import { Anchor, Users, Zap, Check } from "lucide-react";
-import type { Metadata } from "next";
-import { cookies } from "next/headers";
-import { translations, type Locale } from "@/lib/i18n";
+import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Fast Boat",
-  description: "Jadwal & harga fast boat Bali ke Gili Trawangan. Ekajaya, BlueWater Express & operator terpercaya lainnya.",
-};
+export default function FastBoatPage() {
+  const { t } = useLang();
 
-export default async function FastBoatPage() {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
-  const t = translations[locale] || translations.id;
+  const schedules = [
+    { operator: "Super Scoot Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:00", arr: "12:00", price: "US$ 30" },
+    { operator: "Wijaya Buyuk Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:30", arr: "12:30", price: "US$ 29" },
+    { operator: "Wanderlust Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "09:00", arr: "13:00", price: "US$ 29" },
+    { operator: "Wahana Virendra Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:00", arr: "11:00", price: "US$ 29" },
+    { operator: "Gili-Gili Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:30", arr: "11:30", price: "US$ 35" },
+    { operator: "Eka Jaya Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "10:00", arr: "12:00", price: "US$ 35" }
+  ];
 
-  const allFastBoats = await prisma.fastBoat.findMany({
-    where: { isActive: true },
-    include: { schedules: true },
-  });
   return (
-    <div className="pt-16 lg:pt-20 pb-20">
-      <section className="relative h-64 flex items-center justify-center overflow-hidden mb-12">
-        <Image src="https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?q=80&w=1920&auto=format&fit=crop" alt="Fast Boat" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-linear-to-r from-gili-900/80 to-gili-700/60" />
-        <div className="relative z-10 text-center text-white">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-3">{t.nav.fastboat}</h1>
-          <p className="text-gili-200 text-lg">{locale === "en" ? "Schedule & prices for fast boat to Gili Trawangan" : "Jadwal & harga fast boat ke Gili Trawangan"}</p>
+    <main className="pt-20 bg-white">
+      {/* Hero */}
+      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
+        <Image 
+          src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=2000"
+          alt="Daily Fast Boat"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[#32314F]/60" />
+        <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
+          {t.nav.fastboat}
+        </h1>
+      </section>
+
+      {/* Intro Text */}
+      <section className="py-12 bg-neutral-50 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-gray-600 text-lg leading-relaxed">
+            {t.listingPages.fastboatIntro}
+          </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 space-y-16">
-        {/* Info Banner */}
-        <div className="bg-linear-to-r from-gili-50 to-gili-100 rounded-2xl p-6 border border-gili-200">
-          <p className="text-gili-800 font-medium">⚠️ {locale === "en" ? "Schedules may change due to weather conditions. Always confirm via WhatsApp or Email before booking." : "Jadwal dapat berubah sesuai kondisi cuaca. Konfirmasi selalu via WhatsApp atau Email sebelum booking."}</p>
+      {/* Schedule Table */}
+      <section className="py-20 max-w-5xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.listingPages.fastboatScheduleTitle}</h2>
+          <p className="text-gray-500">{t.listingPages.fastboatScheduleDesc}</p>
         </div>
 
-        {/* Operators */}
-        {allFastBoats.map((boat) => (
-          <div key={boat.id} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-            <div className="grid lg:grid-cols-3 gap-0">
-              {/* Boat Info */}
-              <div className="p-8 bg-linear-to-br from-gili-600 to-gili-800 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-                    <Anchor className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-2xl font-bold">{boat.name}</h2>
-                </div>
-                <p className="text-gili-200 text-sm mb-6">{boat.description}</p>
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <div className="flex items-center gap-2 text-sm"><Users className="w-4 h-4" />{boat.capacity} pax</div>
-                  <div className="flex items-center gap-2 text-sm"><Zap className="w-4 h-4" />{boat.speed}</div>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold mb-2">{locale === "en" ? "Facilities:" : "Fasilitas:"}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {boat.facilities.map((f) => (
-                      <span key={f} className="flex items-center gap-1 text-xs bg-white/10 rounded-lg px-2 py-1">
-                        <Check className="w-3 h-3" />{f}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Schedule Table */}
-              <div className="lg:col-span-2 p-6">
-                <h3 className="font-bold text-gray-900 mb-4">{locale === "en" ? "Schedule & Prices" : "Jadwal & Harga"}</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-gray-200 text-left">
-                        <th className="pb-3 pr-4 font-semibold text-gray-500">{locale === "en" ? "From" : "Dari"}</th>
-                        <th className="pb-3 pr-4 font-semibold text-gray-500">{locale === "en" ? "To" : "Ke"}</th>
-                        <th className="pb-3 pr-4 font-semibold text-gray-500">{locale === "en" ? "Departure" : "Berangkat"}</th>
-                        <th className="pb-3 pr-4 font-semibold text-gray-500">{locale === "en" ? "Arrival" : "Tiba"}</th>
-                        <th className="pb-3 pr-4 font-semibold text-gray-500">{locale === "en" ? "Price" : "Harga"}</th>
-                        <th className="pb-3 font-semibold text-gray-500"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {boat.schedules.map((s) => (
-                        <tr key={s.id} className="border-b border-gray-50 hover:bg-gili-50/50 transition-colors">
-                          <td className="py-3 pr-4 text-gray-700">{s.from}</td>
-                          <td className="py-3 pr-4 text-gray-700">{s.to}</td>
-                          <td className="py-3 pr-4 font-semibold text-gray-900">{s.departure}</td>
-                          <td className="py-3 pr-4 text-gray-600">{s.arrival}</td>
-                          <td className="py-3 pr-4 font-bold text-gili-600">{formatCurrency(s.price, locale)}</td>
-                          <td className="py-3">
-                            <Link href={`/booking?type=fastboat&id=${s.id}`} className="px-4 py-1.5 rounded-lg bg-accent-500 text-gili-900 text-xs font-bold hover:bg-accent-400 transition-colors">
-                              {t.featuredPkg.bookNow}
-                            </Link>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-[#32314F] text-white">
+                  <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleRoute}</th>
+                  <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleDeparture}</th>
+                  <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleArrival}</th>
+                  <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.schedulePrice}</th>
+                  <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleBooking}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {schedules.map((s, i) => (
+                  <tr key={i} className="hover:bg-neutral-50 transition-colors">
+                    <td className="px-6 py-6">
+                      <div className="font-bold text-gray-900 mb-1">{s.operator}</div>
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        {s.from} <ArrowRight className="w-4 h-4 text-accent-500" /> {s.to}
+                      </div>
+                    </td>
+                    <td className="px-6 py-6 text-gray-600 font-medium">{s.dep}</td>
+                    <td className="px-6 py-6 text-gray-600 font-medium">{s.arr}</td>
+                    <td className="px-6 py-6 font-black text-gili-600 text-lg">{s.price}</td>
+                    <td className="px-6 py-6">
+                      <a href="https://wa.me/6287793082501" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-500 text-gili-900 font-bold text-xs hover:bg-accent-400 transition-all">
+                        {t.listingPages.scheduleBook}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </section>
+
+      {/* Info Cards */}
+      <section className="py-20 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ServiceCard 
+            title="Super Scoot Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
+            price="US$ 30"
+            duration="4 hours | SANUR - LEMBONGAN - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/12339158_545798035586200_7994801453908321023_o-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            href="/fastboat/super-scoot-fast-boat-sanur-lembongan-penida-gili-lombok-route"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="Wijaya Buyuk Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
+            price="US$ 29"
+            duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/Wijaya-Buyuk-4-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.png"
+            href="/fastboat/wijaya-buyuk-fast-boat-sanur-lembongan-penida-gili-lombok-route"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="Wanderlust Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
+            price="US$ 29"
+            duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/xglory-prime.JPG.pagespeed.ic_.lN9EKiQo8Y-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.webp"
+            href="/fastboat/wanderlust-fast-boat-sanur-lembongan-penida-gili-lombok-route"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="Wahana Virendra Fast Boat: Gili to Padang Bai Route:"
+            price="US$ 29"
+            duration="2 hours | PADANG BAI - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/maxresdefault-2-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            href="/fastboat/wahana-virendra-fast-boat-gili-to-padang-bai-route"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="Gili-Gili Fast Boat: Gili to Padang Bai Route:"
+            price="US$ 35"
+            duration="2 hours | PADANG BAI - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/gili-gili-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            href="/fastboat/gili-gili-fast-boat-gili-to-padang-bai-route"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="Eka Jaya Fast Boat: Gili to Padang Bai"
+            price="US$ 35"
+            duration="2 hours | PADANG BAI - GILI - LOMBOK"
+            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/1562239814_eka-jaya-fast-boat-cruising-to-gili-trawangan-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            href="/fastboat/eka-jaya-fast-boat-gili-to-padang-bai"
+            isPrivate={false}
+          />
+        </div>
+      </section>
+    </main>
   );
 }

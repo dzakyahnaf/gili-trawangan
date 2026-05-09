@@ -1,17 +1,9 @@
+"use client";
 import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
-import type { Metadata } from "next";
-import { cookies } from "next/headers";
-import { translations, type Locale } from "@/lib/i18n";
+import { useLang } from "@/components/LangProvider";
 
-export const metadata: Metadata = {
-  title: "Kontak Kami",
-  description: "Hubungi RH Tour & Travel untuk informasi paket wisata, fast boat, dan aktivitas di Gili Trawangan.",
-};
-
-export default async function ContactPage() {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
-  const t = translations[locale] || translations.id;
+export default function ContactPage() {
+  const { t, locale } = useLang();
 
   return (
     <div className="pt-24 pb-20">

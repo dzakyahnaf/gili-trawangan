@@ -8,11 +8,7 @@ export default async function HomePage() {
     select: { id: true, slug: true, title: true, coverImage: true, duration: true, price: true, isFeatured: true, subtitle: true },
   });
 
-  const recentActivities = await prisma.activity.findMany({
-    where: { isActive: true },
-    take: 4,
-    select: { id: true, slug: true, name: true, coverImage: true, duration: true, price: true, category: true },
-  });
+
 
   const recentTestimonials = await prisma.testimonial.findMany({
     take: 3,
@@ -35,7 +31,7 @@ export default async function HomePage() {
   return (
     <HomeClient
       featured={featured}
-      recentActivities={recentActivities}
+
       recentTestimonials={recentTestimonials}
       gallery={gallery}
       parsedFaqs={parsedFaqs}

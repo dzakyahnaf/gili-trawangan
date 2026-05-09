@@ -3,14 +3,16 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, Search, Globe } from "lucide-react";
+import { Menu, X, Search, Globe, ChevronDown } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
   const router = useRouter();
@@ -18,18 +20,32 @@ export default function Navbar() {
 
   const navLinks = [
     { label: t.nav.home, href: "/" },
-    { label: t.nav.packages, href: "/packages" },
-    { label: t.nav.activities, href: "/activities" },
-    { label: t.nav.fastboat, href: "/fastboat" },
-    { label: t.nav.speedboat, href: "/speedboat" },
     { label: t.nav.about, href: "/about" },
     { label: t.nav.contact, href: "/contact" },
   ];
 
+  const serviceLinks = [
+    { label: t.nav.packages, href: "/packages" },
+    { label: t.nav.rinjani, href: "/rinjani-tracking" },
+    { label: t.nav.fastboat, href: "/fastboat" },
+    { label: t.nav.snorkeling, href: "/snorkeling" },
+    { label: t.nav.lombokTour, href: "/lombok-tour" },
+    { label: t.nav.privateSpeedboatCar, href: "/private-speed-boat-and-car" },
+  ];
+
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
     window.addEventListener("scroll", h, { passive: true });
-    return () => window.removeEventListener("scroll", h);
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", h);
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   useEffect(() => {
@@ -44,12 +60,10 @@ export default function Navbar() {
       const q = searchQuery.toLowerCase();
       if (q.includes("snorkel") || q.includes("paket") || q.includes("package")) {
         router.push("/packages");
-      } else if (q.includes("aktiv") || q.includes("diving") || q.includes("activity")) {
-        router.push("/activities");
       } else if (q.includes("fast") || q.includes("boat")) {
         router.push("/fastboat");
       } else if (q.includes("speed")) {
-        router.push("/speedboat");
+        router.push("/private-speed-boat-and-car");
       } else if (q.includes("kontak") || q.includes("contact")) {
         router.push("/contact");
       } else {
@@ -77,6 +91,7 @@ export default function Navbar() {
                 fill
                 sizes="100px"
                 className="object-cover"
+                priority
               />
             </div>
             <div>
@@ -91,19 +106,71 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === link.href
+            <Link
+              href="/"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/"
+                  ? "text-accent-400 bg-white/10"
+                  : "text-white/90 hover:text-accent-400 hover:bg-white/10"
+              }`}
+            >
+              {t.nav.home}
+            </Link>
+
+            {/* Our Services Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  serviceLinks.some(link => pathname === link.href)
                     ? "text-accent-400 bg-white/10"
                     : "text-white/90 hover:text-accent-400 hover:bg-white/10"
                 }`}
               >
-                {link.label}
-              </Link>
-            ))}
+                {t.nav.ourServices}
+                <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl py-2 z-50 animate-slide-up border border-gray-100">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setDropdownOpen(false)}
+                      className={`block px-4 py-2.5 text-sm transition-colors ${
+                        pathname === link.href
+                          ? "bg-gili-50 text-gili-600 font-semibold"
+                          : "text-gray-700 hover:bg-gili-50 hover:text-gili-600"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/about"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/about"
+                  ? "text-accent-400 bg-white/10"
+                  : "text-white/90 hover:text-accent-400 hover:bg-white/10"
+              }`}
+            >
+              {t.nav.about}
+            </Link>
+            <Link
+              href="/contact"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/contact"
+                  ? "text-accent-400 bg-white/10"
+                  : "text-white/90 hover:text-accent-400 hover:bg-white/10"
+              }`}
+            >
+              {t.nav.contact}
+            </Link>
 
             {/* Search Toggle */}
             <button
@@ -201,20 +268,53 @@ export default function Navbar() {
         {open && (
           <div className="lg:hidden pb-4 animate-slide-down">
             <div className="bg-white rounded-2xl shadow-2xl p-4 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
-                    pathname === link.href
-                      ? "bg-gili-50 text-gili-600"
-                      : "text-gray-700 hover:bg-gili-50 hover:text-gili-600"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
+                  pathname === "/" ? "bg-gili-50 text-gili-600" : "text-gray-700 hover:bg-gili-50 hover:text-gili-600"
+                }`}
+              >
+                {t.nav.home}
+              </Link>
+
+              {/* Mobile Our Services */}
+              <div className="px-4 py-3 border-t border-gray-100 mt-1">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{t.nav.ourServices}</p>
+                <div className="grid grid-cols-1 gap-1">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                        pathname === link.href ? "text-gili-600 font-bold bg-gili-50" : "text-gray-600 hover:text-gili-600"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                href="/about"
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-3 rounded-xl font-medium transition-colors border-t border-gray-100 ${
+                  pathname === "/about" ? "bg-gili-50 text-gili-600" : "text-gray-700 hover:bg-gili-50 hover:text-gili-600"
+                }`}
+              >
+                {t.nav.about}
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
+                  pathname === "/contact" ? "bg-gili-50 text-gili-600" : "text-gray-700 hover:bg-gili-50 hover:text-gili-600"
+                }`}
+              >
+                {t.nav.contact}
+              </Link>
               <Link
                 href="/booking"
                 onClick={() => setOpen(false)}
