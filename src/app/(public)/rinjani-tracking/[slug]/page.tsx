@@ -34,28 +34,62 @@ const RINJANI_DATA: Record<string, any> = {
     price: "US$ 185",
     images: ["https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000"],
     en: {
-      title: "Trekking Summit Rinjani 3 Days 2 Night",
-      description: "The complete Rinjani experience. This 3-day trek includes the summit attack, a descent to the Segara Anak crater lake, a soak in the hot springs, and a second camp at Senaru crater rim.",
-      highlights: ["Summit 3726m", "Segara Anak Lake", "Hot Springs", "Senaru Crater Rim"],
+      title: "Mount Rinjani Trekking 3 Days 2 Nights (Sembalun - Torean)",
+      description: "A 3-day Rinjani trekking package starting from Sembalun and descending via the exotic Torean route (Jurassic Park route). Includes pickup, Lombok tour, and summit attack to 3,726 masl.",
+      highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Exotic Torean Route", "Lombok Tour"],
       itinerary: [
-        { time: "Day 1", title: "Sembalun to Crater Rim", desc: "Start the trek and camp at Sembalun Rim." },
-        { time: "Day 2", title: "Summit & Lake", desc: "Sunrise at summit, descent to the lake and hot springs. Climb to Senaru Rim." },
-        { time: "Day 3", title: "Senaru Rim to Finish", desc: "Sunrise at Senaru Rim, long descent to Senaru village." }
+        { time: "Preparation", title: "Pickup & Lombok Tour", desc: "Pickup (max 2 PM). Tour to Sade Village, Mandalika, Tanjung Aan. Check-in at Sembalun accommodation & briefing." },
+        { time: "Day 1", title: "Sembalun to Sembalun Crater Rim", desc: "Start trekking from Sembalun after breakfast. Pass through Pos 1, 2, 3, and camp at Sembalun Crater Rim." },
+        { time: "Day 2", title: "Rinjani Summit & Segara Anak Lake", desc: "Wake up at 1 AM for summit attack. Return to crater rim for breakfast, then descend to Segara Anak Lake and natural hot springs." },
+        { time: "Day 3", title: "Segara Anak Lake to Torean", desc: "Descend via Torean route (Jurassic Park route). Arrive at Torean village in the afternoon and transfer to your next destination." }
       ],
-      includes: ["Guide & Porters", "Tents & Sleeping Gear", "All Meals (B,L,D)", "Park Fees", "Transfers"],
-      excludes: ["Personal gear", "Tips", "Flashlight"]
+      includes: ["Trekking Guide & Porters", "Tents & Sleeping Gear", "Meals during trek", "Transport & Pickup", "Lombok Tour (Day 0)"],
+      excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
     },
     id: {
-      title: "Trekking Puncak Rinjani 3 Hari 2 Malam",
-      description: "Pengalaman Rinjani yang lengkap. Pendakian 3 hari ini mencakup pendakian puncak, turun ke danau Segara Anak, berendam di pemandian air panas, dan berkemah kedua di Pelawangan Senaru.",
-      highlights: ["Puncak 3726m", "Danau Segara Anak", "Pemandian Air Panas", "Pelawangan Senaru"],
+      title: "Pendakian Rinjani 3 Hari 2 Malam (Rute Sembalun - Torean)",
+      description: "Paket pendakian Rinjani 3 Hari 2 Malam melalui rute Sembalun dan turun melalui jalur Torean yang eksotis (Jalur Jurassic Park). Termasuk penjemputan, wisata Lombok (Sade, Mandalika), dan pendakian puncak 3.726 mdpl.",
+      highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Jalur Eksotis Torean", "Wisata Lombok"],
       itinerary: [
-        { time: "Hari 1", title: "Sembalun ke Pelawangan", desc: "Mulai pendakian dan berkemah di Pelawangan Sembalun." },
-        { time: "Hari 2", title: "Puncak & Danau", desc: "Sunrise di puncak, turun ke danau dan air panas. Mendaki ke Pelawangan Senaru." },
-        { time: "Hari 3", title: "Pelawangan Senaru ke Finish", desc: "Sunrise di Pelawangan Senaru, turun panjang ke desa Senaru." }
+        { time: "Persiapan", title: "Penjemputan & Wisata Lombok", desc: "Penjemputan (maks 14.00). Wisata ke Desa Adat Sade, Mandalika, Tanjung Aan. Check-in penginapan di Sembalun & briefing." },
+        { time: "Hari 1", title: "Sembalun ke Pelawangan Sembalun", desc: "Mulai pendakian dari Sembalun setelah sarapan. Melewati Pos 1, 2, 3, dan berkemah di Pelawangan Sembalun." },
+        { time: "Hari 2", title: "Puncak Rinjani & Danau Segara Anak", desc: "Bangun pukul 01.00 untuk summit attack. Turun ke Pelawangan untuk sarapan, lalu lanjut ke Danau Segara Anak dan pemandian air panas alami." },
+        { time: "Hari 3", title: "Danau Segara Anak ke Torean", desc: "Turun melalui jalur Torean (Jalur Jurassic Park). Tiba di Dusun Torean sore hari dan transfer ke tujuan selanjutnya." }
       ],
-      includes: ["Pemandu & Porter", "Tenda & Alat Tidur", "Semua Makan (Pagi, Siang, Malam)", "Biaya Taman Nasional", "Transfer"],
-      excludes: ["Alat pribadi", "Tip", "Senter"]
+      includes: ["Pemandu & Porter", "Tenda & Alat Tidur", "Makan selama pendakian", "Transportasi & Penjemputan", "Wisata Lombok (Day 0)"],
+      excludes: ["Tiket pesawat", "Alat pendakian pribadi", "Tip guide & porter"]
+    }
+  },
+  "4d3n-summit": {
+    price: "US$ 235",
+    images: ["https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000"],
+    en: {
+      title: "Mount Rinjani Trekking 4 Days 3 Nights (Sembalun - Torean)",
+      description: "A more relaxed 4-day Rinjani trekking package via Sembalun and Torean routes. Includes pickup, Lombok tour, Rinjani summit, Segara Anak lake, and an extra night of camping at Birisan Nangka.",
+      highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Birisan Nangka Camp", "Lombok Tour"],
+      itinerary: [
+        { time: "Preparation", title: "Pickup & Lombok Tour", desc: "Pickup (max 2 PM). Tour to Sade Village, Mandalika, Tanjung Aan. Check-in at Sembalun accommodation & briefing." },
+        { time: "Day 1", title: "Sembalun to Sembalun Crater Rim", desc: "Start trekking from Sembalun after breakfast. Pass through Pos 1, 2, 3, and camp at Sembalun Crater Rim." },
+        { time: "Day 2", title: "Rinjani Summit & Segara Anak Lake", desc: "Wake up at 1 AM for summit attack. Return to crater rim for breakfast, then descend to Segara Anak Lake and natural hot springs." },
+        { time: "Day 3", title: "Segara Anak Lake to Birisan Nangka", desc: "Prepare to hike to Birisan Nangka camp. Enjoy the scenic Torean route and camp for the night." },
+        { time: "Day 4", title: "Birisan Nangka to Torean Basecamp", desc: "Descend to Torean Basecamp and finish the trekking program." }
+      ],
+      includes: ["Trekking Guide & Porters", "Tents & Sleeping Gear", "Meals during trek", "Transport & Pickup", "Lombok Tour (Day 0)"],
+      excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
+    },
+    id: {
+      title: "Pendakian Rinjani 4 Hari 3 Malam (Rute Sembalun - Torean)",
+      description: "Paket pendakian Rinjani 4 Hari 3 Malam yang lebih santai melalui rute Sembalun dan Torean. Termasuk penjemputan, wisata Lombok, puncak Rinjani, Segara Anak, dan ekstra camping di Birisan Nangka.",
+      highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Camping Birisan Nangka", "Wisata Lombok"],
+      itinerary: [
+        { time: "Persiapan", title: "Penjemputan & Wisata Lombok", desc: "Penjemputan (maks 14.00). Wisata ke Desa Adat Sade, Mandalika, Tanjung Aan. Check-in penginapan di Sembalun & briefing." },
+        { time: "Hari 1", title: "Sembalun ke Pelawangan Sembalun", desc: "Mulai pendakian dari Sembalun setelah sarapan. Melewati Pos 1, 2, 3, dan berkemah di Pelawangan Sembalun." },
+        { time: "Hari 2", title: "Puncak Rinjani & Danau Segara Anak", desc: "Bangun pukul 01.00 untuk summit attack. Turun ke Pelawangan untuk sarapan, lalu lanjut ke Danau Segara Anak dan pemandian air panas alami." },
+        { time: "Hari 3", title: "Danau Segara Anak ke Birisan Nangka", desc: "Persiapan menuju area camp Birisan Nangka. Menikmati panorama jalur Torean hingga tiba di camp untuk bermalam." },
+        { time: "Hari 4", title: "Birisan Nangka ke Basecamp Torean", desc: "Turun menuju Basecamp Torean dan program selesai." }
+      ],
+      includes: ["Pemandu & Porter", "Tenda & Alat Tidur", "Makan selama pendakian", "Transportasi & Penjemputan", "Wisata Lombok (Day 0)"],
+      excludes: ["Tiket pesawat", "Alat pendakian pribadi", "Tip guide & porter"]
     }
   }
 };

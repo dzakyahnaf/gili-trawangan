@@ -13,7 +13,27 @@ export default function FastBoatPage() {
     { operator: "Wanderlust Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "09:00", arr: "13:00", price: "US$ 29" },
     { operator: "Wahana Virendra Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:00", arr: "11:00", price: "US$ 29" },
     { operator: "Gili-Gili Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:30", arr: "11:30", price: "US$ 35" },
-    { operator: "Eka Jaya Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "10:00", arr: "12:00", price: "US$ 35" }
+    { operator: "Eka Jaya Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "10:00", arr: "12:00", price: "US$ 35" },
+    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Gili Trawangan", dep: "09:30", arr: "12:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Sanur", dep: "12:30", arr: "16:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Bangsal (LBK)", dep: "09:30", arr: "13:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Sanur", dep: "13:10", arr: "16:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Lembongan", dep: "09:00", arr: "09:45", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Serangan", dep: "16:00", arr: "16:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Gili Trawangan", dep: "09:00", arr: "12:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Serangan", dep: "12:30", arr: "16:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Bangsal (LBK)", dep: "09:00", arr: "13:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Serangan", dep: "13:10", arr: "16:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Padang Bai", dep: "10:00", arr: "10:20", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Lembongan", dep: "15:00", arr: "15:20", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Gili Trawangan", dep: "10:00", arr: "12:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Lembongan", dep: "12:30", arr: "15:20", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Bangsal (LBK)", dep: "10:00", arr: "13:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Lembongan", dep: "13:10", arr: "15:20", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Gili Trawangan", dep: "10:30", arr: "12:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Padang Bai", dep: "12:30", arr: "14:30", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Bangsal (LBK)", dep: "10:30", arr: "13:00", price: "-" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Padang Bai", dep: "13:10", arr: "14:30", price: "-" }
   ];
 
   return (
@@ -27,7 +47,7 @@ export default function FastBoatPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#32314F]/60" />
+        <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
           {t.nav.fastboat}
         </h1>
@@ -53,7 +73,7 @@ export default function FastBoatPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#32314F] text-white">
+                <tr className="bg-gili-600 text-white">
                   <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleRoute}</th>
                   <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleDeparture}</th>
                   <th className="px-6 py-5 font-bold uppercase tracking-wider text-xs">{t.listingPages.scheduleArrival}</th>
@@ -135,6 +155,14 @@ export default function FastBoatPage() {
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/1562239814_eka-jaya-fast-boat-cruising-to-gili-trawangan-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
             href="/fastboat/eka-jaya-fast-boat-gili-to-padang-bai"
+            isPrivate={false}
+          />
+          <ServiceCard 
+            title="D'Camel Fast Ferry"
+            price="Contact Us"
+            duration="Daily | BALI - NUSA PENIDA - LOMBOK - GILI"
+            image="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"
+            href="/fastboat/d-camel-fast-ferry"
             isPrivate={false}
           />
         </div>

@@ -104,7 +104,7 @@ export default function CarRentalPage() {
                     <p className="text-white text-xs font-medium">{service.unit}</p>
                   </div>
                 </div>
-                <div className="p-6 flex-grow">
+                <div className="p-6 grow">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600 text-sm">{service.desc}</p>
                 </div>

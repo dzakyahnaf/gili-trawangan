@@ -21,7 +21,7 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
   return (
     <main className="pt-16 lg:pt-20 bg-neutral-50 min-h-screen">
       {/* Hero Header */}
-      <section className="relative py-20 lg:py-32 bg-[#32314F] overflow-hidden">
+      <section className="relative py-20 lg:py-32 bg-gili-600 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image src={images[0]} alt="Background" fill sizes="100vw" className="object-cover blur-sm" />
         </div>
@@ -47,12 +47,12 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
           {/* Left Column (Content) */}
           <div className="lg:col-span-2 space-y-12">
             {/* Image Slider / Gallery */}
-            <div className="relative h-96 lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
+            <div className="relative h-96 lg:h-[500px] rounded-4xl overflow-hidden shadow-2xl">
               <Image src={images[0]} alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 66vw" className="object-cover" />
             </div>
 
             {/* Description */}
-            <div className="bg-white rounded-[2rem] p-8 lg:p-12 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-4xl p-8 lg:p-12 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-100">{t.serviceDetail.overview}</h2>
               <p className="text-gray-600 leading-relaxed text-lg">
                 {description}
@@ -72,7 +72,7 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
             </div>
 
             {/* Itinerary */}
-            <div className="bg-white rounded-[2rem] p-8 lg:p-12 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-4xl p-8 lg:p-12 shadow-sm border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-100">{t.serviceDetail.itinerary}</h2>
               <div className="space-y-8 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-100">
                 {itinerary.map((item, i) => (
@@ -91,7 +91,7 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
 
             {/* Inclusions / Exclusions */}
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-green-50 rounded-[2rem] p-8 border border-green-100">
+              <div className="bg-green-50 rounded-4xl p-8 border border-green-100">
                 <h3 className="text-xl font-bold text-green-800 mb-6">{t.serviceDetail.priceIncludes}</h3>
                 <ul className="space-y-3">
                   {includes.map((item, i) => (
@@ -102,7 +102,7 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
                   ))}
                 </ul>
               </div>
-              <div className="bg-red-50 rounded-[2rem] p-8 border border-red-100">
+              <div className="bg-red-50 rounded-4xl p-8 border border-red-100">
                 <h3 className="text-xl font-bold text-red-800 mb-6">{t.serviceDetail.priceExcludes}</h3>
                 <ul className="space-y-3">
                   {excludes.map((item, i) => (
@@ -139,14 +139,14 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
 
               <Link 
                 href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20ingin%20tanya%20detail%20mengenai%20${title}`}
-                className="block w-full py-5 rounded-[1.5rem] bg-accent-500 text-gili-900 font-black text-center shadow-lg hover:bg-accent-400 hover:scale-[1.02] transition-all"
+                className="block w-full py-5 rounded-3xl bg-accent-500 text-gili-900 font-black text-center shadow-lg hover:bg-accent-400 hover:scale-[1.02] transition-all"
               >
                 {t.serviceDetail.bookNow}
               </Link>
               <p className="text-center text-[10px] text-gray-400 mt-4 font-bold uppercase tracking-tighter">{t.serviceDetail.whatsappResponse}</p>
             </div>
 
-            <div className="bg-[#32314F] rounded-[2rem] p-8 text-white shadow-xl">
+            <div className="bg-gili-600 rounded-4xl p-8 text-white shadow-xl">
               <h4 className="font-bold mb-4 flex items-center gap-2"><Star className="w-5 h-5 text-accent-400 fill-accent-400" /> {t.serviceDetail.whyUs}</h4>
               <p className="text-white/60 text-xs leading-relaxed mb-6">
                 {t.serviceDetail.whyUsDesc}

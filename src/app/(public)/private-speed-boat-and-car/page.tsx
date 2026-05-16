@@ -45,7 +45,7 @@ export default function PrivateSpeedboatCarPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#32314F]/60" />
+        <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
           {t.nav.privateSpeedboatCar}
         </h1>
@@ -67,7 +67,7 @@ export default function PrivateSpeedboatCarPage() {
       {/* Info Section */}
       <section className="py-20 bg-neutral-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black mb-8 text-[#FDD973]">{t.listingPages.whyBookPrivateTitle}</h2>
+          <h2 className="text-3xl font-black mb-8 text-accent-300">{t.listingPages.whyBookPrivateTitle}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 border border-white/10 rounded-3xl">
               <Zap className="w-10 h-10 text-accent-400 mx-auto mb-4" />

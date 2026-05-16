@@ -60,7 +60,7 @@ export default function LombokTourPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#32314F]/60" />
+        <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
           {t.nav.lombokTour}
         </h1>

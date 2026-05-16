@@ -14,7 +14,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ title, price, duration, image, href, isPrivate }: ServiceCardProps) {
   return (
-    <Link href={href} className="group flex flex-col bg-[#32314F] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/20 border border-white/5">
+    <Link href={href} className="group flex flex-col bg-gili-600 rounded-4xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/20 border border-white/5">
       {/* Image Container */}
       <div className="relative h-56 overflow-hidden">
         <Image 
@@ -38,8 +38,8 @@ export default function ServiceCard({ title, price, duration, image, href, isPri
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-[#FDD973] mb-5 leading-tight group-hover:text-accent-400 transition-colors line-clamp-3 min-h-[5rem]">
+      <div className="p-6 flex flex-col grow">
+        <h3 className="text-xl font-bold text-accent-300 mb-5 leading-tight group-hover:text-accent-400 transition-colors line-clamp-3 min-h-20">
           {title}
         </h3>
 
@@ -66,9 +66,9 @@ export default function ServiceCard({ title, price, duration, image, href, isPri
         {/* Footer */}
         <div className="mt-auto flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-2xl font-black text-[#FDD973] tracking-tight">{price}</span>
+            <span className="text-2xl font-black text-accent-300 tracking-tight">{price}</span>
           </div>
-          <div className="bg-[#FDD973] text-gili-900 px-5 py-2.5 rounded-full font-bold text-sm shadow-lg group-hover:bg-accent-400 group-hover:scale-105 transition-all">
+          <div className="bg-accent-300 text-gili-900 px-5 py-2.5 rounded-full font-bold text-sm shadow-lg group-hover:bg-accent-400 group-hover:scale-105 transition-all">
             Book Now
           </div>
         </div>

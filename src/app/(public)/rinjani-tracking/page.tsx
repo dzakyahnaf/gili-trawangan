@@ -16,11 +16,19 @@ export default function RinjaniTrackingPage() {
       isPrivate: true
     },
     {
-      title: "Trekking Summit Rinjani 3 Days 2 Night",
+      title: "Trekking Rinjani 3 Days 2 Night (Sembalun - Torean)",
       price: "US$ 185",
       duration: "3D / 2N",
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000",
       href: "/rinjani-tracking/3d2n-summit",
+      isPrivate: true
+    },
+    {
+      title: "Trekking Rinjani 4 Days 3 Night (Sembalun - Torean)",
+      price: "US$ 235",
+      duration: "4D / 3N",
+      image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000",
+      href: "/rinjani-tracking/4d3n-summit",
       isPrivate: true
     }
   ];
@@ -36,7 +44,7 @@ export default function RinjaniTrackingPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#32314F]/60" />
+        <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
           {t.nav.rinjani}
         </h1>
