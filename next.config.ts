@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.gstatic.com" },
       { protocol: "https", hostname: "gilisnorkelingtour.com" },
       { protocol: "https", hostname: "www.giliway.com" },
+      { protocol: "https", hostname: "opentriplombok.com" },
     ],
   },
   serverExternalPackages: ["@prisma/client"],
