@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, getPackageCoverImage } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 import { Clock, Zap, ShieldCheck, Lock } from "lucide-react";
 import type { Metadata } from "next";
@@ -49,7 +49,7 @@ export default async function PackagesPage() {
               className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-gray-100"
             >
               <div className="relative h-52 overflow-hidden">
-                <Image src={pkg.coverImage} alt={pkg.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src={getPackageCoverImage(pkg.slug, pkg.coverImage)} alt={pkg.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute bottom-3 left-3 flex gap-2">
                   <span className="px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold backdrop-blur-sm">{pkg.duration}</span>
                   {pkg.isFeatured && <span className="px-3 py-1 rounded-full bg-accent-500 text-gili-900 text-xs font-semibold">⭐ Featured</span>}

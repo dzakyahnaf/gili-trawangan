@@ -25,14 +25,132 @@ interface HomeClientProps {
 export default function HomeClient({ featured, recentActivities, recentTestimonials, gallery, parsedFaqs }: HomeClientProps) {
   const { t, locale } = useLang();
 
+  // Custom premium detailed vector illustrations for categories
+  const SnorkelingIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="snorkelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="100%" stopColor="#0284c7" />
+        </linearGradient>
+      </defs>
+      <path d="M4 52C12 52 16 48 24 48C32 48 36 52 44 52C52 52 56 48 60 48" stroke="url(#snorkelGrad)" strokeWidth="3" strokeLinecap="round" />
+      <rect x="12" y="16" width="32" height="20" rx="10" fill="url(#snorkelGrad)" fillOpacity="0.15" stroke="url(#snorkelGrad)" strokeWidth="3" />
+      <circle cx="21" cy="26" r="5" stroke="url(#snorkelGrad)" strokeWidth="2.5" fill="white" fillOpacity="0.3" />
+      <circle cx="35" cy="26" r="5" stroke="url(#snorkelGrad)" strokeWidth="2.5" fill="white" fillOpacity="0.3" />
+      <path d="M26 26H30" stroke="url(#snorkelGrad)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M44 10V30C44 36 40 40 34 40" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M34 40C32 40 30 38 30 36" stroke="#f59e0b" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="48" cy="16" r="2" fill="#38bdf8" />
+    </svg>
+  );
+
+  const TourIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="tourGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#c084fc" />
+          <stop offset="100%" stopColor="#7e22ce" />
+        </linearGradient>
+      </defs>
+      <rect x="12" y="20" width="40" height="30" rx="6" fill="url(#tourGrad)" fillOpacity="0.15" stroke="url(#tourGrad)" strokeWidth="3" />
+      <path d="M24 20V12C24 9.8 25.8 8 28 8H36C38.2 8 40 9.8 40 12V20" stroke="url(#tourGrad)" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="20" x2="22" y2="50" stroke="url(#tourGrad)" strokeWidth="2.5" />
+      <line x1="42" y1="20" x2="42" y2="50" stroke="url(#tourGrad)" strokeWidth="2.5" />
+      <path d="M32 28L34 33L39 35L34 37L32 42L30 37L25 35L30 33Z" fill="#eab308" />
+    </svg>
+  );
+
+  const RinjaniIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="rinjaniGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#818cf8" />
+          <stop offset="100%" stopColor="#4338ca" />
+        </linearGradient>
+      </defs>
+      <circle cx="46" cy="20" r="8" fill="#eab308" fillOpacity="0.8" />
+      <path d="M6 48L26 14L46 48H6Z" fill="url(#rinjaniGrad)" fillOpacity="0.15" stroke="url(#rinjaniGrad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M20 24L26 14L32 24L29 21.5L26 23L23 21.5Z" fill="white" stroke="url(#rinjaniGrad)" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M34 48L44 30L54 48H34Z" fill="url(#rinjaniGrad)" fillOpacity="0.3" stroke="url(#rinjaniGrad)" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M12 48C20 44 24 40 32 40C40 40 44 48 52 48" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+
+  const LombokIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lombokGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#34d399" />
+          <stop offset="100%" stopColor="#047857" />
+        </linearGradient>
+      </defs>
+      <path d="M32 4C20 4 10 14 10 26C10 40 32 58 32 58C32 58 54 40 54 26C54 14 44 4 32 4Z" fill="url(#lombokGrad)" fillOpacity="0.15" stroke="url(#lombokGrad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M28 42C29 34 33 30 36 24" stroke="#854d0e" strokeWidth="3" strokeLinecap="round" />
+      <path d="M36 24C32 22 26 24 24 26" stroke="url(#lombokGrad)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M36 24C36 18 32 14 28 14" stroke="url(#lombokGrad)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M36 24C40 20 46 20 48 24" stroke="url(#lombokGrad)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M36 24C40 26 44 30 42 34" stroke="url(#lombokGrad)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M22 42H42" stroke="#eab308" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+
+  const BoatIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="boatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fb923c" />
+          <stop offset="100%" stopColor="#c2410c" />
+        </linearGradient>
+      </defs>
+      <path d="M4 48H16M8 54H24" stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M14 42L48 42C54 42 58 38 60 32L54 24H22L14 36L14 42Z" fill="url(#boatGrad)" fillOpacity="0.15" stroke="url(#boatGrad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M24 24V16H42L46 24H24Z" fill="white" fillOpacity="0.4" stroke="url(#boatGrad)" strokeWidth="2.5" strokeLinejoin="round" />
+      <rect x="28" y="18" width="4" height="4" rx="1" fill="url(#boatGrad)" />
+      <rect x="36" y="18" width="4" height="4" rx="1" fill="url(#boatGrad)" />
+      <path d="M24 48C32 44 40 48 48 48C56 48 60 44 60 44" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+
+  const SpeedboatIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2dd4bf" />
+          <stop offset="100%" stopColor="#0f766e" />
+        </linearGradient>
+      </defs>
+      <circle cx="32" cy="32" r="24" stroke="url(#speedGrad)" strokeWidth="2" strokeDasharray="4 4" />
+      <path d="M10 38L38 38C44 38 48 35 50 30L46 22H24L16 32L10 38Z" fill="url(#speedGrad)" fillOpacity="0.15" stroke="url(#speedGrad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M34 22L38 16H44L46 22" stroke="url(#speedGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 44C16 40 26 44 36 44C46 44 54 40 58 40" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+
+  const ContactIcon = () => (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="contactGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f87171" />
+          <stop offset="100%" stopColor="#b91c1c" />
+        </linearGradient>
+      </defs>
+      <path d="M12 40V18C12 12.5 16.5 8 22 8H42C47.5 8 52 12.5 52 18V34C52 39.5 47.5 44 42 44H24L12 52V40Z" fill="url(#contactGrad)" fillOpacity="0.15" stroke="url(#contactGrad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M32 16L34.5 21L40 22L36 26L37.5 31.5L32 28.5L26.5 31.5L28 26L24 22L29.5 21L32 16Z" fill="#eab308" />
+      <circle cx="22" cy="24" r="2" fill="url(#contactGrad)" />
+      <circle cx="32" cy="24" r="2" fill="url(#contactGrad)" />
+      <circle cx="42" cy="24" r="2" fill="url(#contactGrad)" />
+    </svg>
+  );
+
   const serviceCategories = [
-    { icon: Waves, label: t.services.snorkeling, href: "/snorkeling", color: "from-blue-500 to-blue-600" },
-    { icon: Map, label: t.services.packages, href: "/packages", color: "from-purple-500 to-purple-600" },
-    { icon: Mountain, label: t.services.rinjani, href: "/rinjani-tracking", color: "from-indigo-500 to-indigo-600" },
-    { icon: MapPin, label: t.services.lombokTour, href: "/lombok-tour", color: "from-emerald-500 to-emerald-600" },
-    { icon: Ship, label: t.services.fastboat, href: "/fastboat", color: "from-orange-500 to-orange-600" },
-    { icon: Sailboat, label: t.services.privateSpeedboatCar, href: "/private-speed-boat-and-car", color: "from-teal-500 to-teal-600" },
-    { icon: MessageCircle, label: t.nav.contact, href: "/contact", color: "from-red-500 to-red-600" },
+    { icon: SnorkelingIcon, label: t.services.snorkeling, href: "/snorkeling", color: "from-blue-500/10 to-sky-500/5 border-blue-200" },
+    { icon: TourIcon, label: t.services.packages, href: "/packages", color: "from-purple-500/10 to-fuchsia-500/5 border-purple-200" },
+    { icon: RinjaniIcon, label: t.services.rinjani, href: "/rinjani-tracking", color: "from-indigo-500/10 to-blue-500/5 border-indigo-200" },
+    { icon: LombokIcon, label: t.services.lombokTour, href: "/lombok-tour", color: "from-emerald-500/10 to-teal-500/5 border-emerald-200" },
+    { icon: BoatIcon, label: t.services.fastboat, href: "/fastboat", color: "from-orange-500/10 to-amber-500/5 border-orange-200" },
+    { icon: SpeedboatIcon, label: t.services.privateSpeedboatCar, href: "/private-speed-boat-and-car", color: "from-teal-500/10 to-cyan-500/5 border-teal-200" },
+    { icon: ContactIcon, label: t.nav.contact, href: "/contact", color: "from-red-500/10 to-rose-500/5 border-red-200" },
   ];
 
   return (
@@ -75,9 +193,9 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
             {serviceCategories.map((cat) => (
-              <Link key={cat.label} href={cat.href} className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-neutral-50 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${cat.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                  <cat.icon className="w-8 h-8 text-white" />
+              <Link key={cat.label} href={cat.href} className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-neutral-50 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-gray-100">
+                <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${cat.color} border flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-300`}>
+                  <cat.icon />
                 </div>
                 <span className="font-semibold text-gray-800 text-sm text-center group-hover:text-gili-500 transition-colors">{cat.label}</span>
               </Link>

@@ -1,12 +1,18 @@
 import { prisma } from "@/lib/prisma";
 import HomeClient from "@/components/public/HomeClient";
+import { getPackageCoverImage } from "@/lib/utils";
 
 export default async function HomePage() {
-  const featured = await prisma.package.findMany({
+  const rawFeatured = await prisma.package.findMany({
     where: { isFeatured: true, isActive: true },
     take: 4,
     select: { id: true, slug: true, title: true, coverImage: true, duration: true, price: true, isFeatured: true, subtitle: true },
   });
+
+  const featured = rawFeatured.map(pkg => ({
+    ...pkg,
+    coverImage: getPackageCoverImage(pkg.slug, pkg.coverImage)
+  }));
 
 
 

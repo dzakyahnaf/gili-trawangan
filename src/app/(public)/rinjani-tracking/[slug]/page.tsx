@@ -5,7 +5,7 @@ import { useLang } from "@/components/LangProvider";
 
 const RINJANI_DATA: Record<string, any> = {
   "2d1n-summit": {
-    images: ["https://images.unsplash.com/photo-1608955074213-39d73d57d716?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/rinjani-tracking1.jpg"],
     en: {
       price: "US$ 210/pax",
       title: "Trekking Summit Rinjani 2 Days 1 Night",
@@ -32,7 +32,7 @@ const RINJANI_DATA: Record<string, any> = {
     }
   },
   "3d2n-summit": {
-    images: ["https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/rinjani-tracking2.jpg"],
     en: {
       price: "US$ 275/pax",
       title: "Mount Rinjani Trekking 3 Days 2 Nights (Sembalun - Torean)",
@@ -63,7 +63,7 @@ const RINJANI_DATA: Record<string, any> = {
     }
   },
   "4d3n-summit": {
-    images: ["https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/rinjani-tracking3.avif"],
     en: {
       price: "US$ 300/pax",
       title: "Mount Rinjani Trekking 4 Days 3 Nights (Sembalun - Torean)",

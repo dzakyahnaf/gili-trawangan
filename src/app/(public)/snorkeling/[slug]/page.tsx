@@ -97,37 +97,6 @@ const SNORKELING_DATA: Record<string, any> = {
       excludes: ["Makan Siang", "Foto", "Penjemputan"]
     }
   },
-  "private-snorkeling-sunset": {
-    images: ["/images/snorkeling4.jpg"],
-    en: {
-      price: "US$ 40",
-      title: "PRIVATE SNORKELING AND SUNSET TRIP",
-      description: "Enjoy a private snorkeling session followed by a breathtaking sunset view from your private boat. This romantic and exclusive trip is perfect for couples and small groups.",
-      highlights: ["Private Boat", "3 Snorkeling Spots", "Sunset on the boat", "Turtle Point"],
-      itinerary: [
-        { time: "16:00", title: "Departure", desc: "Start your private journey from the beach." },
-        { time: "16:30", title: "Snorkeling", desc: "Visit top spots including the underwater statues and turtle point." },
-        { time: "17:30", title: "Sunset Watch", desc: "Relax on the boat as the sky turns golden." },
-        { time: "18:15", title: "Return", desc: "Head back to the shore after a magical experience." }
-      ],
-      includes: ["Private Boat", "Captain", "Full Gear", "Life Jackets", "Mineral Water"],
-      excludes: ["Lunch/Dinner", "GoPro Photos", "Personal Expenses"]
-    },
-    id: {
-      price: "Rp 600.000",
-      title: "SNORKELING PRIVAT DAN TUR SUNSET",
-      description: "Nikmati sesi snorkeling privat diikuti oleh pemandangan matahari terbenam yang memukau dari kapal privat Anda. Perjalanan romantis dan eksklusif ini sangat cocok untuk pasangan dan grup kecil.",
-      highlights: ["Kapal Privat", "3 Spot Snorkeling", "Sunset di kapal", "Turtle Point"],
-      itinerary: [
-        { time: "16:00", title: "Keberangkatan", desc: "Mulai perjalanan privat Anda dari pantai." },
-        { time: "16:30", title: "Snorkeling", desc: "Kunjungi spot terbaik termasuk patung bawah laut dan turtle point." },
-        { time: "17:30", title: "Melihat Sunset", desc: "Bersantai di kapal saat langit berubah menjadi keemasan." },
-        { time: "18:15", title: "Kembali", desc: "Kembali ke pantai setelah pengalaman yang ajaib." }
-      ],
-      includes: ["Kapal Privat", "Kapten", "Alat Lengkap", "Jaket Pelampung", "Air Mineral"],
-      excludes: ["Makan Siang/Malam", "Foto GoPro", "Biaya Pribadi"]
-    }
-  },
   "private-snorkeling-4-hours": {
     images: ["/images/snorkeling5.jpg"],
     en: {

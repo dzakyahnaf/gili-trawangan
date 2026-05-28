@@ -32,14 +32,6 @@ export default function SnorkelingPage() {
       isPrivate: true
     },
     {
-      title: locale === "id" ? "SNORKELING PRIVAT DAN TUR SUNSET" : "PRIVATE SNORKELING AND SUNSET TRIP",
-      price: locale === "id" ? "Rp 600.000" : "US$ 40",
-      duration: locale === "id" ? "2 Jam" : "2 Hours",
-      image: "/images/snorkeling4.jpg",
-      href: "/snorkeling/private-snorkeling-sunset",
-      isPrivate: true
-    },
-    {
       title: locale === "id" ? "Snorkeling Privat Selama 4 Jam Dengan 4 Spot Snorkeling" : "Private Snorkeling For 4 Hours With 4 Snorkeling Spots",
       price: locale === "id" ? "Rp 1.500.000" : "US$ 100",
       duration: locale === "id" ? "4 Jam" : "4 Hours",

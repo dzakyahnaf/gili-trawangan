@@ -59,3 +59,16 @@ export function getWhatsAppLink(message?: string): string {
   const encoded = message ? encodeURIComponent(message) : "";
   return `https://wa.me/${phone}${encoded ? `?text=${encoded}` : ""}`;
 }
+
+export function getPackageCoverImage(slug: string, dbImage?: string): string {
+  const mapping: Record<string, string> = {
+    "open-trip-lombok": "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&q=80&w=800",
+    "one-day-trip-lombok": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
+    "menginap-di-gili-trawangan": "/images/snorkeling2.jpg",
+    "paket-honeymoon-lombok": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "paket-tour-lombok-2-hari-1-malam": "/images/air-terjun.jpg",
+    "trip-lombok-3-hari-2-malam": "/images/lombok2.jpg",
+    "paket-tour-lombok-4-hari-3-malam": "/images/lombok1.jpg"
+  };
+  return mapping[slug] || dbImage || "/images/lombok1.jpg";
+}

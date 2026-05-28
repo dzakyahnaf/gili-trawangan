@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "RH Tour Travel",
   ],
   authors: [{ name: "RH Tour & Travel" }],
+  icons: {
+    icon: "/logos/logo-boat.png",
+    shortcut: "/logos/logo-boat.png",
+    apple: "/logos/logo-boat.png",
+  },
   openGraph: {
     title: "RH Tour & Travel — Wisata Gili Trawangan",
     description: "Paket wisata terlengkap di Gili Trawangan, Lombok.",
@@ -38,6 +43,9 @@ export default async function RootLayout(
   return (
     <html lang="id" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        <link rel="icon" href="/logos/logo-boat.png" type="image/png" />
+        <link rel="shortcut icon" href="/logos/logo-boat.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logos/logo-boat.png" type="image/png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />

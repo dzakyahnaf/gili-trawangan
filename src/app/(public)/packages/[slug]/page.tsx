@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, getPackageCoverImage } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 import { Check, X, MapPin, Clock, Users, ChevronDown } from "lucide-react";
 import { cookies } from "next/headers";
@@ -35,7 +35,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
     <div className="pt-16 lg:pt-20 pb-20">
       {/* Hero Image */}
       <div className="relative h-80 lg:h-112">
-        <Image src={pkg.coverImage} alt={pkg.title} fill sizes="100vw" className="object-cover" priority />
+        <Image src={getPackageCoverImage(pkg.slug, pkg.coverImage)} alt={pkg.title} fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 max-w-7xl mx-auto">
           <span className="inline-block px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold mb-3 backdrop-blur-sm">{pkg.duration}</span>

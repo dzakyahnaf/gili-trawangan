@@ -53,7 +53,7 @@ const FASTBOAT_DATA: Record<string, any> = {
   "wanderlust-fast-boat-sanur-lembongan-penida-gili-lombok-route": {
     title: "Wanderlust Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:",
     price: "US$ 29",
-    images: ["/images/boat1.jpg"],
+    images: ["/images/Wanderlust-Fast-Boat.jpg"],
     description: "Boat Ticket Information\nOperator: Wanderlust Fast Boat\nRoute: Sanur – Lembongan – Penida – Gili – Lombok",
     highlights: ["4 hours duration", "Instan Booking", "Easy Cancel", "Secure"],
     itinerary: [
@@ -76,7 +76,7 @@ const FASTBOAT_DATA: Record<string, any> = {
   "wahana-virendra-fast-boat-gili-to-padang-bai-route": {
     title: "Wahana Virendra Fast Boat: Gili to Padang Bai Route:",
     price: "US$ 29",
-    images: ["/images/boat2.jpg"],
+    images: ["/images/virendra-fast-boat.jpg"],
     description: "Boat Ticket Information\nOperator: Wahana Virendra Fast Boat\nRoute: Gili Islands to Padang Bai, Bali",
     highlights: ["2 hours duration", "Instan Booking", "Easy Cancel", "Secure"],
     itinerary: [
@@ -99,7 +99,7 @@ const FASTBOAT_DATA: Record<string, any> = {
   "gili-gili-fast-boat-gili-to-padang-bai-route": {
     title: "Gili-Gili Fast Boat: Gili to Padang Bai Route:",
     price: "US$ 35",
-    images: ["/images/boat1.jpg"],
+    images: ["/images/gili-gili-fast-boat.jpg"],
     description: "Boat Ticket Information\nOperator: Gili-Gili Fast Boat\nRoute: Gili Islands to Padang Bai, Bali",
     highlights: ["2 hours duration", "Instan Booking", "Easy Cancel", "Secure"],
     itinerary: [
@@ -122,7 +122,7 @@ const FASTBOAT_DATA: Record<string, any> = {
   "eka-jaya-fast-boat-gili-to-padang-bai": {
     title: "Eka Jaya Fast Boat: Gili to Padang Bai",
     price: "US$ 35",
-    images: ["/images/boat2.jpg"],
+    images: ["/images/eka-jaya-fast-boat.jpg"],
     description: "Boat Ticket Information\nOperator: Eka Jaya Fast Boat\nRoute: Gili Islands to Padang Bai, Bali",
     highlights: ["2 hours duration", "Instan Booking", "Easy Cancel", "Secure"],
     itinerary: [
@@ -143,7 +143,7 @@ const FASTBOAT_DATA: Record<string, any> = {
     ]
   },
   "d-camel-fast-ferry": {
-    images: ["/images/boat1.jpg"],
+    images: ["/images/dcamel-fast-ferry.jpg"],
     en: {
       title: "D'Camel Fast Ferry: Bali - Nusa Penida - Lombok - Gili",
       description: "D'Camel Fast Ferry offers professional sea transfer services across Bali, Nusa Lembongan, Lombok, and Gili Trawangan. The perfect choice for island-hoppers seeking flexibility and comfort.",
