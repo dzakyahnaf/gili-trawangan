@@ -5,7 +5,7 @@ import { useLang } from "@/components/LangProvider";
 
 const SNORKELING_DATA: Record<string, any> = {
   "shared-snorkeling-3-spots": {
-    images: ["https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling1.jpg"],
     en: {
       price: "US$ 10",
       title: "Shared Snorkeling With The Group, During 4 Hours",
@@ -38,7 +38,7 @@ const SNORKELING_DATA: Record<string, any> = {
     }
   },
   "shared-snorkeling-sunset": {
-    images: ["https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling2.jpg"],
     en: {
       price: "US$ 10",
       title: "SHARED SNORKELING AND SUNSET TRIP",
@@ -67,7 +67,7 @@ const SNORKELING_DATA: Record<string, any> = {
     }
   },
   "private-snorkeling-2-hours": {
-    images: ["https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling3.jpg"],
     en: {
       price: "US$ 60",
       title: "Private Snorkeling For 2 Hours With 3 Spots",
@@ -98,7 +98,7 @@ const SNORKELING_DATA: Record<string, any> = {
     }
   },
   "private-snorkeling-sunset": {
-    images: ["https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling4.jpg"],
     en: {
       price: "US$ 40",
       title: "PRIVATE SNORKELING AND SUNSET TRIP",
@@ -129,7 +129,7 @@ const SNORKELING_DATA: Record<string, any> = {
     }
   },
   "private-snorkeling-4-hours": {
-    images: ["https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling5.jpg"],
     en: {
       price: "US$ 100",
       title: "Private Snorkeling For 4 Hours With 4 Snorkeling Spots",
@@ -160,7 +160,7 @@ const SNORKELING_DATA: Record<string, any> = {
     }
   },
   "private-snorkeling-6-hours": {
-    images: ["https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/snorkeling1.jpg"],
     en: {
       price: "US$ 135",
       title: "Private Snorkeling During 6 Hours",

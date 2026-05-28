@@ -5,7 +5,7 @@ import { useLang } from "@/components/LangProvider";
 
 const LOMBOK_TOUR_DATA: Record<string, any> = {
   "city-tour": {
-    images: ["https://images.unsplash.com/photo-1605300287658-944205d6445b?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/lombok3.jpg"],
     en: {
       price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "City Tour",
@@ -38,7 +38,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "kuta-lombok-tour": {
-    images: ["https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/lombok2.jpg"],
     en: {
       price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Kuta Lombok Tour",
@@ -71,7 +71,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "pink-beach-tour": {
-    images: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/lombok1.jpg"],
     en: {
       price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Pink Beach Tour",
@@ -104,7 +104,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "waterfall-benang-kelambu-tour": {
-    images: ["https://images.unsplash.com/photo-1596402184320-417d717867cd?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/air-terjun2.jpg"],
     en: {
       price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Waterfall (Benang Kelambu) Tour",
@@ -137,7 +137,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "waterfall-senaru-tour": {
-    images: ["https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1000"],
+    images: ["/images/air-terjun.jpg"],
     en: {
       price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Waterfall (Senaru) Tour",

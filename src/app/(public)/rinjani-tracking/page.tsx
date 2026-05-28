@@ -11,7 +11,7 @@ export default function RinjaniTrackingPage() {
       title: locale === "id" ? "Pendakian Puncak Rinjani 2 Hari 1 Malam" : "Trekking Summit Rinjani 2 Days 1 Night",
       price: locale === "id" ? "Rp 3.150.000/pax" : "US$ 210/pax",
       duration: locale === "id" ? "2 Hari / 1 Malam" : "2D / 1N",
-      image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000",
+      image: "https://images.unsplash.com/photo-1608955074213-39d73d57d716?auto=format&fit=crop&q=80&w=1000",
       href: "/rinjani-tracking/2d1n-summit",
       isPrivate: true
     },

@@ -5,7 +5,7 @@ import { useLang } from "@/components/LangProvider";
 
 const RINJANI_DATA: Record<string, any> = {
   "2d1n-summit": {
-    images: ["https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000"],
+    images: ["https://images.unsplash.com/photo-1608955074213-39d73d57d716?auto=format&fit=crop&q=80&w=1000"],
     en: {
       price: "US$ 210/pax",
       title: "Trekking Summit Rinjani 2 Days 1 Night",

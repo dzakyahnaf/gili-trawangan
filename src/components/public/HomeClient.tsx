@@ -252,7 +252,53 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{t.gallery.title}</h2>
           </div>
           <div className="columns-2 md:columns-3 gap-4 space-y-4">
-            {gallery.map((img) => (
+            {[
+              {
+                id: "g-1",
+                imageUrl: "/images/snorkeling1.jpg",
+                caption: locale === "id" ? "Patung Bawah Laut Gili Meno" : "Gili Meno Underwater Statues"
+              },
+              {
+                id: "g-2",
+                imageUrl: "/images/snorkeling2.jpg",
+                caption: locale === "id" ? "Sunset Cruise & Snorkeling" : "Sunset Cruise & Snorkeling"
+              },
+              {
+                id: "g-3",
+                imageUrl: "/images/snorkeling3.jpg",
+                caption: locale === "id" ? "Berenang Bersama Penyu" : "Swimming with Sea Turtles"
+              },
+              {
+                id: "g-4",
+                imageUrl: "/images/snorkeling4.jpg",
+                caption: locale === "id" ? "Keindahan Bawah Laut Gili" : "Underwater Paradise of Gili"
+              },
+              {
+                id: "g-5",
+                imageUrl: "/images/snorkeling5.jpg",
+                caption: locale === "id" ? "Terumbu Karang yang Indah" : "Vibrant Coral Reefs"
+              },
+              {
+                id: "g-6",
+                imageUrl: "/images/lombok1.jpg",
+                caption: locale === "id" ? "Pantai Pink Lombok Timur" : "East Lombok Pink Beach"
+              },
+              {
+                id: "g-7",
+                imageUrl: "/images/lombok2.jpg",
+                caption: locale === "id" ? "Garis Pantai Kuta Lombok" : "Kuta Lombok Coastline"
+              },
+              {
+                id: "g-8",
+                imageUrl: "/images/lombok3.jpg",
+                caption: locale === "id" ? "Pusat Kota & Budaya Mataram" : "Mataram Cultural City Tour"
+              },
+              {
+                id: "g-9",
+                imageUrl: "/images/air-terjun.jpg",
+                caption: locale === "id" ? "Keindahan Air Terjun Sendang Gile" : "Beautiful Sendang Gile Waterfall"
+              }
+            ].map((img) => (
               <div key={img.id} className="break-inside-avoid rounded-2xl overflow-hidden group relative">
                 <Image src={img.imageUrl} alt={img.caption || "Gili Trawangan"} width={600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end">

@@ -11,7 +11,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "Snorkeling Sharing Dengan Grup, Selama 4 Jam" : "Shared Snorkeling With The Group, During 4 Hours",
       price: locale === "id" ? "Rp 150.000" : "US$ 10",
       duration: locale === "id" ? "4 Jam" : "4 Hours",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling1.jpg",
       href: "/snorkeling/shared-snorkeling-3-spots",
       isPrivate: false
     },
@@ -19,7 +19,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "SNORKELING SHARING DAN TUR SUNSET" : "SHARED SNORKELING AND SUNSET TRIP",
       price: locale === "id" ? "Rp 150.000" : "US$ 10",
       duration: locale === "id" ? "2 Jam" : "2 Hours",
-      image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling2.jpg",
       href: "/snorkeling/shared-snorkeling-sunset",
       isPrivate: false
     },
@@ -27,7 +27,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "Snorkeling Privat Selama 2 Jam Dengan 3 Spot" : "Private Snorkeling For 2 Hours With 3 Spots",
       price: locale === "id" ? "Rp 850.000" : "US$ 60",
       duration: locale === "id" ? "2 Jam" : "2 Hours",
-      image: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling3.jpg",
       href: "/snorkeling/private-snorkeling-2-hours",
       isPrivate: true
     },
@@ -35,7 +35,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "SNORKELING PRIVAT DAN TUR SUNSET" : "PRIVATE SNORKELING AND SUNSET TRIP",
       price: locale === "id" ? "Rp 600.000" : "US$ 40",
       duration: locale === "id" ? "2 Jam" : "2 Hours",
-      image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling4.jpg",
       href: "/snorkeling/private-snorkeling-sunset",
       isPrivate: true
     },
@@ -43,7 +43,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "Snorkeling Privat Selama 4 Jam Dengan 4 Spot Snorkeling" : "Private Snorkeling For 4 Hours With 4 Snorkeling Spots",
       price: locale === "id" ? "Rp 1.500.000" : "US$ 100",
       duration: locale === "id" ? "4 Jam" : "4 Hours",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling5.jpg",
       href: "/snorkeling/private-snorkeling-4-hours",
       isPrivate: true
     },
@@ -51,7 +51,7 @@ export default function SnorkelingPage() {
       title: locale === "id" ? "Snorkeling Privat Selama 6 Jam" : "Private Snorkeling During 6 Hours",
       price: locale === "id" ? "Rp 2.000.000" : "US$ 135",
       duration: locale === "id" ? "6 Jam" : "6 Hours",
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000",
+      image: "/images/snorkeling1.jpg",
       href: "/snorkeling/private-snorkeling-6-hours",
       isPrivate: true
     }
@@ -62,7 +62,7 @@ export default function SnorkelingPage() {
       {/* Hero */}
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <Image 
-          src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=2000"
+          src="/images/snorkeling3.jpg"
           alt="Snorkeling Package"
           fill
           sizes="100vw"

@@ -41,7 +41,7 @@ export default function FastBoatPage() {
       {/* Hero */}
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <Image 
-          src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=2000"
+          src="/images/boat1.jpg"
           alt="Daily Fast Boat"
           fill
           sizes="100vw"
@@ -113,7 +113,7 @@ export default function FastBoatPage() {
             title="Super Scoot Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/12339158_545798035586200_7994801453908321023_o-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            image="/images/boat1.jpg"
             href="/fastboat/super-scoot-fast-boat-sanur-lembongan-penida-gili-lombok-route"
             isPrivate={false}
           />
@@ -121,7 +121,7 @@ export default function FastBoatPage() {
             title="Wijaya Buyuk Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/Wijaya-Buyuk-4-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.png"
+            image="/images/boat2.jpg"
             href="/fastboat/wijaya-buyuk-fast-boat-sanur-lembongan-penida-gili-lombok-route"
             isPrivate={false}
           />
@@ -129,7 +129,7 @@ export default function FastBoatPage() {
             title="Wanderlust Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/xglory-prime.JPG.pagespeed.ic_.lN9EKiQo8Y-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.webp"
+            image="/images/boat1.jpg"
             href="/fastboat/wanderlust-fast-boat-sanur-lembongan-penida-gili-lombok-route"
             isPrivate={false}
           />
@@ -137,7 +137,7 @@ export default function FastBoatPage() {
             title="Wahana Virendra Fast Boat: Gili to Padang Bai Route:"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/maxresdefault-2-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            image="/images/boat2.jpg"
             href="/fastboat/wahana-virendra-fast-boat-gili-to-padang-bai-route"
             isPrivate={false}
           />
@@ -145,7 +145,7 @@ export default function FastBoatPage() {
             title="Gili-Gili Fast Boat: Gili to Padang Bai Route:"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/gili-gili-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            image="/images/boat1.jpg"
             href="/fastboat/gili-gili-fast-boat-gili-to-padang-bai-route"
             isPrivate={false}
           />
@@ -153,7 +153,7 @@ export default function FastBoatPage() {
             title="Eka Jaya Fast Boat: Gili to Padang Bai"
             price={locale === "id" ? "Mulai Rp 650.000" : "Start from US$ 45"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
-            image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/1562239814_eka-jaya-fast-boat-cruising-to-gili-trawangan-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
+            image="/images/boat2.jpg"
             href="/fastboat/eka-jaya-fast-boat-gili-to-padang-bai"
             isPrivate={false}
           />
@@ -161,7 +161,7 @@ export default function FastBoatPage() {
             title="D'Camel Fast Ferry"
             price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="Daily | BALI - NUSA PENIDA - LOMBOK - GILI"
-            image="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"
+            image="/images/boat1.jpg"
             href="/fastboat/d-camel-fast-ferry"
             isPrivate={false}
           />
