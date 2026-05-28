@@ -5,35 +5,35 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function FastBoatPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const schedules = [
-    { operator: "Super Scoot Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:00", arr: "12:00", price: "US$ 30" },
-    { operator: "Wijaya Buyuk Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:30", arr: "12:30", price: "US$ 29" },
-    { operator: "Wanderlust Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "09:00", arr: "13:00", price: "US$ 29" },
-    { operator: "Wahana Virendra Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:00", arr: "11:00", price: "US$ 29" },
-    { operator: "Gili-Gili Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:30", arr: "11:30", price: "US$ 35" },
-    { operator: "Eka Jaya Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "10:00", arr: "12:00", price: "US$ 35" },
-    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Gili Trawangan", dep: "09:30", arr: "12:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Sanur", dep: "12:30", arr: "16:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Bangsal (LBK)", dep: "09:30", arr: "13:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Sanur", dep: "13:10", arr: "16:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Lembongan", dep: "09:00", arr: "09:45", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Serangan", dep: "16:00", arr: "16:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Gili Trawangan", dep: "09:00", arr: "12:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Serangan", dep: "12:30", arr: "16:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Bangsal (LBK)", dep: "09:00", arr: "13:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Serangan", dep: "13:10", arr: "16:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Padang Bai", dep: "10:00", arr: "10:20", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Lembongan", dep: "15:00", arr: "15:20", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Gili Trawangan", dep: "10:00", arr: "12:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Lembongan", dep: "12:30", arr: "15:20", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Bangsal (LBK)", dep: "10:00", arr: "13:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Lembongan", dep: "13:10", arr: "15:20", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Gili Trawangan", dep: "10:30", arr: "12:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Padang Bai", dep: "12:30", arr: "14:30", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Bangsal (LBK)", dep: "10:30", arr: "13:00", price: "-" },
-    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Padang Bai", dep: "13:10", arr: "14:30", price: "-" }
+    { operator: "Super Scoot Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:00", arr: "12:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "Wijaya Buyuk Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "08:30", arr: "12:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "Wanderlust Fast Boat", from: "Sanur", to: "Gili / Lombok", dep: "09:00", arr: "13:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "Wahana Virendra Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:00", arr: "11:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "Gili-Gili Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "09:30", arr: "11:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "Eka Jaya Fast Boat", from: "Padang Bai", to: "Gili / Lombok", dep: "10:00", arr: "12:00", price: locale === "id" ? "Rp 650.000" : "US$ 45" },
+    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Gili Trawangan", dep: "09:30", arr: "12:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Sanur", dep: "12:30", arr: "16:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Sanur", to: "Bangsal (LBK)", dep: "09:30", arr: "13:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Sanur", dep: "13:10", arr: "16:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Lembongan", dep: "09:00", arr: "09:45", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Serangan", dep: "16:00", arr: "16:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Gili Trawangan", dep: "09:00", arr: "12:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Serangan", dep: "12:30", arr: "16:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Serangan", to: "Bangsal (LBK)", dep: "09:00", arr: "13:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Serangan", dep: "13:10", arr: "16:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Padang Bai", dep: "10:00", arr: "10:20", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Lembongan", dep: "15:00", arr: "15:20", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Gili Trawangan", dep: "10:00", arr: "12:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Lembongan", dep: "12:30", arr: "15:20", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Lembongan", to: "Bangsal (LBK)", dep: "10:00", arr: "13:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Lembongan", dep: "13:10", arr: "15:20", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Gili Trawangan", dep: "10:30", arr: "12:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Gili Trawangan", to: "Padang Bai", dep: "12:30", arr: "14:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Padang Bai", to: "Bangsal (LBK)", dep: "10:30", arr: "13:00", price: locale === "id" ? "Rp 400.000" : "US$ 28" },
+    { operator: "D'Camel Fast Ferry", from: "Bangsal (LBK)", to: "Padang Bai", dep: "13:10", arr: "14:30", price: locale === "id" ? "Rp 400.000" : "US$ 28" }
   ];
 
   return (
@@ -111,7 +111,7 @@ export default function FastBoatPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ServiceCard 
             title="Super Scoot Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
-            price="US$ 30"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/12339158_545798035586200_7994801453908321023_o-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
             href="/fastboat/super-scoot-fast-boat-sanur-lembongan-penida-gili-lombok-route"
@@ -119,7 +119,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="Wijaya Buyuk Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
-            price="US$ 29"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/Wijaya-Buyuk-4-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.png"
             href="/fastboat/wijaya-buyuk-fast-boat-sanur-lembongan-penida-gili-lombok-route"
@@ -127,7 +127,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="Wanderlust Fast Boat: Sanur – Lembongan – Penida – Gili – Lombok Route:"
-            price="US$ 29"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="4 hours | SANUR - LEMBONGAN - PENIDA - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/xglory-prime.JPG.pagespeed.ic_.lN9EKiQo8Y-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.webp"
             href="/fastboat/wanderlust-fast-boat-sanur-lembongan-penida-gili-lombok-route"
@@ -135,7 +135,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="Wahana Virendra Fast Boat: Gili to Padang Bai Route:"
-            price="US$ 29"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/maxresdefault-2-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
             href="/fastboat/wahana-virendra-fast-boat-gili-to-padang-bai-route"
@@ -143,7 +143,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="Gili-Gili Fast Boat: Gili to Padang Bai Route:"
-            price="US$ 35"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/gili-gili-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
             href="/fastboat/gili-gili-fast-boat-gili-to-padang-bai-route"
@@ -151,7 +151,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="Eka Jaya Fast Boat: Gili to Padang Bai"
-            price="US$ 35"
+            price={locale === "id" ? "Mulai Rp 650.000" : "Start from US$ 45"}
             duration="2 hours | PADANG BAI - GILI - LOMBOK"
             image="https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/1562239814_eka-jaya-fast-boat-cruising-to-gili-trawangan-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg"
             href="/fastboat/eka-jaya-fast-boat-gili-to-padang-bai"
@@ -159,7 +159,7 @@ export default function FastBoatPage() {
           />
           <ServiceCard 
             title="D'Camel Fast Ferry"
-            price="Contact Us"
+            price={locale === "id" ? "Mulai Rp 400.000" : "Start from US$ 28"}
             duration="Daily | BALI - NUSA PENIDA - LOMBOK - GILI"
             image="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"
             href="/fastboat/d-camel-fast-ferry"

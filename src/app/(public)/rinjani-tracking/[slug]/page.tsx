@@ -5,9 +5,9 @@ import { useLang } from "@/components/LangProvider";
 
 const RINJANI_DATA: Record<string, any> = {
   "2d1n-summit": {
-    price: "US$ 150",
     images: ["https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 210/pax",
       title: "Trekking Summit Rinjani 2 Days 1 Night",
       description: "Conquer the summit of Mount Rinjani in just 2 days. This package is designed for experienced trekkers who want to reach the peak (3726m) quickly. Enjoy the most breathtaking sunrise in Indonesia.",
       highlights: ["Rinjani Summit 3726m", "Sembalun Crater Rim", "Panoramic Sunrise View", "Professional Support"],
@@ -19,6 +19,7 @@ const RINJANI_DATA: Record<string, any> = {
       excludes: ["Tipping for guide", "Personal trekking gear", "Warm jacket/gloves"]
     },
     id: {
+      price: "Rp 3.150.000/pax",
       title: "Trekking Puncak Rinjani 2 Hari 1 Malam",
       description: "Taklukkan puncak Gunung Rinjani hanya dalam 2 hari. Paket ini dirancang untuk pendaki berpengalaman yang ingin mencapai puncak (3726m) dengan cepat. Nikmati matahari terbenam yang paling menakjubkan di Indonesia.",
       highlights: ["Puncak Rinjani 3726m", "Pelawangan Sembalun", "Pemandangan Sunrise Panoramik", "Dukungan Profesional"],
@@ -31,9 +32,9 @@ const RINJANI_DATA: Record<string, any> = {
     }
   },
   "3d2n-summit": {
-    price: "US$ 185",
     images: ["https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 275/pax",
       title: "Mount Rinjani Trekking 3 Days 2 Nights (Sembalun - Torean)",
       description: "A 3-day Rinjani trekking package starting from Sembalun and descending via the exotic Torean route (Jurassic Park route). Includes pickup, Lombok tour, and summit attack to 3,726 masl.",
       highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Exotic Torean Route", "Lombok Tour"],
@@ -47,6 +48,7 @@ const RINJANI_DATA: Record<string, any> = {
       excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
     },
     id: {
+      price: "Rp 4.100.000/pax",
       title: "Pendakian Rinjani 3 Hari 2 Malam (Rute Sembalun - Torean)",
       description: "Paket pendakian Rinjani 3 Hari 2 Malam melalui rute Sembalun dan turun melalui jalur Torean yang eksotis (Jalur Jurassic Park). Termasuk penjemputan, wisata Lombok (Sade, Mandalika), dan pendakian puncak 3.726 mdpl.",
       highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Jalur Eksotis Torean", "Wisata Lombok"],
@@ -61,9 +63,9 @@ const RINJANI_DATA: Record<string, any> = {
     }
   },
   "4d3n-summit": {
-    price: "US$ 235",
     images: ["https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 300/pax",
       title: "Mount Rinjani Trekking 4 Days 3 Nights (Sembalun - Torean)",
       description: "A more relaxed 4-day Rinjani trekking package via Sembalun and Torean routes. Includes pickup, Lombok tour, Rinjani summit, Segara Anak lake, and an extra night of camping at Birisan Nangka.",
       highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Birisan Nangka Camp", "Lombok Tour"],
@@ -78,6 +80,7 @@ const RINJANI_DATA: Record<string, any> = {
       excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
     },
     id: {
+      price: "Rp 4.450.000/pax",
       title: "Pendakian Rinjani 4 Hari 3 Malam (Rute Sembalun - Torean)",
       description: "Paket pendakian Rinjani 4 Hari 3 Malam yang lebih santai melalui rute Sembalun dan Torean. Termasuk penjemputan, wisata Lombok, puncak Rinjani, Segara Anak, dan ekstra camping di Birisan Nangka.",
       highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Camping Birisan Nangka", "Wisata Lombok"],

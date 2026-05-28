@@ -4,29 +4,29 @@ import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
 
 export default function RinjaniTrackingPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const services = [
     {
-      title: "Trekking Summit Rinjani 2 Days 1 Night",
-      price: "US$ 150",
-      duration: "2D / 1N",
+      title: locale === "id" ? "Pendakian Puncak Rinjani 2 Hari 1 Malam" : "Trekking Summit Rinjani 2 Days 1 Night",
+      price: locale === "id" ? "Rp 3.150.000/pax" : "US$ 210/pax",
+      duration: locale === "id" ? "2 Hari / 1 Malam" : "2D / 1N",
       image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000",
       href: "/rinjani-tracking/2d1n-summit",
       isPrivate: true
     },
     {
-      title: "Trekking Rinjani 3 Days 2 Night (Sembalun - Torean)",
-      price: "US$ 185",
-      duration: "3D / 2N",
+      title: locale === "id" ? "Pendakian Rinjani 3 Hari 2 Malam (Sembalun - Torean)" : "Trekking Rinjani 3 Days 2 Night (Sembalun - Torean)",
+      price: locale === "id" ? "Rp 4.100.000/pax" : "US$ 275/pax",
+      duration: locale === "id" ? "3 Hari / 2 Malam" : "3D / 2N",
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000",
       href: "/rinjani-tracking/3d2n-summit",
       isPrivate: true
     },
     {
-      title: "Trekking Rinjani 4 Days 3 Night (Sembalun - Torean)",
-      price: "US$ 235",
-      duration: "4D / 3N",
+      title: locale === "id" ? "Pendakian Rinjani 4 Hari 3 Malam (Sembalun - Torean)" : "Trekking Rinjani 4 Days 3 Night (Sembalun - Torean)",
+      price: locale === "id" ? "Rp 4.450.000/pax" : "US$ 300/pax",
+      duration: locale === "id" ? "4 Hari / 3 Malam" : "4D / 3N",
       image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&q=80&w=1000",
       href: "/rinjani-tracking/4d3n-summit",
       isPrivate: true

@@ -41,6 +41,17 @@ export default function ContactPage() {
                 </div>
                 <div className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-gili-50 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 fill-gili-600" viewBox="0 0 24 24">
+                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.95 1.12 2.27 1.93 3.73 2.23.01 1.28.01 2.56 0 3.84-.87-.08-1.72-.37-2.48-.82-.93-.56-1.72-1.34-2.29-2.27-.03 1.94-.02 3.88-.03 5.82 0 1.22-.2 2.45-.69 3.56-.7 1.56-1.92 2.85-3.41 3.55-1.22.56-2.58.82-3.92.74-1.71-.06-3.37-.73-4.66-1.89C2.7 17.7 1.76 15.93 1.62 13.99c-.21-2.22.51-4.49 1.96-6.17 1.34-1.63 3.32-2.67 5.43-2.86.01 1.33.01 2.66 0 3.99-1.22.11-2.39.73-3.14 1.7-.82.99-1.12 2.32-.86 3.58.26 1.15.99 2.15 1.98 2.76 1.01.63 2.25.79 3.4.49.99-.24 1.86-.88 2.42-1.74.45-.66.69-1.44.69-2.23-.03-3.41-.01-6.82-.02-10.23-.01-.98 0-1.97-.01-2.96z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">TikTok</p>
+                    <a href="https://www.tiktok.com/@rhtourandtravel30" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold hover:text-gili-600 transition-colors">@rhtourandtravel30</a>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gili-50 flex items-center justify-center shrink-0">
                     <Clock className="w-5 h-5 text-gili-600" />
                   </div>
                   <div>

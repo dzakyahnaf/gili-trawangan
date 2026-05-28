@@ -5,9 +5,9 @@ import { useLang } from "@/components/LangProvider";
 
 const SPEEDBOAT_CAR_DATA: Record<string, any> = {
   "speedboat-charter": {
-    price: "US$ 35",
     images: ["https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 28 per way (max. 4 pax)",
       title: "Private Speedboat Charter (Gili - Lombok)",
       description: "The fastest way to travel between the Gili Islands and mainland Lombok. Our private speedboat service avoids the long wait times of public boats. We operate 24/7 from Teluk Nare and Bangsal port.",
       highlights: ["15 Minutes Crossing", "24/7 Availability", "Safe & Comfortable", "Direct to your destination"],
@@ -20,6 +20,7 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
       excludes: ["Porter service on island", "Land transport (Book Combo for this)", "Tipping"]
     },
     id: {
+      price: "Rp 400.000 sekali jalan (max. 4 pax)",
       title: "Sewa Speedboat Privat (Gili - Lombok)",
       description: "Cara tercepat untuk bepergian antara Kepulauan Gili dan daratan Lombok. Layanan speedboat privat kami menghindari waktu tunggu lama kapal publik. Kami beroperasi 24/7 dari pelabuhan Teluk Nare dan Bangsal.",
       highlights: ["Penyeberangan 15 Menit", "Tersedia 24/7", "Aman & Nyaman", "Langsung ke tujuan Anda"],
@@ -33,9 +34,9 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
     }
   },
   "combo-transfer": {
-    price: "US$ 55",
     images: ["https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 55 per way (min. 4 pax)",
       title: "Combo: Speedboat + Car (Gili to Airport)",
       description: "The most seamless way to get from Gili Trawangan, Meno, or Air to Lombok International Airport. Includes a private speedboat to Teluk Nare and a private car directly to the airport.",
       highlights: ["Speedboat & Car Linked", "Instant Connection", "Stress-free Travel", "Door-to-Airport"],
@@ -48,6 +49,7 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
       excludes: ["Porters", "Meals", "Tipping"]
     },
     id: {
+      price: "Rp 800.000 sekali jalan (min. 4 pax)",
       title: "Combo: Speedboat + Mobil (Gili ke Bandara)",
       description: "Cara paling mulus untuk berangkat dari Gili Trawangan, Meno, atau Air ke Bandara Internasional Lombok. Termasuk speedboat privat ke Teluk Nare dan mobil privat langsung ke bandara.",
       highlights: ["Speedboat & Mobil Terhubung", "Koneksi Instan", "Perjalanan Tanpa Stres", "Pintu ke Bandara"],
@@ -61,9 +63,9 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
     }
   },
   "car-transfer": {
-    price: "US$ 25",
     images: ["https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 25/pax",
       title: "Private Car Transfer (Lombok Island)",
       description: "Private car transfer between any two points on mainland Lombok. Perfect for airport runs or getting from the port to your next hotel.",
       highlights: ["Airport Transfer", "Bangsal/Teluk Nare Port", "Senggigi Area", "Kuta Lombok"],
@@ -76,6 +78,7 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
       excludes: ["Parking fees", "Toll fees (if any)", "Tipping"]
     },
     id: {
+      price: "Rp 350.000/pax",
       title: "Transfer Mobil Privat (Pulau Lombok)",
       description: "Transfer mobil privat antara dua titik mana pun di daratan Lombok. Sempurna untuk antar-jemput bandara atau dari pelabuhan ke hotel Anda berikutnya.",
       highlights: ["Antar Jemput Bandara", "Pelabuhan Bangsal/Teluk Nare", "Area Senggigi", "Kuta Lombok"],
@@ -89,9 +92,9 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
     }
   },
   "full-day-car": {
-    price: "US$ 60",
     images: ["https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 50",
       title: "Full Day Car Service (10 Hours)",
       description: "Rent a private car and driver for a full 10 hours. Explore any part of Lombok with a flexible itinerary. Your driver knows all the best spots and can recommend places to eat.",
       highlights: ["Flexible Itinerary", "Local Expert Driver", "10 Hours Coverage", "Safe & Comfortable"],
@@ -104,6 +107,7 @@ const SPEEDBOAT_CAR_DATA: Record<string, any> = {
       excludes: ["Entrance fees", "Meals", "Parking/Tipping"]
     },
     id: {
+      price: "Rp 750.000",
       title: "Layanan Mobil Seharian (10 Jam)",
       description: "Sewa mobil privat dan sopir selama 10 jam penuh. Jelajahi bagian mana pun dari Lombok dengan rencana perjalanan yang fleksibel. Sopir Anda mengetahui semua spot terbaik dan dapat merekomendasikan tempat makan.",
       highlights: ["Rencana Perjalanan Fleksibel", "Sopir Ahli Lokal", "Cakupan 10 Jam", "Aman & Nyaman"],

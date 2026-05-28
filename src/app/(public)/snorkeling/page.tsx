@@ -4,55 +4,55 @@ import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
 
 export default function SnorkelingPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const services = [
     {
-      title: "Shared Snorkeling With The Group, During 4 Hours",
-      price: "US$ 12",
-      duration: "4 Hours",
+      title: locale === "id" ? "Snorkeling Sharing Dengan Grup, Selama 4 Jam" : "Shared Snorkeling With The Group, During 4 Hours",
+      price: locale === "id" ? "Rp 150.000" : "US$ 10",
+      duration: locale === "id" ? "4 Jam" : "4 Hours",
       image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000",
       href: "/snorkeling/shared-snorkeling-3-spots",
       isPrivate: false
     },
     {
-      title: "SHARED SNORKELING AND SUNSET TRIP",
-      price: "US$ 13",
-      duration: "2 Hours",
+      title: locale === "id" ? "SNORKELING SHARING DAN TUR SUNSET" : "SHARED SNORKELING AND SUNSET TRIP",
+      price: locale === "id" ? "Rp 150.000" : "US$ 10",
+      duration: locale === "id" ? "2 Jam" : "2 Hours",
       image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000",
       href: "/snorkeling/shared-snorkeling-sunset",
       isPrivate: false
     },
     {
-      title: "Private Snorkeling For 2 Hours With 3 Spots",
-      price: "US$ 35",
-      duration: "2 Hours",
+      title: locale === "id" ? "Snorkeling Privat Selama 2 Jam Dengan 3 Spot" : "Private Snorkeling For 2 Hours With 3 Spots",
+      price: locale === "id" ? "Rp 850.000" : "US$ 60",
+      duration: locale === "id" ? "2 Jam" : "2 Hours",
       image: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=1000",
       href: "/snorkeling/private-snorkeling-2-hours",
       isPrivate: true
     },
     {
-      title: "PRIVATE SNORKELING AND SUNSET TRIP",
-      price: "US$ 40",
-      duration: "2 Hours",
+      title: locale === "id" ? "SNORKELING PRIVAT DAN TUR SUNSET" : "PRIVATE SNORKELING AND SUNSET TRIP",
+      price: locale === "id" ? "Rp 600.000" : "US$ 40",
+      duration: locale === "id" ? "2 Jam" : "2 Hours",
       image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000",
       href: "/snorkeling/private-snorkeling-sunset",
       isPrivate: true
     },
     {
-      title: "Private Snorkeling For 4 Hours With 4 Snorkeling Spots",
-      price: "US$ 50",
-      duration: "4 Hours",
+      title: locale === "id" ? "Snorkeling Privat Selama 4 Jam Dengan 4 Spot Snorkeling" : "Private Snorkeling For 4 Hours With 4 Snorkeling Spots",
+      price: locale === "id" ? "Rp 1.500.000" : "US$ 100",
+      duration: locale === "id" ? "4 Jam" : "4 Hours",
       image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000",
       href: "/snorkeling/private-snorkeling-4-hours",
       isPrivate: true
     },
     {
-      title: "Private Snorkellng During 8 Hours",
-      price: "US$ 85",
-      duration: "8 Hours",
+      title: locale === "id" ? "Snorkeling Privat Selama 6 Jam" : "Private Snorkeling During 6 Hours",
+      price: locale === "id" ? "Rp 2.000.000" : "US$ 135",
+      duration: locale === "id" ? "6 Jam" : "6 Hours",
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1000",
-      href: "/snorkeling/private-snorkeling-8-hours",
+      href: "/snorkeling/private-snorkeling-6-hours",
       isPrivate: true
     }
   ];

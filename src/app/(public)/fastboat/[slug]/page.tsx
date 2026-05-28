@@ -1,6 +1,7 @@
 "use client";
 import ServiceDetailTemplate from "@/components/public/ServiceDetailTemplate";
 import { notFound, useParams } from "next/navigation";
+import { useLang } from "@/components/LangProvider";
 
 const FASTBOAT_DATA: Record<string, any> = {
   "super-scoot-fast-boat-sanur-lembongan-penida-gili-lombok-route": {
@@ -140,18 +141,55 @@ const FASTBOAT_DATA: Record<string, any> = {
       "Personal expenses",
       "Extra luggage (may incur additional charges)"
     ]
+  },
+  "d-camel-fast-ferry": {
+    images: ["https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"],
+    en: {
+      title: "D'Camel Fast Ferry: Bali - Nusa Penida - Lombok - Gili",
+      description: "D'Camel Fast Ferry offers professional sea transfer services across Bali, Nusa Lembongan, Lombok, and Gili Trawangan. The perfect choice for island-hoppers seeking flexibility and comfort.",
+      highlights: ["Multi-destination network", "Professional marine crew", "Multiple daily runs", "Spacious luggage room"],
+      itinerary: [
+        { time: "08:30", title: "Sanur Check-in", desc: "Arrive at Sanur harbor for boarding passes." },
+        { time: "09:30", title: "Set Sail", desc: "Cruising towards Gili Trawangan or Lombok." },
+        { time: "12:00", title: "Island Arrival", desc: "Arrive at your dream island destination." }
+      ],
+      includes: ["Fast boat ticket", "AC cabin", "Safety vests", "Luggage handling"],
+      excludes: ["Land transfers", "Personal expenses"]
+    },
+    id: {
+      title: "D'Camel Fast Ferry: Bali - Nusa Penida - Lombok - Gili",
+      description: "D'Camel Fast Ferry menawarkan layanan transfer laut profesional di seluruh Bali, Nusa Lembongan, Lombok, dan Gili Trawangan. Pilihan sempurna untuk penjelajah pulau yang mencari fleksibilitas dan kenyamanan.",
+      highlights: ["Jaringan multi-destinasi", "Kru laut profesional", "Banyak rute harian", "Ruang bagasi luas"],
+      itinerary: [
+        { time: "08:30", title: "Check-in Sanur", desc: "Tiba di pelabuhan Sanur untuk boarding pass." },
+        { time: "09:30", title: "Berlayar", desc: "Berlayar menuju Gili Trawangan atau Lombok." },
+        { time: "12:00", title: "Tiba di Pulau", desc: "Tiba di destinasi pulau impian Anda." }
+      ],
+      includes: ["Tiket kapal cepat", "Kabin AC", "Rompi penyelamat", "Penanganan bagasi"],
+      excludes: ["Transfer darat", "Pengeluaran pribadi"]
+    }
   }
 };
 
 export default function FastBoatDetail() {
   const params = useParams();
   const slug = params?.slug as string;
+  const { locale } = useLang();
   
   if (!slug || !FASTBOAT_DATA[slug]) {
     return notFound();
   }
 
   const data = FASTBOAT_DATA[slug];
+  const price = slug === "eka-jaya-fast-boat-gili-to-padang-bai"
+    ? (locale === "id" ? "Rp 650.000" : "US$ 45")
+    : (locale === "id" ? "Rp 400.000" : "US$ 28");
 
-  return <ServiceDetailTemplate {...data} />;
+  const localizedData = {
+    ...data,
+    price,
+    ...(data[locale] || data.en)
+  };
+
+  return <ServiceDetailTemplate {...localizedData} />;
 }

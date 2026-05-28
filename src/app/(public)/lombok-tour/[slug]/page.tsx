@@ -5,9 +5,9 @@ import { useLang } from "@/components/LangProvider";
 
 const LOMBOK_TOUR_DATA: Record<string, any> = {
   "city-tour": {
-    price: "US$ 85",
     images: ["https://images.unsplash.com/photo-1605300287658-944205d6445b?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "City Tour",
       description: "Explore the cultural and historical heart of Lombok. This tour takes you through traditional markets, historic temples, and the vibrant city life of Mataram.",
       highlights: ["Mayura Water Palace", "Lingsar Temple", "Mataram Islamic Center", "Bertais Traditional Market"],
@@ -22,6 +22,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
       excludes: ["Lunch", "Personal Shopping", "Tips for Guide"]
     },
     id: {
+      price: "Rp 1.000K / Rp 250K per pax (min. 4)",
       title: "Tur Kota",
       description: "Jelajahi pusat budaya dan sejarah Lombok. Tur ini membawa Anda melalui pasar tradisional, kuil bersejarah, dan kehidupan kota Mataram yang semarak.",
       highlights: ["Istana Air Mayura", "Pura Lingsar", "Islamic Center Mataram", "Pasar Tradisional Bertais"],
@@ -37,9 +38,9 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "kuta-lombok-tour": {
-    price: "US$ 85",
     images: ["https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Kuta Lombok Tour",
       description: "Discover the southern coast of Lombok. Visit the traditional Sade village, then head to the world-class beaches of Kuta, Tanjung Aan, and Bukit Merese for spectacular views.",
       highlights: ["Sade/Ende Traditional Village", "Kuta Beach", "Tanjung Aan Beach", "Merese Hill Sunset"],
@@ -54,6 +55,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
       excludes: ["Lunch", "Village donations", "Tipping"]
     },
     id: {
+      price: "Rp 1.000K / Rp 250K per pax (min. 4)",
       title: "Tur Kuta Lombok",
       description: "Temukan pesisir selatan Lombok. Kunjungi desa tradisional Sade, lalu menuju ke pantai kelas dunia Kuta, Tanjung Aan, dan Bukit Merese untuk pemandangan yang spektakuler.",
       highlights: ["Desa Tradisional Sade/Ende", "Pantai Kuta", "Pantai Tanjung Aan", "Sunset Bukit Merese"],
@@ -69,9 +71,9 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "pink-beach-tour": {
-    price: "US$ 95",
     images: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Pink Beach Tour",
       description: "Visit the famous Pink Beach in East Lombok. The sand gets its pink hue from fragments of red coral. This tour includes boat hopping to Sand Island and Gili Petelu for snorkeling.",
       highlights: ["Pink Beach (Pantai Tangsi)", "Sand Island (Pulau Pasir)", "Gili Petelu Snorkeling", "Ancient Trees (Pohon Purba)"],
@@ -86,6 +88,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
       excludes: ["Tipping", "Alcoholic drinks"]
     },
     id: {
+      price: "Rp 1.000K / Rp 250K per pax (min. 4)",
       title: "Tur Pink Beach",
       description: "Kunjungi Pink Beach yang terkenal di Lombok Timur. Pasirnya mendapatkan rona merah muda dari fragmen karang merah. Tur ini mencakup island hopping dengan kapal ke Pulau Pasir dan Gili Petelu untuk snorkeling.",
       highlights: ["Pink Beach (Pantai Tangsi)", "Pulau Pasir", "Snorkeling Gili Petelu", "Pohon Purba"],
@@ -101,9 +104,9 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "waterfall-benang-kelambu-tour": {
-    price: "US$ 85",
     images: ["https://images.unsplash.com/photo-1596402184320-417d717867cd?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Waterfall (Benang Kelambu) Tour",
       description: "Benang Kelambu waterfall is located in Central Lombok. The water flows through thick plants, creating a curtain-like effect (Kelambu). This tour also includes a visit to the nearby Benang Stokel waterfall.",
       highlights: ["Benang Kelambu (Curtain) Waterfall", "Benang Stokel Waterfall", "Lush Rice Terraces", "Local Fruit Market"],
@@ -118,6 +121,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
       excludes: ["Lunch", "Tipping", "Personal Items"]
     },
     id: {
+      price: "Rp 1.000K / Rp 250K per pax (min. 4)",
       title: "Tur Air Terjun (Benang Kelambu)",
       description: "Air terjun Benang Kelambu terletak di Lombok Tengah. Airnya mengalir melalui tanaman lebat, menciptakan efek seperti kelambu. Tur ini juga mencakup kunjungan ke air terjun Benang Stokel di dekatnya.",
       highlights: ["Air Terjun Benang Kelambu", "Air Terjun Benang Stokel", "Terasering Padi yang Subur", "Pasar Buah Lokal"],
@@ -133,9 +137,9 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
     }
   },
   "waterfall-senaru-tour": {
-    price: "US$ 85",
     images: ["https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1000"],
     en: {
+      price: "US$ 70 / US$ 18 per pax (min. 4)",
       title: "Waterfall (Senaru) Tour",
       description: "Explore the most famous waterfalls in Lombok. This tour takes you to the foot of Mount Rinjani to witness the majestic Sendang Gile and Tiu Kelep waterfalls. Enjoy the lush tropical jungle and refreshing mountain air.",
       highlights: ["Sendang Gile Waterfall", "Tiu Kelep Waterfall", "Malimbu Sunset Point", "Monkey Forest Pusuk"],
@@ -151,6 +155,7 @@ const LOMBOK_TOUR_DATA: Record<string, any> = {
       excludes: ["Lunch", "Personal Expenses", "Tips for Guide"]
     },
     id: {
+      price: "Rp 1.000K / Rp 250K per pax (min. 4)",
       title: "Tur Air Terjun (Senaru)",
       description: "Jelajahi air terjun paling terkenal di Lombok. Tur ini membawa Anda ke kaki Gunung Rinjani untuk menyaksikan keindahan air terjun Sendang Gile dan Tiu Kelep. Nikmati hutan tropis yang subur dan udara pegunungan yang menyegarkan.",
       highlights: ["Air Terjun Sendang Gile", "Air Terjun Tiu Kelep", "Malimbu Sunset Point", "Hutan Monyet Pusuk"],

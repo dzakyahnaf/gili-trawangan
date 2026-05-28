@@ -4,45 +4,45 @@ import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
 
 export default function LombokTourPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const services = [
     {
-      title: "Waterfall (Senaru) Tour",
-      price: "US$ 85",
-      duration: "Full Day",
+      title: locale === "id" ? "Tur Air Terjun (Senaru)" : "Waterfall (Senaru) Tour",
+      price: locale === "id" ? "Rp 1.000K / Rp 250K per pax (min. 4)" : "US$ 70 / US$ 18 per pax (min. 4)",
+      duration: locale === "id" ? "Seharian Penuh" : "Full Day",
       image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/waterfall-senaru-tour",
       isPrivate: true
     },
     {
-      title: "Waterfall (Benang Kelambu) Tour",
-      price: "US$ 85",
-      duration: "Full Day",
+      title: locale === "id" ? "Tur Air Terjun (Benang Kelambu)" : "Waterfall (Benang Kelambu) Tour",
+      price: locale === "id" ? "Rp 1.000K / Rp 250K per pax (min. 4)" : "US$ 70 / US$ 18 per pax (min. 4)",
+      duration: locale === "id" ? "Seharian Penuh" : "Full Day",
       image: "https://images.unsplash.com/photo-1596402184320-417d717867cd?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/waterfall-benang-kelambu-tour",
       isPrivate: true
     },
     {
-      title: "Pink Beach Tour",
-      price: "US$ 95",
-      duration: "Full Day",
+      title: locale === "id" ? "Tur Pink Beach" : "Pink Beach Tour",
+      price: locale === "id" ? "Rp 1.000K / Rp 250K per pax (min. 4)" : "US$ 70 / US$ 18 per pax (min. 4)",
+      duration: locale === "id" ? "Seharian Penuh" : "Full Day",
       image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/pink-beach-tour",
       isPrivate: true
     },
     {
-      title: "Kuta Lombok Tour",
-      price: "US$ 85",
-      duration: "Full Day",
+      title: locale === "id" ? "Tur Kuta Lombok" : "Kuta Lombok Tour",
+      price: locale === "id" ? "Rp 1.000K / Rp 250K per pax (min. 4)" : "US$ 70 / US$ 18 per pax (min. 4)",
+      duration: locale === "id" ? "Seharian Penuh" : "Full Day",
       image: "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/kuta-lombok-tour",
       isPrivate: true
     },
     {
-      title: "City Tour",
-      price: "US$ 85",
-      duration: "Full Day",
+      title: locale === "id" ? "Tur Kota" : "City Tour",
+      price: locale === "id" ? "Rp 1.000K / Rp 250K per pax (min. 4)" : "US$ 70 / US$ 18 per pax (min. 4)",
+      duration: locale === "id" ? "Seharian Penuh" : "Full Day",
       image: "https://images.unsplash.com/photo-1605300287658-944205d6445b?auto=format&fit=crop&q=80&w=1000",
       href: "/lombok-tour/city-tour",
       isPrivate: true

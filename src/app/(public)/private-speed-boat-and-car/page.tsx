@@ -5,29 +5,29 @@ import Image from "next/image";
 import { Car, Ship, MapPin, ShieldCheck, Zap, MessageCircle, Clock } from "lucide-react";
 
 export default function PrivateSpeedboatCarPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   const services = [
     {
-      title: "Private Speed Boat: Lombok – Gili Air – Gili Trawangan – Gili Meno",
-      price: "US$ 15",
-      duration: "Per Way",
+      title: locale === "id" ? "Speedboat Privat: Lombok – Gili Air – Gili Trawangan – Gili Meno" : "Private Speed Boat: Lombok – Gili Air – Gili Trawangan – Gili Meno",
+      price: locale === "id" ? "Rp 400.000 sekali jalan (max. 4 pax)" : "US$ 28 per way (max. 4 pax)",
+      duration: locale === "id" ? "Sekali Jalan" : "Per Way",
       image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2024-10-29-at-08.48.49-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpeg",
       href: "/private-speed-boat-and-car/speedboat-charter",
       isPrivate: true
     },
     {
-      title: "Private Speed Boat and Car",
-      price: "US$ 35",
-      duration: "2 Hours",
+      title: locale === "id" ? "Speedboat dan Mobil Privat" : "Private Speed Boat and Car",
+      price: locale === "id" ? "Rp 800.000 sekali jalan (min. 4 pax)" : "US$ 55 per way (min. 4 pax)",
+      duration: locale === "id" ? "Sekali Jalan" : "Per Way",
       image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/4521-inside-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.png",
       href: "/private-speed-boat-and-car/combo-transfer",
       isPrivate: true
     },
     {
-      title: "Private Car",
-      price: "US$ 15",
-      duration: "2 Hours",
+      title: locale === "id" ? "Mobil Privat" : "Private Car",
+      price: locale === "id" ? "Rp 350.000/pax" : "US$ 25/pax",
+      duration: locale === "id" ? "Per Pax" : "Per Pax",
       image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/toyota-avanza-baru-diprediksi-punya-turbo-yuk-cermati-serbaserbinya-ise-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg",
       href: "/private-speed-boat-and-car/car-transfer",
       isPrivate: true
