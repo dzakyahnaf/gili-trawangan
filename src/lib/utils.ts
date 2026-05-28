@@ -62,13 +62,15 @@ export function getWhatsAppLink(message?: string): string {
 
 export function getPackageCoverImage(slug: string, dbImage?: string): string {
   const mapping: Record<string, string> = {
-    "open-trip-lombok": "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&q=80&w=800",
-    "one-day-trip-lombok": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
-    "menginap-di-gili-trawangan": "/images/snorkeling2.jpg",
-    "paket-honeymoon-lombok": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "paket-tour-lombok-2-hari-1-malam": "/images/air-terjun.jpg",
-    "trip-lombok-3-hari-2-malam": "/images/lombok2.jpg",
-    "paket-tour-lombok-4-hari-3-malam": "/images/lombok1.jpg"
+    "open-trip-lombok": "/images/generate/open-trip-lombok.png",
+    "one-day-trip-lombok": "/images/generate/one-day-trip-lombok.png",
+    "menginap-di-gili-trawangan": "/images/generate/menginap-di-gili-trawangan.png",
+    "paket-honeymoon-lombok": "/images/generate/paket-honeymoon-lombok.png",
+    "paket-tour-lombok-2-hari-1-malam": "/images/generate/paket-tour-lombok-2-hari-1-malam.png",
+    "trip-lombok-3-hari-2-malam": "/images/generate/trip-lombok-3-hari-2-malam.png",
+    "liburan-lombok-4-hari-3-malam": "/images/generate/liburan-lombok-4-hari-3-malam.png",
+    "wisata-lombok-5-hari-4-malam": "/images/generate/wisata-lombok-5-hari-4-malam.png",
+    "honeymoon-lombok-2-hari-1-malam": "/images/generate/honeymoon-lombok-2-hari-1-malam.png"
   };
-  return mapping[slug] || dbImage || "/images/lombok1.jpg";
+  return mapping[slug] || dbImage || "/images/generate/trip-lombok-3-hari-2-malam.png";
 }

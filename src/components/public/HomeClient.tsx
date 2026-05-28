@@ -300,7 +300,7 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featured.map((pkg) => (
               <Link key={pkg.id} href={`/packages/${pkg.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative w-full aspect-[12/8.4] overflow-hidden">
                   <Image src={pkg.coverImage} alt={pkg.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-gili-500/90 text-white text-xs font-semibold backdrop-blur-sm">
                     {pkg.isFeatured ? `⭐ ${t.featuredPkg.featured}` : pkg.duration}
