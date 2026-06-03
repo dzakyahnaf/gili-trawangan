@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Star, Shield, Users, Clock, HeadphonesIcon, ChevronDown, MapPin, Phone, MessageCircle, Waves, Mountain, Map, Ship, Sailboat, Car, Zap, ShieldCheck, Lock } from "lucide-react";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, getWhatsAppLink, getWhatsAppDisplay } from "@/lib/utils";
 import { useLang } from "@/components/LangProvider";
 import HeroSlider from "@/components/public/HeroSlider";
 
@@ -451,10 +451,10 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
                 <div className="w-12 h-12 rounded-xl bg-accent-50 flex items-center justify-center shrink-0"><Phone className="w-6 h-6 text-accent-600" /></div>
                 <div>
                   <h3 className="font-bold text-gray-900">WhatsApp</h3>
-                  <a href="https://wa.me/6287793082501" className="text-gili-600 hover:underline">+62 877-9308-2501</a>
+                  <a href={getWhatsAppLink()} className="text-gili-600 hover:underline">{getWhatsAppDisplay()}</a>
                 </div>
               </div>
-              <a href="https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20ingin%20bertanya" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-lg">
+              <a href={getWhatsAppLink("Halo RH Tour, saya ingin bertanya")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-lg">
                 <MessageCircle className="w-5 h-5" />{t.meetingPoint.chatWa}
               </a>
             </div>

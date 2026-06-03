@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { cookies } from "next/headers";
 import { LangProvider } from "@/components/LangProvider";
 import { type Locale } from "@/lib/i18n";
+import { GTMScript, GTMNoScript } from "@/components/GoogleTagManager";
+import { PageViewTracker } from "@/components/PageViewTracker";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.rhtourandtravel.com"),
   title: {
     default: "RH Tour & Travel — Wisata Gili Trawangan",
     template: "%s | RH Tour & Travel",
@@ -18,6 +22,10 @@ export const metadata: Metadata = {
     "fast boat Bali Gili",
     "tour Gili Trawangan",
     "RH Tour Travel",
+    "paket wisata Lombok",
+    "speedboat charter Gili",
+    "diving Gili Trawangan",
+    "island hopping Gili",
   ],
   authors: [{ name: "RH Tour & Travel" }],
   icons: {
@@ -25,11 +33,46 @@ export const metadata: Metadata = {
     shortcut: "/logos/logo-boat.png",
     apple: "/logos/logo-boat.png",
   },
+  alternates: {
+    canonical: "https://www.rhtourandtravel.com",
+  },
   openGraph: {
     title: "RH Tour & Travel — Wisata Gili Trawangan",
-    description: "Paket wisata terlengkap di Gili Trawangan, Lombok.",
+    description:
+      "Paket wisata terlengkap di Gili Trawangan, Lombok. Snorkeling, fast boat, speedboat charter & island tour.",
     type: "website",
     locale: "id_ID",
+    url: "https://www.rhtourandtravel.com",
+    siteName: "RH Tour & Travel",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "RH Tour & Travel — Wisata Gili Trawangan, Lombok",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RH Tour & Travel — Wisata Gili Trawangan",
+    description:
+      "Paket wisata terlengkap di Gili Trawangan, Lombok. Snorkeling, fast boat & speedboat charter.",
+    images: ["/og-image.png"],
+  },
+  verification: {
+    google: "mjhkhV_nSwPJqrsXnnagdN3kQe2ScA91Dt8qPWhF2fI",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -51,7 +94,18 @@ export default async function RootLayout(
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased font-sans">
+        {/* GTM NoScript fallback — must be first in body */}
+        <GTMNoScript />
+
         <LangProvider initialLocale={initialLocale}>{children}</LangProvider>
+
+        {/* GTM Script — placed in body per Next.js 16 best practice */}
+        <GTMScript />
+
+        {/* SPA page view tracker for GTM */}
+        <Suspense fallback={null}>
+          <PageViewTracker />
+        </Suspense>
       </body>
     </html>
   );

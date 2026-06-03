@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formatCurrency, getPackageCoverImage } from "@/lib/utils";
+import { formatCurrency, getPackageCoverImage, getWhatsAppLink } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 import { Check, X, MapPin, Clock, Users, ChevronDown } from "lucide-react";
 import { cookies } from "next/headers";
@@ -138,7 +138,7 @@ export default async function PackageDetailPage(props: { params: Promise<{ slug:
               {t.featuredPkg.bookNow}
             </Link>
             <a
-              href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20tertarik%20paket%20${encodeURIComponent(pkg.title)}`}
+              href={getWhatsAppLink(`Halo RH Tour, saya tertarik paket ${pkg.title}`)}
               className="block text-center w-full py-3 rounded-xl border-2 border-green-500 text-green-600 font-semibold hover:bg-green-50 transition-colors"
             >
               💬 Tanya via WhatsApp

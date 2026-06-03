@@ -1,6 +1,7 @@
 "use client";
 import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink, getWhatsAppDisplay } from "@/lib/utils";
 
 export default function ContactPage() {
   const { t, locale } = useLang();
@@ -27,7 +28,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">WhatsApp</p>
-                    <a href="https://wa.me/6287793082501" className="text-gray-900 font-semibold hover:text-gili-600 transition-colors">+62 877-9308-2501</a>
+                    <a href={getWhatsAppLink()} className="text-gray-900 font-semibold hover:text-gili-600 transition-colors">{getWhatsAppDisplay()}</a>
                   </div>
                 </div>
                 <div className="flex gap-4">

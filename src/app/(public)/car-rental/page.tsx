@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Car, MapPin, CheckCircle2, ShieldCheck, Zap, MessageCircle, Clock, User, Fuel } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink } from "@/lib/utils";
 
 export default function CarRentalPage() {
   const { t } = useLang();
@@ -110,7 +111,7 @@ export default function CarRentalPage() {
                 </div>
                 <div className="p-6 pt-0">
                   <Link 
-                    href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20ingin%20pesan%20${service.title}`}
+                    href={getWhatsAppLink(`Halo RH Tour, saya ingin pesan ${service.title}`)}
                     className="block w-full py-3.5 rounded-xl bg-gili-500 text-white font-bold text-center hover:bg-gili-600 transition-all text-sm"
                   >
                     Book This Car
@@ -196,7 +197,7 @@ export default function CarRentalPage() {
           <h2 className="text-3xl font-bold mb-6">Book Your Ride Now</h2>
           <p className="font-medium mb-10 text-gili-800/80">Available 24 hours for emergency transfers or planned tours. Instant confirmation via WhatsApp.</p>
           <a 
-            href="https://wa.me/6287793082501"
+            href={getWhatsAppLink()}
             className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-gili-500 text-white font-bold text-lg hover:scale-105 transition-all shadow-xl"
           >
             <MessageCircle className="w-6 h-6" /> Chat with Driver

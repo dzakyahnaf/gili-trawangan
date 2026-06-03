@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import HomeClient from "@/components/public/HomeClient";
 import { getPackageCoverImage } from "@/lib/utils";
+import { LocalBusinessJsonLd, FAQPageJsonLd } from "@/components/JsonLd";
 
 export default async function HomePage() {
   const rawFeatured = await prisma.package.findMany({
@@ -34,13 +35,26 @@ export default async function HomePage() {
 
   const parsedFaqs = siteFaqs.map(f => JSON.parse(f.value));
 
-  return (
-    <HomeClient
-      featured={featured}
+  // Prepare FAQ data for JSON-LD structured data
+  const faqJsonLdData = parsedFaqs.map((faq: { question: string; answer: string }) => ({
+    question: faq.question,
+    answer: faq.answer,
+  }));
 
-      recentTestimonials={recentTestimonials}
-      gallery={gallery}
-      parsedFaqs={parsedFaqs}
-    />
+  return (
+    <>
+      {/* Structured Data — LocalBusiness + FAQ for Google rich results */}
+      <LocalBusinessJsonLd />
+      {faqJsonLdData.length > 0 && <FAQPageJsonLd faqs={faqJsonLdData} />}
+
+      <HomeClient
+        featured={featured}
+
+        recentTestimonials={recentTestimonials}
+        gallery={gallery}
+        parsedFaqs={parsedFaqs}
+      />
+    </>
   );
 }
+

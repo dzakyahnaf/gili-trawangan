@@ -54,10 +54,20 @@ export function formatDate(date: Date | string): string {
   }).format(new Date(date));
 }
 
+export function getWhatsAppNumber(): string {
+  return process.env.NEXT_PUBLIC_WA_NUMBER || "6287793082501";
+}
+
 export function getWhatsAppLink(message?: string): string {
-  const phone = "6287793082501";
+  const phone = getWhatsAppNumber();
   const encoded = message ? encodeURIComponent(message) : "";
   return `https://wa.me/${phone}${encoded ? `?text=${encoded}` : ""}`;
+}
+
+export function getWhatsAppDisplay(): string {
+  const num = getWhatsAppNumber();
+  // Format: +62 877-9308-2501
+  return `+${num.slice(0, 2)} ${num.slice(2, 5)}-${num.slice(5, 9)}-${num.slice(9)}`;
 }
 
 export function getPackageCoverImage(slug: string, dbImage?: string): string {

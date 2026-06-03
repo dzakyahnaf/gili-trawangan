@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Share2, Camera, Video } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink, getWhatsAppDisplay } from "@/lib/utils";
 
 export default function Footer() {
   const { t } = useLang();
@@ -62,7 +63,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-accent-500 shrink-0" />
-                <a href="https://wa.me/6287793082501" className="hover:text-white transition-colors">+62 877-9308-2501</a>
+                <a href={getWhatsAppLink()} className="hover:text-white transition-colors">{getWhatsAppDisplay()}</a>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-accent-500 shrink-0" />

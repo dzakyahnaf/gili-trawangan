@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Shield, Users, Heart, Award } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink } from "@/lib/utils";
 
 export default function AboutPage() {
   const { t, locale } = useLang();
@@ -52,7 +53,7 @@ export default function AboutPage() {
         <div className="bg-linear-to-r from-gili-600 to-gili-700 rounded-2xl p-10 text-center text-white">
           <h3 className="text-2xl font-bold mb-3">{locale === "en" ? "Ready for an Adventure?" : "Siap Berpetualang?"}</h3>
           <p className="text-gili-200 mb-6">{locale === "en" ? "Contact us now to plan your dream holiday" : "Hubungi kami sekarang untuk merencanakan liburan impian Anda"}</p>
-          <a href="https://wa.me/6287793082501" className="inline-flex px-8 py-3 rounded-xl bg-accent-500 text-gili-900 font-bold hover:bg-accent-400 hover:shadow-lg transition-all">
+          <a href={getWhatsAppLink()} className="inline-flex px-8 py-3 rounded-xl bg-accent-500 text-gili-900 font-bold hover:bg-accent-400 hover:shadow-lg transition-all">
             {locale === "en" ? "Contact Us" : "Hubungi Kami"}
           </a>
         </div>

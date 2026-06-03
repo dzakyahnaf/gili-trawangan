@@ -1,5 +1,6 @@
 "use client";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink } from "@/lib/utils";
 import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -94,7 +95,7 @@ export default function FastBoatPage() {
                     <td className="px-6 py-6 text-gray-600 font-medium">{s.arr}</td>
                     <td className="px-6 py-6 font-black text-gili-600 text-lg">{s.price}</td>
                     <td className="px-6 py-6">
-                      <a href="https://wa.me/6287793082501" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-500 text-gili-900 font-bold text-xs hover:bg-accent-400 transition-all">
+                      <a href={getWhatsAppLink()} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-500 text-gili-900 font-bold text-xs hover:bg-accent-400 transition-all">
                         {t.listingPages.scheduleBook}
                       </a>
                     </td>

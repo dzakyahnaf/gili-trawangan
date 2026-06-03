@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, X, Star, ShieldCheck, Zap, Clock, MessageCircle, MapPin } from "lucide-react";
 import { useLang } from "@/components/LangProvider";
+import { getWhatsAppLink } from "@/lib/utils";
 
 interface ServiceDetailProps {
   title: string;
@@ -138,7 +139,7 @@ export default function ServiceDetailTemplate({ title, price, images, descriptio
               </div>
 
               <Link 
-                href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20ingin%20tanya%20detail%20mengenai%20${title}`}
+                href={getWhatsAppLink(`Halo RH Tour, saya ingin tanya detail mengenai ${title}`)}
                 className="block w-full py-5 rounded-3xl bg-accent-500 text-gili-900 font-black text-center shadow-lg hover:bg-accent-400 hover:scale-[1.02] transition-all"
               >
                 {t.serviceDetail.bookNow}

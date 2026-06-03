@@ -1,5 +1,5 @@
 import { getBookingByCode } from "@/app/actions/booking";
-import { formatRupiah } from "@/lib/utils";
+import { formatRupiah, getWhatsAppLink } from "@/lib/utils";
 import { CheckCircle2, Clock, MapPin, Phone, Mail, User, Calendar } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -84,7 +84,7 @@ export default async function BookingStatusPage(props: {
             <div className="text-center pt-4">
               <p className="text-sm text-gray-500 mb-3">Butuh bantuan atau ingin konfirmasi manual?</p>
               <a
-                href={`https://wa.me/6287793082501?text=Halo%20RH%20Tour%2C%20saya%20sudah%20memesan%20dengan%20kode%20${booking.bookingCode}`}
+                href={getWhatsAppLink(`Halo RH Tour, saya sudah memesan dengan kode ${booking.bookingCode}`)}
                 className="inline-flex items-center gap-2 text-green-600 font-bold hover:underline"
               >
                 Hubungi Kami di WhatsApp
