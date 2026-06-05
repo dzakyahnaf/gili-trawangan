@@ -35,6 +35,14 @@ export default async function HomePage() {
 
   const parsedFaqs = siteFaqs.map(f => JSON.parse(f.value));
 
+  const contentRows = await prisma.siteContent.findMany({
+    where: { group: "content" },
+  });
+  const contentMap = contentRows.reduce((acc, row) => {
+    acc[row.key] = row.value;
+    return acc;
+  }, {} as Record<string, string>);
+
   // Prepare FAQ data for JSON-LD structured data
   const faqJsonLdData = parsedFaqs.map((faq: { question: string; answer: string }) => ({
     question: faq.question,
@@ -49,10 +57,10 @@ export default async function HomePage() {
 
       <HomeClient
         featured={featured}
-
         recentTestimonials={recentTestimonials}
         gallery={gallery}
         parsedFaqs={parsedFaqs}
+        contentMap={contentMap}
       />
     </>
   );

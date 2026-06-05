@@ -55,6 +55,10 @@ export function formatDate(date: Date | string): string {
 }
 
 export function getWhatsAppNumber(): string {
+  // Priority: DB value (injected as window global) > env var > hardcoded fallback
+  if (typeof window !== "undefined" && (window as any).__WA_NUMBER) {
+    return (window as any).__WA_NUMBER;
+  }
   return process.env.NEXT_PUBLIC_WA_NUMBER || "6287793082501";
 }
 

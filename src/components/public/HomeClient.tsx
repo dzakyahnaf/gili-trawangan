@@ -20,9 +20,10 @@ interface HomeClientProps {
     id: string; imageUrl: string; caption: string | null;
   }>;
   parsedFaqs: Array<{ q: string; a: string }>;
+  contentMap?: Record<string, string>;
 }
 
-export default function HomeClient({ featured, recentActivities, recentTestimonials, gallery, parsedFaqs }: HomeClientProps) {
+export default function HomeClient({ featured, recentActivities, recentTestimonials, gallery, parsedFaqs, contentMap }: HomeClientProps) {
   const { t, locale } = useLang();
 
   // Custom premium detailed vector illustrations for categories
@@ -164,11 +165,36 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             {t.hero.welcome}
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-slide-up">
-            {t.hero.title1}
-            <span className="block gradient-text">{t.hero.title2}</span>
+            {(() => {
+              const customTitle = locale === "en" ? contentMap?.hero_title_en : contentMap?.hero_title_id;
+              if (customTitle) {
+                const words = customTitle.split(" ");
+                if (words.length <= 2) {
+                  return (
+                    <>
+                      {words[0]} <span className="block gradient-text">{words[1] || ""}</span>
+                    </>
+                  );
+                }
+                const mid = Math.ceil(words.length / 2);
+                const firstHalf = words.slice(0, mid).join(" ");
+                const secondHalf = words.slice(mid).join(" ");
+                return (
+                  <>
+                    {firstHalf} <span className="block gradient-text">{secondHalf}</span>
+                  </>
+                );
+              }
+              return (
+                <>
+                  {t.hero.title1}
+                  <span className="block gradient-text">{t.hero.title2}</span>
+                </>
+              );
+            })()}
           </h1>
           <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto animate-fade-in">
-            {t.hero.subtitle}
+            {(locale === "en" ? contentMap?.hero_subtitle_en : contentMap?.hero_subtitle_id) || t.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Link href="/packages" className="px-8 py-4 rounded-2xl bg-accent-500 text-gili-900 font-bold text-lg shadow-2xl hover:bg-accent-400 hover:scale-105 transition-all">

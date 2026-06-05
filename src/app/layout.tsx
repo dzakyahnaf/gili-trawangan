@@ -5,6 +5,7 @@ import { LangProvider } from "@/components/LangProvider";
 import { type Locale } from "@/lib/i18n";
 import { GTMScript, GTMNoScript } from "@/components/GoogleTagManager";
 import { PageViewTracker } from "@/components/PageViewTracker";
+import { ScriptInjector, WaNumberInjector, hasAdminScripts } from "@/components/ScriptInjector";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -83,6 +84,10 @@ export default async function RootLayout(
   const initialLocale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
   const { children } = props;
 
+  // Check if admin has configured scripts in the dashboard.
+  // If yes, skip hardcoded GTM components to avoid duplication.
+  const adminScripts = await hasAdminScripts();
+
   return (
     <html lang="id" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
@@ -92,15 +97,27 @@ export default async function RootLayout(
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+        {/* Admin head scripts from DB (GTM, Meta Pixel, etc.) */}
+        <ScriptInjector position="head" />
       </head>
       <body className="antialiased font-sans">
-        {/* GTM NoScript fallback — must be first in body */}
-        <GTMNoScript />
+        {/* Admin body scripts from DB (GTM noscript, etc.) */}
+        <ScriptInjector position="body" />
+
+        {/* Fallback GTM — only renders if admin hasn't configured scripts in dashboard */}
+        {!adminScripts.body && <GTMNoScript />}
+
+        {/* Inject WA number from DB as window global for client components */}
+        <WaNumberInjector />
 
         <LangProvider initialLocale={initialLocale}>{children}</LangProvider>
 
-        {/* GTM Script — placed in body per Next.js 16 best practice */}
-        <GTMScript />
+        {/* Fallback GTM script — only renders if admin hasn't configured head scripts */}
+        {!adminScripts.head && <GTMScript />}
+
+        {/* Admin footer scripts from DB (analytics, chat widgets, etc.) */}
+        <ScriptInjector position="footer" />
 
         {/* SPA page view tracker for GTM */}
         <Suspense fallback={null}>

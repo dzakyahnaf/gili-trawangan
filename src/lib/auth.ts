@@ -6,7 +6,7 @@ import { compare } from "bcryptjs";
 const MOCK_ADMIN = {
   id: "admin-1",
   email: "admin@rhtour.com",
-  password: "$2a$12$LJ3m6gKz.AiEfWCw2sFhzuqXwNZ2bVpWxRqhJHdFqTdLh2BC3.KWy", // "admin123"
+  password: "$2b$12$Q98H.rc0h1Axxp.LXiDz..TMz3zNrgDj6w6oxO/K6Jk0VtJ8ZTZWW", // "admin123"
   name: "Admin RH Tour",
 };
 
