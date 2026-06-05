@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, Calendar, Package, Waves, Ship, Sailboat, Image, MessageSquare, FileText, LogOut, Anchor, Menu, X, Settings } from "lucide-react";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 
 const menuItems = [
   { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
@@ -45,7 +46,10 @@ export default function AdminSidebar({ children }: { children: React.ReactNode }
           ))}
         </nav>
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gili-800">
-          <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-400 hover:text-red-400 hover:bg-gili-800 w-full transition-colors">
+          <button 
+            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-400 hover:text-red-400 hover:bg-gili-800 w-full transition-colors"
+          >
             <LogOut className="w-5 h-5" />Logout
           </button>
         </div>

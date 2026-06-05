@@ -12,6 +12,7 @@ const MOCK_ADMIN = {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: true,
+  secret: process.env.AUTH_SECRET || "xPOYYIbZPuHO6I6cDId/ZYN+iWnyKQI+6xhfdI4PZPo=",
   pages: {
     signIn: "/admin/login",
   },
