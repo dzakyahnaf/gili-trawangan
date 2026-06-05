@@ -3,19 +3,35 @@ import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const isAdminRoute = pathname.startsWith("/admin");
   const isLoginPage = pathname === "/admin/login";
   const isApiAuth = pathname.startsWith("/api/auth");
 
   // Skip auth API routes
   if (isApiAuth) return NextResponse.next();
 
-  // For admin routes (except login), check for session cookie
-  if (isAdminRoute && !isLoginPage) {
-    const sessionToken =
-      request.cookies.get("authjs.session-token")?.value ||
-      request.cookies.get("__Secure-authjs.session-token")?.value;
+  const sessionToken =
+    request.cookies.get("authjs.session-token")?.value ||
+    request.cookies.get("__Secure-authjs.session-token")?.value;
 
+  // If user visits exactly /admin or /admin/
+  if (pathname === "/admin" || pathname === "/admin/") {
+    if (sessionToken) {
+      return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+    } else {
+      return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
+  }
+
+  // If user visits /admin/login
+  if (isLoginPage) {
+    if (sessionToken) {
+      return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+    }
+    return NextResponse.next();
+  }
+
+  // For any other /admin routes (dashboard, bookings, etc.), check for session cookie
+  if (pathname.startsWith("/admin")) {
     if (!sessionToken) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
@@ -25,5 +41,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin", "/admin/:path*"],
 };

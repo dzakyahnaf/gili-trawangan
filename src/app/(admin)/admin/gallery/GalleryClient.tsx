@@ -72,7 +72,7 @@ export default function GalleryClient({ initialGallery }: Props) {
 
       {/* Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {initialGallery.map((img) => (
+        {initialGallery.map((img, index) => (
           <div key={img.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group relative">
             <div className="relative h-48 bg-gray-100">
               <Image 
@@ -80,6 +80,7 @@ export default function GalleryClient({ initialGallery }: Props) {
                 alt={img.caption || ""} 
                 fill 
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index < 3}
                 className="object-cover" 
               />
             </div>

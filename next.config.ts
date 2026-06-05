@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
     ],
   },
   serverExternalPackages: ["@prisma/client"],
+  experimental: {
+    cpus: 2,
+  },
 };
   
 export default nextConfig;

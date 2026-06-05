@@ -45,6 +45,8 @@ export default function AdminLoginPage() {
               src="/logos/logo-boat.png" 
               alt="Logo RH Tour" 
               fill 
+              sizes="80px"
+              priority
               className="object-cover"
             />
           </div>
