@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Calendar, Package, Waves, Ship, Sailboat, Image, MessageSquare, FileText, LogOut, Anchor, Menu, X, Settings } from "lucide-react";
+import { LayoutDashboard, Calendar, Package, Waves, Ship, Sailboat, Image, MessageSquare, FileText, LogOut, Anchor, Menu, X, Settings, Users } from "lucide-react";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 
@@ -16,6 +16,7 @@ const menuItems = [
   { label: "Testimonial", href: "/admin/testimonials", icon: MessageSquare },
   { label: "Konten", href: "/admin/content", icon: FileText },
   { label: "Pengaturan", href: "/admin/settings", icon: Settings },
+  { label: "Akun Admin", href: "/admin/users", icon: Users },
 ];
 
 export default function AdminSidebar({ children }: { children: React.ReactNode }) {

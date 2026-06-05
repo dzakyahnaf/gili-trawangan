@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@rhtour.com" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 focus:border-gili-500 outline-none" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="nama@email.com" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 focus:border-gili-500 outline-none" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
@@ -67,7 +67,6 @@ export default function AdminLoginPage() {
           <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-linear-to-r from-gili-500 to-gili-600 text-white font-semibold disabled:opacity-50 hover:shadow-lg transition-all">
             <LogIn className="w-5 h-5" />{loading ? "Masuk..." : "Masuk"}
           </button>
-          <p className="text-xs text-gray-400 text-center">Demo: admin@rhtour.com / admin123</p>
         </form>
       </div>
     </div>

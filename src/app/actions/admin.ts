@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { uploadImage, deleteImage } from "@/lib/cloudinary";
+import { hash } from "bcryptjs";
 
 // --- PACKAGES ---
 export async function getPackages() {
@@ -805,5 +806,87 @@ export async function saveContentSettings(data: ContentSettings) {
   revalidatePath("/");
   revalidatePath("/about");
   revalidatePath("/admin/content");
+}
+
+// --- USER MANAGEMENT (ADMINS) ---
+export async function getAdmins() {
+  return await prisma.admin.findMany({
+    orderBy: { createdAt: "desc" },
+  });
+}
+
+export async function createAdmin(formData: FormData) {
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const role = formData.get("role") as string || "admin";
+
+  if (!name?.trim()) throw new Error("Nama wajib diisi.");
+  if (!email?.trim()) throw new Error("Email wajib diisi.");
+  if (!password?.trim()) throw new Error("Password wajib diisi.");
+  if (password.length < 6) throw new Error("Password minimal 6 karakter.");
+
+  // Check unique email
+  const existing = await prisma.admin.findUnique({ where: { email } });
+  if (existing) throw new Error("Email ini sudah digunakan oleh akun lain.");
+
+  // Hash password
+  const hashedPassword = await hash(password, 12);
+
+  await prisma.admin.create({
+    data: {
+      name,
+      email,
+      password: hashedPassword,
+      role,
+    },
+  });
+
+  revalidatePath("/admin/users");
+}
+
+export async function updateAdmin(id: string, formData: FormData) {
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const role = formData.get("role") as string || "admin";
+
+  if (!name?.trim()) throw new Error("Nama wajib diisi.");
+  if (!email?.trim()) throw new Error("Email wajib diisi.");
+
+  // Check unique email
+  const existing = await prisma.admin.findFirst({
+    where: { email, id: { not: id } },
+  });
+  if (existing) throw new Error("Email ini sudah digunakan oleh akun lain.");
+
+  const data: any = {
+    name,
+    email,
+    role,
+  };
+
+  // If password is provided, hash and update it
+  if (password && password.trim().length > 0) {
+    if (password.length < 6) throw new Error("Password minimal 6 karakter.");
+    data.password = await hash(password, 12);
+  }
+
+  await prisma.admin.update({
+    where: { id },
+    data,
+  });
+
+  revalidatePath("/admin/users");
+}
+
+export async function deleteAdmin(id: string) {
+  const count = await prisma.admin.count();
+  if (count <= 1) {
+    throw new Error("Tidak dapat menghapus admin terakhir.");
+  }
+
+  await prisma.admin.delete({ where: { id } });
+  revalidatePath("/admin/users");
 }
 

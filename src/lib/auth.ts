@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
+import { prisma } from "./prisma";
 
 // Mock admin credentials for development (no DB needed)
 const MOCK_ADMIN = {
@@ -33,17 +34,39 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const email = credentials.email as string;
         const password = credentials.password as string;
 
-        // Use mock admin for development
-        if (email !== MOCK_ADMIN.email) return null;
+        // Try database first
+        try {
+          const dbAdmin = await prisma.admin.findUnique({
+            where: { email },
+          });
 
-        const isValid = await compare(password, MOCK_ADMIN.password);
-        if (!isValid) return null;
+          if (dbAdmin) {
+            const isValid = await compare(password, dbAdmin.password);
+            if (isValid) {
+              return {
+                id: dbAdmin.id,
+                email: dbAdmin.email,
+                name: dbAdmin.name,
+              };
+            }
+          }
+        } catch (error) {
+          console.error("Database auth error:", error);
+        }
 
-        return {
-          id: MOCK_ADMIN.id,
-          email: MOCK_ADMIN.email,
-          name: MOCK_ADMIN.name,
-        };
+        // Fallback to mock admin for safety/initial setup
+        if (email === MOCK_ADMIN.email) {
+          const isValid = await compare(password, MOCK_ADMIN.password);
+          if (isValid) {
+            return {
+              id: MOCK_ADMIN.id,
+              email: MOCK_ADMIN.email,
+              name: MOCK_ADMIN.name,
+            };
+          }
+        }
+
+        return null;
       },
     }),
   ],
