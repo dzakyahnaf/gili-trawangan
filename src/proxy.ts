@@ -11,7 +11,9 @@ export function proxy(request: NextRequest) {
 
   const sessionToken =
     request.cookies.get("authjs.session-token")?.value ||
-    request.cookies.get("__Secure-authjs.session-token")?.value;
+    request.cookies.get("__Secure-authjs.session-token")?.value ||
+    request.cookies.get("next-auth.session-token")?.value ||
+    request.cookies.get("__Secure-next-auth.session-token")?.value;
 
   // If user visits exactly /admin or /admin/
   if (pathname === "/admin" || pathname === "/admin/") {
