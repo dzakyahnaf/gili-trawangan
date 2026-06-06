@@ -98,11 +98,10 @@ export default async function RootLayout(
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-        {/* Admin head scripts from DB (GTM, Meta Pixel, etc.) */}
-        <ScriptInjector position="head" />
       </head>
       <body className="antialiased font-sans">
-        {/* Admin body scripts from DB (GTM noscript, etc.) */}
+        {/* Admin scripts from DB — Head scripts are moved to top of body to prevent hydration & DOM parsing errors caused by wrapping divs in the <head> */}
+        <ScriptInjector position="head" />
         <ScriptInjector position="body" />
 
         {/* Fallback GTM — only renders if admin hasn't configured scripts in dashboard */}

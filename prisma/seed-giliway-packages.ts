@@ -7,20 +7,45 @@ async function main() {
 
   const newPackages = [
     {
-      slug: "horseback-riding-experience-in-gili-meno",
-      title: "Horseback Riding Experience in Gili Meno",
-      subtitle: "Add a touch of magic to your island getaway",
+      slug: "private-horseback-riding-experience-gili-air",
+      title: "Private Horseback Riding Experience Gili Air",
+      subtitle: "Enjoy a scenic beach ride on Gili Air with sunrise or sunset views",
       category: "activity",
-      description: "Add a touch of magic to your island getaway with an approximately 1-hour horseback riding experience along the beautiful beaches. Available on Gili Air, Gili Trawangan, and Gili Meno. You can enjoy a flexible starting time, allowing you to ride during the stunning sunrise or the golden sunset. A friendly guide or instructor will assist you throughout the ride, and the package conveniently includes a hotel or meeting-point pickup at your chosen starting island.",
+      description: "Experience the beauty of Gili Air in a unique and unforgettable way with a private horseback riding experience along the island's scenic beach. Ride peacefully along the coastline while enjoying breathtaking ocean views, fresh sea breeze, and the relaxed atmosphere that makes Gili Air one of the most charming islands in Lombok. This horseback riding experience is suitable for beginners and experienced riders alike. Accompanied by a friendly local guide, you will enjoy a calm and comfortable ride around selected beach areas with flexible departure times available during sunrise or sunset for the best island atmosphere and photo opportunities. Whether you are traveling as a couple, with friends, or as a solo traveler, this experience offers a memorable way to explore the natural beauty of Gili Air while creating stunning moments by the beach.",
       duration: "1 Jam",
       price: 500000,
       priceChild: 500000,
-      coverImage: "https://www.giliway.com/tour-packages/images/tour/horseback-riding-experience-in-gili-meno-17.jpeg",
-      includes: ["Hotel/meeting-point pickup on Gili Meno", "Horseback riding experience", "Friendly guide/instructor"],
-      excludes: ["Meals & drinks", "Personal expenses"],
-      programs: ["Horseback riding experience", "Sunset/Sunrise riding"],
+      coverImage: "https://www.giliway.com/images/tour/private-horseback-riding-experience-gili-air-58.jpeg",
+      includes: [
+        "Private horseback riding experience",
+        "Friendly local guide/instructor",
+        "Hotel or meeting point pickup in Gili Air",
+        "Approximately 1-hour horseback riding session"
+      ],
+      excludes: [
+        "Meals and drinks",
+        "Personal expenses",
+        "Professional photography services",
+        "Tips for guide/instructor"
+      ],
+      programs: [
+        "Private horseback riding experience",
+        "Sunrise or Sunset riding",
+        "Beach & ocean views",
+        "Photography opportunities"
+      ],
       itinerary: [
-        { day: 1, title: "Horse Riding", activities: ["Flexible Starting Time: Sunrise or Sunset", "Hotel/meeting-point pickup on Gili Meno", "Approx. 1 hour horse riding"] }
+        {
+          day: 1,
+          title: "Private Horseback Riding Experience",
+          activities: [
+            "Hotel or meeting point pickup in Gili Air",
+            "Short introduction and safety briefing before starting",
+            "Relaxing horseback ride along the beautiful coastline of Gili Air",
+            "Choose sunrise or sunset departure for the best lighting and views",
+            "Return to starting point or accommodation area in Gili Air"
+          ]
+        }
       ],
       isActive: true,
       isFeatured: false,
@@ -31,16 +56,43 @@ async function main() {
       title: "Sunrise Fishing Trip Gili Trawangan",
       subtitle: "Experience the calm morning sea and beautiful sunrise views",
       category: "tour",
-      description: "Experience the calm morning sea and beautiful sunrise views from the water with this exclusive fishing trip. Starting at 6 am in front of the Jungle Bar in Gili Trawangan, this experience takes you to prime fishing spots selected by local experts familiar with the waters of Gili and Lombok. It is perfectly suitable for both beginners and experienced anglers. Packages are available for private or small groups (max 4 persons). It includes all necessary fishing gear, rods, an experienced local guide, and an optional barbeque if you catch fish during the trip.",
+      description: "Experience the calm morning sea and beautiful sunrise views from the water with this exclusive private fishing trip. Starting at 6 AM from the front of Jungle Bar in Gili Trawangan, this experience takes you to prime fishing spots selected by experienced local fishermen familiar with the waters around the Gili Islands and Lombok. The trip is perfectly suitable for both beginners and experienced anglers. Available as a private or small group experience (max 4 persons), it includes high-quality fishing rods, bait, safety gear, and an experienced local fishing guide. If you're lucky enough to catch fish during the trip, you can enjoy an optional barbeque right on the spot. Common catches include tuna, mahi-mahi, giant trevally, snapper, and grouper.",
       duration: "3 - 5 Jam",
       price: 2250000,
       priceChild: 2250000,
-      coverImage: "https://www.giliway.com/tour-packages/images/tour/sunrise-fishing-trip-gili-trawangan-67.jpeg",
-      includes: ["Fishing gear & rod", "Experienced local fishing guide", "Boat trip to fishing spots", "Optional BBQ if you Catch Fish", "Private or small group experience"],
-      excludes: ["Transportation to/from meeting point", "Meals & drinks", "Personal expenses", "Tips/gratuities"],
-      programs: ["Sunrise Fishing", "Boat Trip", "Optional BBQ"],
+      coverImage: "https://www.giliway.com/images/tour/private-sunrise-fishing-trip-gili-trawangan-48.jpeg",
+      includes: [
+        "Boat trip to fishing spots",
+        "Experienced local fishing guide",
+        "High-quality fishing rods & equipment",
+        "Bait & safety gear",
+        "Optional BBQ if you catch fish",
+        "Private or small group experience (max 4 persons)"
+      ],
+      excludes: [
+        "Hotel pickup/drop-off to meeting point",
+        "Meals & drinks",
+        "Personal expenses",
+        "Tips for guide/crew"
+      ],
+      programs: [
+        "Sunrise Fishing Trip",
+        "Boat Trip to Prime Spots",
+        "Optional Fresh BBQ"
+      ],
       itinerary: [
-        { day: 1, title: "Fishing Trip", activities: ["06:00 am - Meeting Point: Front of Jungle Bar Gili Trawangan", "Experience the calm morning sea and beautiful sunrise views", "Fishing spots selected by local experts", "Optional barbeque if you catch fish during the trip"] }
+        {
+          day: 1,
+          title: "Sunrise Fishing Trip",
+          activities: [
+            "06:00 AM — Meeting point: Front of Jungle Bar, Gili Trawangan",
+            "Depart by boat during the stunning sunrise over Gili waters",
+            "Fishing at prime spots selected by experienced local fishermen",
+            "Catch species like tuna, mahi-mahi, giant trevally, snapper, and grouper",
+            "Optional barbeque if you catch fish during the trip",
+            "Return to Gili Trawangan after 3-5 hours of fishing"
+          ]
+        }
       ],
       isActive: true,
       isFeatured: true,
