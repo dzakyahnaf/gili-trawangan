@@ -51,8 +51,8 @@ export default async function LombokTourPage() {
               // IDR: Rp 1.000K / Rp 250K per pax (min. 4)
               // USD: US$ 70 / US$ 18 per pax (min. 4)
               const priceStr = locale === "en"
-                ? `US$ ${pkg.priceUSD} / US$ ${Math.round((pkg.priceUSD || 70) / 4)} per pax (min. 4)`
-                : `Rp ${(pkg.price / 1000).toLocaleString("id-ID")}K / Rp ${(pkg.price / 4000).toLocaleString("id-ID")}K per pax (min. 4)`;
+                ? `US$ ${pkg.priceUSD} / US$ ${Math.round((pkg.priceUSD || 70) / 4)} per pax (max. 4)`
+                : `Rp ${(pkg.price / 1000).toLocaleString("id-ID")}K / Rp ${(pkg.price / 4000).toLocaleString("id-ID")}K per pax (max. 4)`;
 
               return (
                 <ServiceCard

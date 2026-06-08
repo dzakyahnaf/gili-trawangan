@@ -139,7 +139,7 @@ export default function ActivityForm({ initialData, category, categoryLabel }: P
 
     // Keep local path if it already exists and file is not uploaded
     const localImagePathOverride = (e.currentTarget as HTMLFormElement).elements.namedItem("localImagePath") as HTMLInputElement;
-    if (localImagePathOverride && localImagePathOverride.value.trim()) {
+    if (!file && localImagePathOverride && localImagePathOverride.value.trim()) {
       fd.append("localImagePath", localImagePathOverride.value.trim());
     }
 

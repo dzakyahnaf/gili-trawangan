@@ -4,12 +4,13 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditActivityPage({ params }: Props) {
+  const { id } = await params;
   const activity = await prisma.activity.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!activity) {

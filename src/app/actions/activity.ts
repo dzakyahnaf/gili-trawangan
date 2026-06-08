@@ -68,10 +68,10 @@ export async function createActivity(category: string, formData: FormData) {
   const localPath = formData.get("localImagePath") as string;
   const file = formData.get("coverImage") as File;
 
-  if (localPath?.trim() && localPath.startsWith("/images")) {
-    coverImage = localPath.trim();
-  } else if (file && file.size > 0) {
+  if (file && file.size > 0) {
     coverImage = await uploadImage(file);
+  } else if (localPath?.trim() && localPath.startsWith("/images")) {
+    coverImage = localPath.trim();
   } else {
     throw new Error("Gambar cover wajib diunggah atau path lokal harus diisi.");
   }
@@ -154,13 +154,13 @@ export async function updateActivity(id: string, category: string, formData: For
   const localPath = formData.get("localImagePath") as string;
   const file = formData.get("coverImage") as File;
 
-  if (localPath?.trim() && localPath.startsWith("/images")) {
-    coverImage = localPath.trim();
-  } else if (file && file.size > 0) {
+  if (file && file.size > 0) {
     if (current.coverImage && current.coverImage.startsWith("http")) {
       await deleteImage(current.coverImage);
     }
     coverImage = await uploadImage(file);
+  } else if (localPath?.trim() && localPath.startsWith("/images")) {
+    coverImage = localPath.trim();
   }
 
   await prisma.activity.update({

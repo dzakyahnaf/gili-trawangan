@@ -4,12 +4,13 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function BookingDetailPage({ params }: Props) {
+  const { id } = await params;
   const booking = await prisma.booking.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: {
       package: true,
       activity: true,

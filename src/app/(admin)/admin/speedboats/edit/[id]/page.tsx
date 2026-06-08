@@ -4,12 +4,13 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditSpeedboatPage({ params }: Props) {
+  const { id } = await params;
   const speedboat = await prisma.speedboat.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!speedboat) {
