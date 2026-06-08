@@ -44,25 +44,38 @@ model Package {
 }
 
 model Activity {
-  id           String   @id @default(cuid())
-  slug         String   @unique
-  name         String
-  description  String   @db.Text
-  coverImage   String
-  duration     String
-  price        Int
-  priceChild   Int?
-  minPax       Int      @default(1)
-  maxPax       Int      @default(100)
-  schedule     String[]
-  meetingPoint String
-  includes     String[]
-  excludes     String[]
-  category     String   // snorkeling, diving, cruise, watersport, etc.
-  isActive     Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  bookings     Booking[]
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  // --- Indonesian (default) ---
+  name          String
+  description   String   @db.Text
+  highlights    String[] @default([])
+  itinerary     Json     @default("[]") // Array of {time?, title, desc?}
+  includes      String[]
+  excludes      String[]
+  // --- English translation ---
+  nameEn        String?
+  descriptionEn String?  @db.Text
+  highlightsEn  String[] @default([])
+  itineraryEn   Json     @default("[]")
+  includesEn    String[] @default([])
+  excludesEn    String[] @default([])
+  // --- Pricing ---
+  price         Int      // IDR
+  priceUSD      Int?     // USD (explicit, not auto-converted)
+  priceChild    Int?
+  // --- Meta ---
+  coverImage    String
+  duration      String
+  minPax        Int      @default(1)
+  maxPax        Int      @default(100)
+  schedule      String[]
+  meetingPoint  String
+  category      String   // snorkeling, diving, cruise, watersport, etc.
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  bookings      Booking[]
 }
 
 model FastBoat {

@@ -1,37 +1,22 @@
-"use client";
-import { useLang } from "@/components/LangProvider";
-import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
+import ServiceCard from "@/components/public/ServiceCard";
+import { getActivities } from "@/app/actions/activity";
+import { cookies } from "next/headers";
+import { translations, type Locale } from "@/lib/i18n";
+import type { Metadata } from "next";
 
-export default function RinjaniTrackingPage() {
-  const { t, locale } = useLang();
+export const metadata: Metadata = {
+  title: "Paket Pendakian Gunung Rinjani Lombok",
+  description:
+    "Paket pendakian Rinjani terbaik. Tersedia paket 2D1N, 3D2N, dan 4D3N via Sembalun - Torean. Pemandu & porter berpengalaman, pelayanan profesional.",
+};
 
-  const services = [
-    {
-      title: locale === "id" ? "Pendakian Puncak Rinjani 2 Hari 1 Malam" : "Trekking Summit Rinjani 2 Days 1 Night",
-      price: locale === "id" ? "Rp 3.150.000/pax" : "US$ 210/pax",
-      duration: locale === "id" ? "2 Hari / 1 Malam" : "2D / 1N",
-      image: "/images/rinjani-tracking1.jpg",
-      href: "/rinjani-tracking/2d1n-summit",
-      isPrivate: true
-    },
-    {
-      title: locale === "id" ? "Pendakian Rinjani 3 Hari 2 Malam (Sembalun - Torean)" : "Trekking Rinjani 3 Days 2 Night (Sembalun - Torean)",
-      price: locale === "id" ? "Rp 4.100.000/pax" : "US$ 275/pax",
-      duration: locale === "id" ? "3 Hari / 2 Malam" : "3D / 2N",
-      image: "/images/rinjani-tracking2.jpg",
-      href: "/rinjani-tracking/3d2n-summit",
-      isPrivate: true
-    },
-    {
-      title: locale === "id" ? "Pendakian Rinjani 4 Hari 3 Malam (Sembalun - Torean)" : "Trekking Rinjani 4 Days 3 Night (Sembalun - Torean)",
-      price: locale === "id" ? "Rp 4.450.000/pax" : "US$ 300/pax",
-      duration: locale === "id" ? "4 Hari / 3 Malam" : "4D / 3N",
-      image: "/images/rinjani-tracking3.avif",
-      href: "/rinjani-tracking/4d3n-summit",
-      isPrivate: true
-    }
-  ];
+export default async function RinjaniTrackingPage() {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
+  const t = translations[locale] || translations.id;
+
+  const packages = await getActivities("rinjani-tracking");
 
   return (
     <main className="pt-20 bg-white">
@@ -43,6 +28,7 @@ export default function RinjaniTrackingPage() {
           fill
           sizes="100vw"
           className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
@@ -52,11 +38,35 @@ export default function RinjaniTrackingPage() {
 
       {/* Grid */}
       <section className="py-20 max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((s, idx) => (
-            <ServiceCard key={idx} {...s} />
-          ))}
-        </div>
+        {packages.length === 0 ? (
+          <div className="text-center py-20 text-gray-400">
+            <p>Paket pendakian Gunung Rinjani belum tersedia.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {packages.map((pkg) => {
+              const title = locale === "en" ? (pkg.nameEn || pkg.name) : pkg.name;
+              const unit = pkg.meetingPoint || "";
+              const priceStr = locale === "en"
+                ? pkg.priceUSD
+                  ? `US$ ${pkg.priceUSD}${unit}`
+                  : `US$ ${Math.round(pkg.price / 17000)}${unit}`
+                : `Rp ${pkg.price.toLocaleString("id-ID")}${unit}`;
+
+              return (
+                <ServiceCard
+                  key={pkg.id}
+                  title={title}
+                  price={priceStr}
+                  duration={pkg.duration}
+                  image={pkg.coverImage}
+                  href={`/rinjani-tracking/${pkg.slug}`}
+                  isPrivate={true}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
     </main>
   );

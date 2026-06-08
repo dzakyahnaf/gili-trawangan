@@ -1,38 +1,24 @@
-"use client";
-import { useLang } from "@/components/LangProvider";
-import ServiceCard from "@/components/public/ServiceCard";
 import Image from "next/image";
-import { Car, Ship, MapPin, ShieldCheck, Zap, MessageCircle, Clock } from "lucide-react";
+import ServiceCard from "@/components/public/ServiceCard";
+import { getActivities } from "@/app/actions/activity";
+import { cookies } from "next/headers";
+import { translations, type Locale } from "@/lib/i18n";
+import { Zap, ShieldCheck, Clock } from "lucide-react";
+import type { Metadata } from "next";
 
-export default function PrivateSpeedboatCarPage() {
-  const { t, locale } = useLang();
+export const metadata: Metadata = {
+  title: "Sewa Speedboat & Mobil Privat Lombok Gili",
+  description:
+    "Layanan transportasi privat tercepat dan terpercaya antara Kepulauan Gili dan Lombok. Tersedia persewaan speedboat privat, mobil privat, dan paket combo transfer.",
+};
 
-  const services = [
-    {
-      title: locale === "id" ? "Speedboat Privat: Lombok – Gili Air – Gili Trawangan – Gili Meno" : "Private Speed Boat: Lombok – Gili Air – Gili Trawangan – Gili Meno",
-      price: locale === "id" ? "Rp 400.000 sekali jalan (max. 4 pax)" : "US$ 28 per way (max. 4 pax)",
-      duration: locale === "id" ? "Sekali Jalan" : "Per Way",
-      image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2024-10-29-at-08.48.49-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpeg",
-      href: "/private-speed-boat-and-car/speedboat-charter",
-      isPrivate: true
-    },
-    {
-      title: locale === "id" ? "Speedboat dan Mobil Privat" : "Private Speed Boat and Car",
-      price: locale === "id" ? "Rp 800.000 sekali jalan (min. 4 pax)" : "US$ 55 per way (min. 4 pax)",
-      duration: locale === "id" ? "Sekali Jalan" : "Per Way",
-      image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/4521-inside-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.png",
-      href: "/private-speed-boat-and-car/combo-transfer",
-      isPrivate: true
-    },
-    {
-      title: locale === "id" ? "Mobil Privat" : "Private Car",
-      price: locale === "id" ? "Rp 350.000/pax" : "US$ 25/pax",
-      duration: locale === "id" ? "Per Pax" : "Per Pax",
-      image: "https://gilisnorkelingtour.com/wp-content/uploads/elementor/thumbs/toyota-avanza-baru-diprediksi-punya-turbo-yuk-cermati-serbaserbinya-ise-riee2oag53zae4kim6c6xhkgsqoqmhssmr5d57jhv4.jpg",
-      href: "/private-speed-boat-and-car/car-transfer",
-      isPrivate: true
-    }
-  ];
+export default async function PrivateSpeedboatCarPage() {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value || "id") as Locale;
+  const isEn = locale === "en";
+  const t = translations[locale] || translations.id;
+
+  const packages = await getActivities("private-speed-boat-and-car");
 
   return (
     <main className="pt-20 bg-white">
@@ -44,6 +30,7 @@ export default function PrivateSpeedboatCarPage() {
           fill
           sizes="100vw"
           className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-gili-600/60" />
         <h1 className="relative z-10 text-4xl md:text-6xl font-black text-white text-center tracking-tight">
@@ -57,11 +44,46 @@ export default function PrivateSpeedboatCarPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.listingPages.transportTitle}</h2>
           <p className="text-gray-500">{t.listingPages.transportDesc}</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((s, idx) => (
-            <ServiceCard key={idx} {...s} />
-          ))}
-        </div>
+        {packages.length === 0 ? (
+          <div className="text-center py-20 text-gray-400">
+            <p>Paket transportasi privat belum tersedia.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {packages.map((pkg) => {
+              const title = isEn ? (pkg.nameEn || pkg.name) : pkg.name;
+              
+              // Custom price format for private-speed-boat-and-car packages:
+              let priceStr = "";
+              if (pkg.slug === "speedboat-charter") {
+                priceStr = isEn ? "US$ 28 per way (max. 4 pax)" : "Rp 400.000 sekali jalan (max. 4 pax)";
+              } else if (pkg.slug === "combo-transfer") {
+                priceStr = isEn ? "US$ 55 per way (min. 4 pax)" : "Rp 800.000 sekali jalan (min. 4 pax)";
+              } else if (pkg.slug === "car-transfer") {
+                priceStr = isEn ? "US$ 25/pax" : "Rp 350.000/pax";
+              } else if (pkg.slug === "full-day-car-combo") {
+                priceStr = isEn ? "US$ 50 / 10 hours" : "Rp 750.000 / 10 jam";
+              } else {
+                const unit = pkg.meetingPoint || "";
+                priceStr = isEn
+                  ? pkg.priceUSD ? `US$ ${pkg.priceUSD}${unit}` : `US$ ${Math.round(pkg.price / 17000)}${unit}`
+                  : `Rp ${pkg.price.toLocaleString("id-ID")}${unit}`;
+              }
+
+              return (
+                <ServiceCard
+                  key={pkg.id}
+                  title={title}
+                  price={priceStr}
+                  duration={isEn ? "Per Way" : "Sekali Jalan"}
+                  image={pkg.coverImage}
+                  href={`/private-speed-boat-and-car/${pkg.slug}`}
+                  isPrivate={true}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {/* Info Section */}

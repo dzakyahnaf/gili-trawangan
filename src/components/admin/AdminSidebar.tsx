@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Calendar, Package, Waves, Ship, Sailboat, Image, MessageSquare, FileText, LogOut, Anchor, Menu, X, Settings, Users } from "lucide-react";
+import { LayoutDashboard, Calendar, Package, Waves, Ship, Sailboat, Image, MessageSquare, FileText, LogOut, Anchor, Menu, X, Settings, Users, Mountain, Map, Car, Compass } from "lucide-react";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 
@@ -9,7 +9,11 @@ const menuItems = [
   { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
   { label: "Bookings", href: "/admin/bookings", icon: Calendar },
   { label: "Paket Wisata", href: "/admin/packages", icon: Package },
-  { label: "Aktivitas", href: "/admin/activities", icon: Waves },
+  { label: "Snorkeling", href: "/admin/snorkeling", icon: Waves },
+  { label: "Rinjani Tracking", href: "/admin/rinjani-tracking", icon: Mountain },
+  { label: "Lombok Tour", href: "/admin/lombok-tour", icon: Map },
+  { label: "Sewa Mobil", href: "/admin/car-rental", icon: Car },
+  { label: "Speedboat & Car", href: "/admin/private-speed-boat-and-car", icon: Compass },
   { label: "Fast Boat", href: "/admin/fastboats", icon: Ship },
   { label: "Speedboat", href: "/admin/speedboats", icon: Sailboat },
   { label: "Galeri", href: "/admin/gallery", icon: Image },

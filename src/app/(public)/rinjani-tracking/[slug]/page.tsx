@@ -1,116 +1,51 @@
-"use client";
-import ServiceDetailTemplate from "@/components/public/ServiceDetailTemplate";
-import { notFound, useParams } from "next/navigation";
-import { useLang } from "@/components/LangProvider";
+import { notFound } from "next/navigation";
+import { getActivityBySlug } from "@/app/actions/activity";
+import ActivityDetailClient from "@/components/public/ActivityDetailClient";
+import type { Metadata } from "next";
 
-const RINJANI_DATA: Record<string, any> = {
-  "2d1n-summit": {
-    images: ["/images/rinjani-tracking1.jpg"],
-    en: {
-      price: "US$ 210/pax",
-      title: "Trekking Summit Rinjani 2 Days 1 Night",
-      description: "Conquer the summit of Mount Rinjani in just 2 days. This package is designed for experienced trekkers who want to reach the peak (3726m) quickly. Enjoy the most breathtaking sunrise in Indonesia.",
-      highlights: ["Rinjani Summit 3726m", "Sembalun Crater Rim", "Panoramic Sunrise View", "Professional Support"],
-      itinerary: [
-        { time: "Day 1", title: "Sembalun to Crater Rim", desc: "Start from Sembalun village. Hike through savannahs and forests to reach the crater rim (2639m)." },
-        { time: "Day 2", title: "Summit Attack & Descent", desc: "Wake up at 2 AM for the summit climb. Watch the sunrise from the peak, then descent back to Sembalun." }
-      ],
-      includes: ["Trekking Guide & Porters", "Tents & Camping Gear", "Meals during trek", "Rinjani Entrance Fee", "Transport to Sembalun"],
-      excludes: ["Tipping for guide", "Personal trekking gear", "Warm jacket/gloves"]
-    },
-    id: {
-      price: "Rp 3.150.000/pax",
-      title: "Trekking Puncak Rinjani 2 Hari 1 Malam",
-      description: "Taklukkan puncak Gunung Rinjani hanya dalam 2 hari. Paket ini dirancang untuk pendaki berpengalaman yang ingin mencapai puncak (3726m) dengan cepat. Nikmati matahari terbenam yang paling menakjubkan di Indonesia.",
-      highlights: ["Puncak Rinjani 3726m", "Pelawangan Sembalun", "Pemandangan Sunrise Panoramik", "Dukungan Profesional"],
-      itinerary: [
-        { time: "Hari 1", title: "Sembalun ke Pelawangan", desc: "Mulai dari desa Sembalun. Mendaki melalui sabana dan hutan untuk mencapai pelawangan (2639m)." },
-        { time: "Hari 2", title: "Mendaki Puncak & Turun", desc: "Bangun jam 2 pagi untuk pendakian puncak. Lihat matahari terbit dari puncak, lalu turun kembali ke Sembalun." }
-      ],
-      includes: ["Pemandu & Porter Trekking", "Tenda & Peralatan Berkemah", "Makan selama pendakian", "Biaya Masuk Rinjani", "Transportasi ke Sembalun"],
-      excludes: ["Tip untuk pemandu", "Alat pendakian pribadi", "Jaket hangat/sarung tangan"]
-    }
-  },
-  "3d2n-summit": {
-    images: ["/images/rinjani-tracking2.jpg"],
-    en: {
-      price: "US$ 275/pax",
-      title: "Mount Rinjani Trekking 3 Days 2 Nights (Sembalun - Torean)",
-      description: "A 3-day Rinjani trekking package starting from Sembalun and descending via the exotic Torean route (Jurassic Park route). Includes pickup, Lombok tour, and summit attack to 3,726 masl.",
-      highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Exotic Torean Route", "Lombok Tour"],
-      itinerary: [
-        { time: "Preparation", title: "Pickup & Lombok Tour", desc: "Pickup (max 2 PM). Tour to Sade Village, Mandalika, Tanjung Aan. Check-in at Sembalun accommodation & briefing." },
-        { time: "Day 1", title: "Sembalun to Sembalun Crater Rim", desc: "Start trekking from Sembalun after breakfast. Pass through Pos 1, 2, 3, and camp at Sembalun Crater Rim." },
-        { time: "Day 2", title: "Rinjani Summit & Segara Anak Lake", desc: "Wake up at 1 AM for summit attack. Return to crater rim for breakfast, then descend to Segara Anak Lake and natural hot springs." },
-        { time: "Day 3", title: "Segara Anak Lake to Torean", desc: "Descend via Torean route (Jurassic Park route). Arrive at Torean village in the afternoon and transfer to your next destination." }
-      ],
-      includes: ["Trekking Guide & Porters", "Tents & Sleeping Gear", "Meals during trek", "Transport & Pickup", "Lombok Tour (Day 0)"],
-      excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
-    },
-    id: {
-      price: "Rp 4.100.000/pax",
-      title: "Pendakian Rinjani 3 Hari 2 Malam (Rute Sembalun - Torean)",
-      description: "Paket pendakian Rinjani 3 Hari 2 Malam melalui rute Sembalun dan turun melalui jalur Torean yang eksotis (Jalur Jurassic Park). Termasuk penjemputan, wisata Lombok (Sade, Mandalika), dan pendakian puncak 3.726 mdpl.",
-      highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Jalur Eksotis Torean", "Wisata Lombok"],
-      itinerary: [
-        { time: "Persiapan", title: "Penjemputan & Wisata Lombok", desc: "Penjemputan (maks 14.00). Wisata ke Desa Adat Sade, Mandalika, Tanjung Aan. Check-in penginapan di Sembalun & briefing." },
-        { time: "Hari 1", title: "Sembalun ke Pelawangan Sembalun", desc: "Mulai pendakian dari Sembalun setelah sarapan. Melewati Pos 1, 2, 3, dan berkemah di Pelawangan Sembalun." },
-        { time: "Hari 2", title: "Puncak Rinjani & Danau Segara Anak", desc: "Bangun pukul 01.00 untuk summit attack. Turun ke Pelawangan untuk sarapan, lalu lanjut ke Danau Segara Anak dan pemandian air panas alami." },
-        { time: "Hari 3", title: "Danau Segara Anak ke Torean", desc: "Turun melalui jalur Torean (Jalur Jurassic Park). Tiba di Dusun Torean sore hari dan transfer ke tujuan selanjutnya." }
-      ],
-      includes: ["Pemandu & Porter", "Tenda & Alat Tidur", "Makan selama pendakian", "Transportasi & Penjemputan", "Wisata Lombok (Day 0)"],
-      excludes: ["Tiket pesawat", "Alat pendakian pribadi", "Tip guide & porter"]
-    }
-  },
-  "4d3n-summit": {
-    images: ["/images/rinjani-tracking3.avif"],
-    en: {
-      price: "US$ 300/pax",
-      title: "Mount Rinjani Trekking 4 Days 3 Nights (Sembalun - Torean)",
-      description: "A more relaxed 4-day Rinjani trekking package via Sembalun and Torean routes. Includes pickup, Lombok tour, Rinjani summit, Segara Anak lake, and an extra night of camping at Birisan Nangka.",
-      highlights: ["Rinjani Summit 3,726m", "Segara Anak Lake", "Natural Hot Springs", "Birisan Nangka Camp", "Lombok Tour"],
-      itinerary: [
-        { time: "Preparation", title: "Pickup & Lombok Tour", desc: "Pickup (max 2 PM). Tour to Sade Village, Mandalika, Tanjung Aan. Check-in at Sembalun accommodation & briefing." },
-        { time: "Day 1", title: "Sembalun to Sembalun Crater Rim", desc: "Start trekking from Sembalun after breakfast. Pass through Pos 1, 2, 3, and camp at Sembalun Crater Rim." },
-        { time: "Day 2", title: "Rinjani Summit & Segara Anak Lake", desc: "Wake up at 1 AM for summit attack. Return to crater rim for breakfast, then descend to Segara Anak Lake and natural hot springs." },
-        { time: "Day 3", title: "Segara Anak Lake to Birisan Nangka", desc: "Prepare to hike to Birisan Nangka camp. Enjoy the scenic Torean route and camp for the night." },
-        { time: "Day 4", title: "Birisan Nangka to Torean Basecamp", desc: "Descend to Torean Basecamp and finish the trekking program." }
-      ],
-      includes: ["Trekking Guide & Porters", "Tents & Sleeping Gear", "Meals during trek", "Transport & Pickup", "Lombok Tour (Day 0)"],
-      excludes: ["Flight tickets", "Personal trekking gear", "Guide & porter tips"]
-    },
-    id: {
-      price: "Rp 4.450.000/pax",
-      title: "Pendakian Rinjani 4 Hari 3 Malam (Rute Sembalun - Torean)",
-      description: "Paket pendakian Rinjani 4 Hari 3 Malam yang lebih santai melalui rute Sembalun dan Torean. Termasuk penjemputan, wisata Lombok, puncak Rinjani, Segara Anak, dan ekstra camping di Birisan Nangka.",
-      highlights: ["Puncak Rinjani 3.726 mdpl", "Danau Segara Anak", "Pemandian Air Panas Alami", "Camping Birisan Nangka", "Wisata Lombok"],
-      itinerary: [
-        { time: "Persiapan", title: "Penjemputan & Wisata Lombok", desc: "Penjemputan (maks 14.00). Wisata ke Desa Adat Sade, Mandalika, Tanjung Aan. Check-in penginapan di Sembalun & briefing." },
-        { time: "Hari 1", title: "Sembalun ke Pelawangan Sembalun", desc: "Mulai pendakian dari Sembalun setelah sarapan. Melewati Pos 1, 2, 3, dan berkemah di Pelawangan Sembalun." },
-        { time: "Hari 2", title: "Puncak Rinjani & Danau Segara Anak", desc: "Bangun pukul 01.00 untuk summit attack. Turun ke Pelawangan untuk sarapan, lalu lanjut ke Danau Segara Anak dan pemandian air panas alami." },
-        { time: "Hari 3", title: "Danau Segara Anak ke Birisan Nangka", desc: "Persiapan menuju area camp Birisan Nangka. Menikmati panorama jalur Torean hingga tiba di camp untuk bermalam." },
-        { time: "Hari 4", title: "Birisan Nangka ke Basecamp Torean", desc: "Turun menuju Basecamp Torean dan program selesai." }
-      ],
-      includes: ["Pemandu & Porter", "Tenda & Alat Tidur", "Makan selama pendakian", "Transportasi & Penjemputan", "Wisata Lombok (Day 0)"],
-      excludes: ["Tiket pesawat", "Alat pendakian pribadi", "Tip guide & porter"]
-    }
-  }
-};
+interface Props {
+  params: Promise<{ slug: string }>;
+}
 
-export default function RinjaniDetail() {
-  const params = useParams();
-  const slug = params?.slug as string;
-  const { locale } = useLang();
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const pkg = await getActivityBySlug(slug, "rinjani-tracking");
+  if (!pkg) return {};
+  return {
+    title: `${pkg.name} | Rinjani Tracking`,
+    description: pkg.description,
+  };
+}
 
-  if (!slug || !RINJANI_DATA[slug]) {
-    return notFound();
-  }
+export default async function RinjaniDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const pkg = await getActivityBySlug(slug, "rinjani-tracking");
 
-  const data = RINJANI_DATA[slug];
-  const localizedData = {
-    ...data,
-    ...(data[locale] || data.en)
+  if (!pkg) return notFound();
+
+  // Serialize the Prisma object to a plain object
+  const data = {
+    id: pkg.id,
+    slug: pkg.slug,
+    category: pkg.category,
+    name: pkg.name,
+    nameEn: pkg.nameEn ?? "",
+    description: pkg.description,
+    descriptionEn: pkg.descriptionEn ?? "",
+    highlights: pkg.highlights,
+    highlightsEn: pkg.highlightsEn,
+    itinerary: pkg.itinerary as { time?: string; title: string; desc?: string }[],
+    itineraryEn: pkg.itineraryEn as { time?: string; title: string; desc?: string }[],
+    includes: pkg.includes,
+    includesEn: pkg.includesEn,
+    excludes: pkg.excludes,
+    excludesEn: pkg.excludesEn,
+    price: pkg.price,
+    priceUSD: pkg.priceUSD,
+    duration: pkg.duration,
+    coverImage: pkg.coverImage,
+    meetingPoint: pkg.meetingPoint ?? "",
   };
 
-  return <ServiceDetailTemplate {...localizedData} />;
+  return <ActivityDetailClient data={data} />;
 }
