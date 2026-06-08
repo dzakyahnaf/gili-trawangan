@@ -9,7 +9,7 @@ interface Props {
 
 export default async function EditLombokTourPage({ params }: Props) {
   const { id } = await params;
-  const pkg = await getActivityById(id);
+  const pkg = await getActivityById(id) as any;
 
   if (!pkg) return notFound();
 
