@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Star, Shield, Users, Clock, HeadphonesIcon, ChevronDown, MapPin, Phone, MessageCircle, Waves, Mountain, Map, Ship, Sailboat, Car, Zap, ShieldCheck, Lock } from "lucide-react";
+import { Star, Shield, Users, Clock, HeadphonesIcon, ChevronDown, MapPin, Phone, MessageCircle, Waves, Mountain, Map, Ship, Sailboat, Car, Zap, ShieldCheck, Lock, CheckCircle2, Award, Headphones } from "lucide-react";
 import { formatCurrency, getWhatsAppLink, getWhatsAppDisplay } from "@/lib/utils";
 import { useLang } from "@/components/LangProvider";
 import HeroSlider from "@/components/public/HeroSlider";
+import BookingWidget from "@/components/public/BookingWidget";
 
 interface HomeClientProps {
   featured: Array<{
@@ -204,10 +205,32 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
               {t.hero.cta2}
             </Link>
           </div>
+
+          {/* ===== BOOKING WIDGET (high-converting sales form) ===== */}
+          <BookingWidget />
         </div>
         <a href="#services" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-float z-20">
           <ChevronDown className="w-8 h-8" />
         </a>
+      </section>
+
+      {/* ===== TRUST BADGES — social proof right below hero ===== */}
+      <section className="bg-white border-b border-gray-100 py-4">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+            {[
+              { icon: CheckCircle2, text: locale === "en" ? "5,000+ Happy Travelers" : "5.000+ Wisatawan Puas", color: "text-green-600" },
+              { icon: Award, text: locale === "en" ? "Best Price Guarantee" : "Jaminan Harga Terbaik", color: "text-amber-500" },
+              { icon: ShieldCheck, text: locale === "en" ? "Easy Cancellation" : "Pembatalan Mudah & Aman", color: "text-blue-600" },
+              { icon: Headphones, text: locale === "en" ? "Fast WhatsApp Response" : "Respon WA Cepat < 5 menit", color: "text-gili-600" },
+            ].map(({ icon: Icon, text, color }) => (
+              <div key={text} className="flex items-center gap-2">
+                <Icon className={`w-5 h-5 shrink-0 ${color}`} />
+                <span className="text-sm font-semibold text-gray-700">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ===== 2. SERVICE CATEGORY ICONS ===== */}
@@ -396,55 +419,31 @@ export default function HomeClient({ featured, recentActivities, recentTestimoni
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{t.gallery.title}</h2>
           </div>
           <div className="columns-2 md:columns-3 gap-4 space-y-4">
-            {[
-              {
-                id: "g-1",
-                imageUrl: "/images/snorkeling1.jpg",
-                caption: locale === "id" ? "Patung Bawah Laut Gili Meno" : "Gili Meno Underwater Statues"
-              },
-              {
-                id: "g-2",
-                imageUrl: "/images/snorkeling2.jpg",
-                caption: locale === "id" ? "Sunset Cruise & Snorkeling" : "Sunset Cruise & Snorkeling"
-              },
-              {
-                id: "g-3",
-                imageUrl: "/images/snorkeling3.jpg",
-                caption: locale === "id" ? "Berenang Bersama Penyu" : "Swimming with Sea Turtles"
-              },
-              {
-                id: "g-4",
-                imageUrl: "/images/snorkeling4.jpg",
-                caption: locale === "id" ? "Keindahan Bawah Laut Gili" : "Underwater Paradise of Gili"
-              },
-              {
-                id: "g-5",
-                imageUrl: "/images/snorkeling5.jpg",
-                caption: locale === "id" ? "Terumbu Karang yang Indah" : "Vibrant Coral Reefs"
-              },
-              {
-                id: "g-6",
-                imageUrl: "/images/lombok1.jpg",
-                caption: locale === "id" ? "Pantai Pink Lombok Timur" : "East Lombok Pink Beach"
-              },
-              {
-                id: "g-7",
-                imageUrl: "/images/lombok2.jpg",
-                caption: locale === "id" ? "Garis Pantai Kuta Lombok" : "Kuta Lombok Coastline"
-              },
-              {
-                id: "g-8",
-                imageUrl: "/images/lombok3.jpg",
-                caption: locale === "id" ? "Pusat Kota & Budaya Mataram" : "Mataram Cultural City Tour"
-              },
-              {
-                id: "g-9",
-                imageUrl: "/images/air-terjun.jpg",
-                caption: locale === "id" ? "Keindahan Air Terjun Sendang Gile" : "Beautiful Sendang Gile Waterfall"
-              }
-            ].map((img) => (
+            {(
+              // Show DB gallery items if available, otherwise fallback to local images
+              gallery.length > 0
+                ? gallery
+                : [
+                    { id: "g-1", imageUrl: "/images/snorkeling1.jpg", caption: locale === "id" ? "Patung Bawah Laut Gili Meno" : "Gili Meno Underwater Statues" },
+                    { id: "g-2", imageUrl: "/images/snorkeling2.jpg", caption: locale === "id" ? "Sunset Cruise & Snorkeling" : "Sunset Cruise & Snorkeling" },
+                    { id: "g-3", imageUrl: "/images/snorkeling3.jpg", caption: locale === "id" ? "Berenang Bersama Penyu" : "Swimming with Sea Turtles" },
+                    { id: "g-4", imageUrl: "/images/snorkeling4.jpg", caption: locale === "id" ? "Keindahan Bawah Laut Gili" : "Underwater Paradise of Gili" },
+                    { id: "g-5", imageUrl: "/images/snorkeling5.jpg", caption: locale === "id" ? "Terumbu Karang yang Indah" : "Vibrant Coral Reefs" },
+                    { id: "g-6", imageUrl: "/images/lombok1.jpg", caption: locale === "id" ? "Pantai Pink Lombok Timur" : "East Lombok Pink Beach" },
+                    { id: "g-7", imageUrl: "/images/lombok2.jpg", caption: locale === "id" ? "Garis Pantai Kuta Lombok" : "Kuta Lombok Coastline" },
+                    { id: "g-8", imageUrl: "/images/lombok3.jpg", caption: locale === "id" ? "Pusat Kota & Budaya Mataram" : "Mataram Cultural City Tour" },
+                    { id: "g-9", imageUrl: "/images/air-terjun.jpg", caption: locale === "id" ? "Keindahan Air Terjun Sendang Gile" : "Beautiful Sendang Gile Waterfall" },
+                  ]
+            ).map((img) => (
               <div key={img.id} className="break-inside-avoid rounded-2xl overflow-hidden group relative">
-                <Image src={img.imageUrl} alt={img.caption || "Gili Trawangan"} width={600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image
+                  src={img.imageUrl}
+                  alt={img.caption || "Gili Trawangan"}
+                  width={600}
+                  height={400}
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                  className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end">
                   <p className="text-white text-sm p-3 opacity-0 group-hover:opacity-100 transition-opacity">{img.caption}</p>
                 </div>

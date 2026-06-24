@@ -1,17 +1,67 @@
 import { getBookingByCode } from "@/app/actions/booking";
 import { formatRupiah, getWhatsAppLink } from "@/lib/utils";
-import { CheckCircle2, Clock, MapPin, Phone, Mail, User, Calendar } from "lucide-react";
+import { CheckCircle2, Clock, MapPin, Phone, Mail, User, Calendar, Search } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 export default async function BookingStatusPage(props: {
-  searchParams: Promise<{ code: string }>;
+  searchParams: Promise<{ code?: string }>;
 }) {
   const { code } = await props.searchParams;
-  if (!code) notFound();
+  let booking = null;
+  let errorMsg = "";
 
-  const booking = await getBookingByCode(code);
-  if (!booking) notFound();
+  if (code) {
+    booking = await getBookingByCode(code.trim());
+    if (!booking) {
+      errorMsg = "Kode booking tidak ditemukan. Silakan periksa kembali kode booking Anda.";
+    }
+  }
+
+  if (!booking) {
+    return (
+      <div className="pt-32 pb-20 bg-neutral-50 min-h-screen">
+        <div className="max-w-md mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-gili-50 text-gili-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8" />
+              </div>
+              <h1 className="text-2xl font-bold text-gray-900">Cek Status Pemesanan</h1>
+              <p className="text-gray-500 text-sm mt-2">
+                Masukkan kode booking Anda (contoh: RH-XXXXXX) untuk memeriksa status pembayaran & pesanan.
+              </p>
+            </div>
+
+            {errorMsg && (
+              <div className="mb-6 p-4 bg-red-50 text-red-700 text-sm rounded-xl border border-red-100 font-medium text-center">
+                ⚠️ {errorMsg}
+              </div>
+            )}
+
+            <form action="/booking/status" method="GET" className="space-y-4">
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block text-left">Kode Booking</label>
+                <input
+                  type="text"
+                  name="code"
+                  defaultValue={code || ""}
+                  placeholder="RH-XXXXXX"
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 outline-none text-center font-mono font-bold uppercase tracking-wider text-lg"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-3.5 bg-gili-500 hover:bg-gili-600 text-white rounded-xl font-bold shadow-lg transition-all"
+              >
+                Cari Pesanan
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const product = booking.package || booking.activity || booking.fastBoatSchedule || booking.speedboat;
   const productName = product ? ('title' in product ? product.title : 'name' in product ? product.name : '') : '';

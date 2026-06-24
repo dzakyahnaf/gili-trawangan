@@ -6,6 +6,7 @@ import { type Locale } from "@/lib/i18n";
 import { GTMScript, GTMNoScript } from "@/components/GoogleTagManager";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { ScriptInjector, WaNumberInjector, hasAdminScripts } from "@/components/ScriptInjector";
+import FloatingWhatsApp from "@/components/public/FloatingWhatsApp";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -122,6 +123,9 @@ export default async function RootLayout(
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>
+
+        {/* Floating WhatsApp widget — visible on all public pages */}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

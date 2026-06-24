@@ -15,7 +15,7 @@ export default async function BookingPage(props: {
         <p className="text-gray-500 mb-8">Anda harus memilih paket atau aktivitas sebelum melakukan pemesanan.</p>
         <div className="flex gap-4 justify-center">
           <Link href="/packages" className="px-6 py-3 bg-gili-500 text-white rounded-xl font-semibold">Lihat Paket</Link>
-          <Link href="/activities" className="px-6 py-3 bg-accent-500 text-gili-900 rounded-xl font-semibold">Lihat Aktivitas</Link>
+          <Link href="/#services" className="px-6 py-3 bg-accent-500 text-gili-900 rounded-xl font-semibold">Lihat Aktivitas</Link>
         </div>
       </div>
     );

@@ -1,16 +1,23 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag as nextRevalidateTag, unstable_cache } from "next/cache";
 import { uploadImage, deleteImage } from "@/lib/cloudinary";
 import { hash } from "bcryptjs";
 
+const revalidateTag = (tag: string) => {
+  (nextRevalidateTag as any)(tag);
+};
+
 // --- PACKAGES ---
-export async function getPackages() {
-  return await prisma.package.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-}
+export const getPackages = unstable_cache(
+  () =>
+    prisma.package.findMany({
+      orderBy: { createdAt: "desc" },
+    }),
+  ["packages"],
+  { tags: ["packages"] }
+);
 
 export async function deletePackage(id: string) {
   const pkg = await prisma.package.findUnique({ where: { id } });
@@ -18,6 +25,7 @@ export async function deletePackage(id: string) {
     await deleteImage(pkg.coverImage);
     await prisma.package.delete({ where: { id } });
   }
+  revalidateTag("packages");
   revalidatePath("/admin/packages");
   revalidatePath("/packages");
   revalidatePath("/");
@@ -80,6 +88,7 @@ export async function createPackage(formData: FormData) {
     }
   });
 
+  revalidateTag("packages");
   revalidatePath("/admin/packages");
   revalidatePath("/packages");
   revalidatePath("/");
@@ -149,6 +158,7 @@ export async function updatePackage(id: string, formData: FormData) {
     }
   });
 
+  revalidateTag("packages");
   revalidatePath("/admin/packages");
   revalidatePath(`/packages/${slug}`);
   revalidatePath(`/packages/${currentPkg.slug}`);
@@ -569,11 +579,14 @@ export async function updateSpeedboat(id: string, formData: FormData) {
 }
 
 // --- TESTIMONIALS ---
-export async function getTestimonials() {
-  return await prisma.testimonial.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-}
+export const getTestimonials = unstable_cache(
+  () =>
+    prisma.testimonial.findMany({
+      orderBy: { createdAt: "desc" },
+    }),
+  ["testimonials"],
+  { tags: ["testimonials"] }
+);
 
 export async function createTestimonial(data: {
   name: string;
@@ -598,6 +611,7 @@ export async function createTestimonial(data: {
     },
   });
 
+  revalidateTag("testimonials");
   revalidatePath("/admin/testimonials");
   revalidatePath("/");
 }
@@ -629,22 +643,27 @@ export async function updateTestimonial(
     },
   });
 
+  revalidateTag("testimonials");
   revalidatePath("/admin/testimonials");
   revalidatePath("/");
 }
 
 export async function deleteTestimonial(id: string) {
   await prisma.testimonial.delete({ where: { id } });
+  revalidateTag("testimonials");
   revalidatePath("/admin/testimonials");
   revalidatePath("/");
 }
 
 // --- GALLERY ---
-export async function getGallery() {
-  return await prisma.gallery.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-}
+export const getGallery = unstable_cache(
+  () =>
+    prisma.gallery.findMany({
+      orderBy: { createdAt: "desc" },
+    }),
+  ["gallery"],
+  { tags: ["gallery"] }
+);
 
 export async function createGalleryItem(formData: FormData) {
   const file = formData.get("image") as File;
@@ -667,6 +686,7 @@ export async function createGalleryItem(formData: FormData) {
     },
   });
 
+  revalidateTag("gallery");
   revalidatePath("/admin/gallery");
   revalidatePath("/");
 }
@@ -678,6 +698,7 @@ export async function deleteGalleryItem(id: string) {
     await prisma.gallery.delete({ where: { id } });
   }
 
+  revalidateTag("gallery");
   revalidatePath("/admin/gallery");
   revalidatePath("/");
 }

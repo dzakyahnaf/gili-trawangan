@@ -1,24 +1,45 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag as nextRevalidateTag, unstable_cache } from "next/cache";
 import { uploadImage, deleteImage } from "@/lib/cloudinary";
+
+const revalidateTag = (tag: string) => {
+  (nextRevalidateTag as any)(tag);
+};
 
 // =====================================================
 // READ
 // =====================================================
 
+// Cached read: revalidates when admin mutates data via revalidateTag
+const _getActivitiesCached = (category: string) =>
+  unstable_cache(
+    () =>
+      prisma.activity.findMany({
+        where: { category },
+        orderBy: { createdAt: "asc" },
+      }),
+    [`activities-${category}`],
+    { tags: ["activities", `activities-${category}`] }
+  )();
+
 export async function getActivities(category: string) {
-  return await prisma.activity.findMany({
-    where: { category },
-    orderBy: { createdAt: "asc" },
-  });
+  return _getActivitiesCached(category);
 }
 
+const _getActivityBySlugCached = (slug: string, category: string) =>
+  unstable_cache(
+    () =>
+      prisma.activity.findFirst({
+        where: { slug, category, isActive: true },
+      }),
+    [`activity-slug-${slug}-${category}`],
+    { tags: ["activities", `activities-${category}`, `activity-${slug}`] }
+  )();
+
 export async function getActivityBySlug(slug: string, category: string) {
-  return await prisma.activity.findFirst({
-    where: { slug, category, isActive: true },
-  });
+  return _getActivityBySlugCached(slug, category);
 }
 
 export async function getActivityById(id: string) {
@@ -104,6 +125,8 @@ export async function createActivity(category: string, formData: FormData) {
     },
   });
 
+  revalidateTag("activities");
+  revalidateTag(`activities-${category}`);
   revalidatePath(`/admin/${category}`);
   revalidatePath(`/${category}`);
   revalidatePath("/");
@@ -190,6 +213,10 @@ export async function updateActivity(id: string, category: string, formData: For
     },
   });
 
+  revalidateTag("activities");
+  revalidateTag(`activities-${category}`);
+  revalidateTag(`activity-${slug}`);
+  revalidateTag(`activity-${current.slug}`);
   revalidatePath(`/admin/${category}`);
   revalidatePath(`/${category}/${slug}`);
   revalidatePath(`/${category}/${current.slug}`);
@@ -209,6 +236,8 @@ export async function deleteActivity(id: string, category: string) {
     }
     await prisma.activity.delete({ where: { id } });
   }
+  revalidateTag("activities");
+  revalidateTag(`activities-${category}`);
   revalidatePath(`/admin/${category}`);
   revalidatePath(`/${category}`);
   revalidatePath("/");
