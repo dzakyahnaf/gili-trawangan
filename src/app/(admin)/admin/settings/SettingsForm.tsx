@@ -107,7 +107,7 @@ export function SettingsForm({ initialSettings }: Props) {
           <div>
             <h2 className="font-bold text-gray-900">Nomor WhatsApp</h2>
             <p className="text-xs text-gray-400">
-              Nomor WhatsApp yang tampil di seluruh website. Format angka saja tanpa +, spasi, atau strip. Contoh: <code>6287793082501</code>
+              Nomor WhatsApp yang tampil di seluruh website. Format angka saja tanpa +, spasi, atau strip. Contoh: <code>6287726633595</code>
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@ export function SettingsForm({ initialSettings }: Props) {
           type="text"
           value={settings.wa_number}
           onChange={(e) => handleChange("wa_number", e.target.value.replace(/\D/g, ""))}
-          placeholder="6287793082501"
+          placeholder="6287726633595"
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-gili-500 focus:border-gili-500 outline-none text-sm font-mono"
         />
         {settings.wa_number && (

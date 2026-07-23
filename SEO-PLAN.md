@@ -246,7 +246,7 @@ import { PageViewTracker } from '@/components/PageViewTracker'
 
 import { trackWAClick } from '@/lib/gtm'
 
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || '6287793082501'
+const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || '6287726633595'
 const WA_MESSAGE = encodeURIComponent('Halo RH Tour, saya ingin bertanya tentang paket wisata')
 
 interface WAButtonProps {
@@ -274,7 +274,7 @@ export function WhatsAppButton({ source = 'general', label = 'Chat WhatsApp' }: 
 
 Di `.env.local`:
 ```
-NEXT_PUBLIC_WA_NUMBER=6287793082501
+NEXT_PUBLIC_WA_NUMBER=6287726633595
 ```
 
 > ☝️ **"Input manual"** yang dimaksud client = nomor WA bisa diganti tanpa coding. Solusinya dengan environment variable di Vercel, client cukup hubungi kamu dan kamu ganti di dashboard Vercel — tidak perlu push kode baru.

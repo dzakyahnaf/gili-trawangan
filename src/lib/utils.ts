@@ -59,7 +59,7 @@ export function getWhatsAppNumber(): string {
   if (typeof window !== "undefined" && (window as any).__WA_NUMBER) {
     return (window as any).__WA_NUMBER;
   }
-  return process.env.NEXT_PUBLIC_WA_NUMBER || "6287793082501";
+  return process.env.NEXT_PUBLIC_WA_NUMBER || "6287726633595";
 }
 
 export function getWhatsAppLink(message?: string): string {
@@ -70,7 +70,7 @@ export function getWhatsAppLink(message?: string): string {
 
 export function getWhatsAppDisplay(): string {
   const num = getWhatsAppNumber();
-  // Format: +62 877-9308-2501
+  // Format: +62 877-2663-3595
   return `+${num.slice(0, 2)} ${num.slice(2, 5)}-${num.slice(5, 9)}-${num.slice(9)}`;
 }
 

@@ -28,7 +28,7 @@ export function LocalBusinessJsonLd() {
         name: "RH Tour & Travel",
         image: "https://www.rhtourandtravel.com/logos/logo-boat.png",
         url: "https://www.rhtourandtravel.com",
-        telephone: "+6287793082501",
+        telephone: "+6287726633595",
         email: "rhtourandtravel3003@gmail.com",
         address: {
           "@type": "PostalAddress",

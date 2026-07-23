@@ -5,7 +5,7 @@
 > **Dibuat:** 2026  
 > **Next.js:** 16.2 (latest stable)  
 > **Client:** RH Tour & Travel  
-> **Kontak:** WA +6287793082501 | Email: rhtourandtravel3003@gmail.com  
+> **Kontak:** WA +6287726633595 | Email: rhtourandtravel3003@gmail.com  
 > **Meeting Point:** Sama-Sama Reggae Bar, Gili Trawangan
 
 ---
@@ -548,7 +548,7 @@ Sama struktur dengan paket, tapi lebih fokus ke:
 
 **Contact:**
 - Form kontak (nama, email, pesan)
-- Info kontak: WA +6287793082501, Email rhtourandtravel3003@gmail.com
+- Info kontak: WA +6287726633595, Email rhtourandtravel3003@gmail.com
 - **Google Maps Embed** Sama-Sama Reggae Gili Trawangan
 - Jam operasional
 
@@ -843,7 +843,7 @@ export async function sendBookingConfirmation(booking: Booking) {
       <li>Meeting Point: Sama-Sama Reggae, Gili Trawangan</li>
     </ul>
     <p>📍 Meeting Point Maps: https://maps.google.com/?q=Sama+Sama+Reggae+Gili+Trawangan</p>
-    <p>📱 WhatsApp: +6287793082501</p>
+    <p>📱 WhatsApp: +6287726633595</p>
     <p>📧 Email: rhtourandtravel3003@gmail.com</p>
   `;
   
@@ -1295,7 +1295,7 @@ Sprint 6 (2-3 hari):
 
 ### Bug Fixing
 - Periode: 30 hari setelah go-live
-- Lapor via WA +6287793082501 atau email
+- Lapor via WA +6287726633595 atau email
 - Response time: maks 24 jam
 - Hotfix untuk bug kritis: maks 4 jam
 
@@ -1320,7 +1320,7 @@ Sprint 6 (2-3 hari):
 | Info | Detail |
 |------|--------|
 | Bisnis | RH Tour & Travel |
-| WhatsApp | +6287793082501 |
+| WhatsApp | +6287726633595 |
 | Email | rhtourandtravel3003@gmail.com |
 | Meeting Point | Sama-Sama Reggae Bar, Gili Trawangan |
 | Koordinat | -8.3521, 116.0267 |
